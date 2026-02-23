@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import basewoodLogo from "@/assets/basewood-logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,13 +28,8 @@ const Navbar = () => {
         scrolled ? "shadow-[0_4px_28px_rgba(15,30,92,0.07)]" : ""
       }`}
     >
-      <Link to="/" className="flex items-center gap-2.5 no-underline">
-        <div className="w-[34px] h-[34px] bg-navy rounded-lg flex items-center justify-center relative overflow-hidden">
-          <div className="absolute top-[5px] left-[5px] border-l-[12px] border-l-transparent border-b-[24px] border-b-teal opacity-90" />
-        </div>
-        <span className="font-bold text-base text-navy tracking-tight">
-          BASE<span className="text-teal-dark">WOOD</span>
-        </span>
+      <Link to="/" className="flex items-center gap-2 no-underline">
+        <img src={basewoodLogo} alt="Basewood Logo" className="h-[38px] w-auto" />
       </Link>
 
       {/* Desktop links */}

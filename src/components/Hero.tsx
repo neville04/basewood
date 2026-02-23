@@ -44,8 +44,10 @@ const Hero = () => {
         />
       ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-deep/[0.93] via-navy-deep/[0.78] to-navy-deep/[0.48]" />
+      {/* Creative overlay — warm cinematic gradient instead of heavy navy */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(228,73%,13%,0.72)] via-[hsl(220,50%,18%,0.55)] to-[hsl(168,76%,20%,0.35)]" />
+      {/* Subtle mesh accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_80%,hsl(168,76%,49%,0.10),transparent),radial-gradient(ellipse_60%_50%_at_80%_20%,hsl(228,73%,40%,0.12),transparent)]" />
 
       {/* Content */}
       <div ref={ref} className="relative z-10 px-[7%] w-full grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-20 items-center">

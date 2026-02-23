@@ -1,4 +1,12 @@
 import { useReveal } from "@/hooks/useReveal";
+import johnMwesigwa from "@/assets/team/john-mwesigwa.jpg";
+import bruceNtege from "@/assets/team/bruce-ntege.jpg";
+import michealLule from "@/assets/team/micheal-lule.jpg";
+import georgeKawemba from "@/assets/team/george-kawemba.jpg";
+import erricsonEloru from "@/assets/team/erricson-eloru.jpg";
+import mukwayaGodfrey from "@/assets/team/mukwaya-godfrey.jpg";
+import ssebuggwawoDenis from "@/assets/team/ssebuggwawo-denis.jpg";
+import norahNsubuga from "@/assets/team/norah-nsubuga.jpg";
 
 const team = [
   {
@@ -6,15 +14,17 @@ const team = [
     role: "Principal & Head of Consultancy",
     quals: "MCIM",
     badge: "Principal",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80",
+    img: michealLule,
     featured: true,
     bio: "A seasoned marketing and consultancy leader transforming organisations across East Africa. Micheal drives Basewood's academic excellence and strategic consultancy practice with decades of field experience.",
   },
-  { name: "Bruce Keith Ntege", role: "Head of ACCA", quals: "FACCA · CPA", badge: "ACCA", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
-  { name: "John S. Mwesigwa", role: "Head of Professional Programs", quals: "FCIM — Fellow", badge: "CIM", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-  { name: "Erricson Eloru", role: "Head of Supply Chain", quals: "MCIPS · MCILT", badge: "Supply Chain", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" },
-  { name: "Norah Nakintu Nsubuga", role: "Administration", quals: "Student Liaison", badge: "Admin", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" },
-  { name: "Mukwaya Godfrey", role: "Head of Short Courses", quals: "MCIM", badge: "Short Courses", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" },
+  { name: "John S. Mwesigwa", role: "Head of Professional Programs", quals: "FCIM — Fellow", badge: "CIM", img: johnMwesigwa },
+  { name: "Bruce Keith Ntege", role: "Head of ACCA", quals: "FACCA · CPA", badge: "ACCA", img: bruceNtege },
+  { name: "George Kawemba", role: "Growth & Strategic Partner", quals: "", badge: "Strategy", img: georgeKawemba },
+  { name: "Erricson Eloru", role: "Head of Supply Chain Management", quals: "MCIPS · MCILT", badge: "Supply Chain", img: erricsonEloru },
+  { name: "Mukwaya Godfrey", role: "Head of Short Courses", quals: "MCIM", badge: "Short Courses", img: mukwayaGodfrey },
+  { name: "Ssebuggwawo Denis", role: "Head of CPA & Internal Auditor", quals: "CPA", badge: "CPA", img: ssebuggwawoDenis },
+  { name: "Norah Nakintu Nsubuga", role: "Administration", quals: "Student Liaison", badge: "Admin", img: norahNsubuga },
 ];
 
 const Team = () => {

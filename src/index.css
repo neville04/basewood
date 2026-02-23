@@ -133,3 +133,24 @@
 .animate-wa-bounce {
   animation: wa-bounce 3s ease-in-out infinite;
 }
+
+@keyframes orbFloat {
+  0%, 100% { opacity: 0.4; transform: translateY(0) scale(1); }
+  50% { opacity: 0.7; transform: translateY(-30px) scale(1.1); }
+}
+@keyframes gridPulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.07; }
+  50% { transform: scale(1.05); opacity: 0.12; }
+}
+@keyframes expandLine {
+  from { width: 0; }
+  to { width: 2rem; }
+}

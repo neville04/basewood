@@ -114,16 +114,19 @@ const WhyBasewood = () => {
 
         {/* Right */}
         <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="bg-navy rounded-2xl p-[38px] text-primary-foreground relative overflow-hidden group">
-            {/* Animated shimmer */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent animate-[shimmer_4s_ease-in-out_infinite] pointer-events-none" />
-            
-            <span className="absolute -top-6 right-4 font-display text-[160px] text-teal/[0.07] leading-none pointer-events-none animate-[breathe_5s_ease-in-out_infinite]">"</span>
-            <p className="font-display text-[19px] leading-relaxed text-primary-foreground/[0.88] italic mb-6 relative z-[1]">
-              "The blended programme coupled with experienced world-class facilitators provided me with professional marketing and strategic skills that resonate deeply with my daily work."
-            </p>
-            <div className="flex items-center gap-3">
-              <img src={abdulHameed} alt="Abdul Hameed" className="w-[46px] h-[46px] rounded-full object-cover flex-shrink-0 border-2 border-teal/30" />
+          <div className="bg-navy rounded-2xl overflow-hidden text-primary-foreground relative grid grid-cols-[1fr_1.2fr]">
+            {/* Image half */}
+            <div className="h-full min-h-[280px]">
+              <img src={abdulHameed} alt="Abdul Hameed" className="w-full h-full object-cover object-top" />
+            </div>
+            {/* Text half */}
+            <div className="p-[28px_30px] flex flex-col justify-center relative overflow-hidden">
+              {/* Animated shimmer */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal/[0.04] to-transparent animate-[shimmer_4s_ease-in-out_infinite] pointer-events-none" />
+              <span className="absolute -top-4 right-3 font-display text-[120px] text-teal/[0.07] leading-none pointer-events-none">"</span>
+              <p className="font-display text-[17px] leading-relaxed text-primary-foreground/[0.88] italic mb-5 relative z-[1]">
+                "The blended programme coupled with experienced world-class facilitators provided me with professional marketing and strategic skills that resonate deeply with my daily work."
+              </p>
               <div>
                 <div className="font-semibold text-sm text-primary-foreground">Abdul Hameed, MCIM</div>
                 <div className="text-xs text-primary-foreground/45 mt-0.5">Chief Marketing Officer — Metro Cement</div>

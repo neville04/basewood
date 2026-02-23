@@ -1,15 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { useCounter } from "@/hooks/useCounter";
 import { useReveal } from "@/hooks/useReveal";
-
-const slides = [
-  "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1800&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1800&q=80",
-  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1800&q=80",
-];
+import heroStudent from "@/assets/hero-student.png";
 
 const Hero = () => {
-  const [current, setCurrent] = useState(0);
   const [formSent, setFormSent] = useState(false);
   const { ref, visible } = useReveal(0.3);
 
@@ -17,148 +11,116 @@ const Hero = () => {
   const certs = useCounter(6, 2000, visible);
   const courses = useCounter(25, 2000, visible);
 
-  const goSlide = useCallback((n: number) => setCurrent(n), []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((c) => (c + 1) % slides.length);
-    }, 5500);
-    return () => clearInterval(interval);
-  }, []);
-
   const handleSubmit = () => {
     setFormSent(true);
     setTimeout(() => setFormSent(false), 3500);
   };
 
   return (
-    <section className="relative h-screen min-h-[640px] flex items-center overflow-hidden">
-      {/* Slide backgrounds */}
-      {slides.map((src, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1400ms] ease-in-out animate-slowzoom ${
-            i === current ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ backgroundImage: `url('${src}')` }}
-        />
-      ))}
-
-      {/* Creative overlay — warm cinematic gradient instead of heavy navy */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(228,73%,13%,0.72)] via-[hsl(220,50%,18%,0.55)] to-[hsl(168,76%,20%,0.35)]" />
-      {/* Subtle mesh accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_80%,hsl(168,76%,49%,0.10),transparent),radial-gradient(ellipse_60%_50%_at_80%_20%,hsl(228,73%,40%,0.12),transparent)]" />
+    <section className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden bg-cream">
+      {/* Decorative shapes */}
+      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[80px]" />
+      <div className="absolute bottom-[-15%] left-[-8%] w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[60px]" />
+      <div className="absolute top-[20%] right-[30%] w-3 h-3 rounded-full bg-accent animate-pulse-dot" />
+      <div className="absolute top-[60%] right-[15%] w-2 h-2 rounded-full bg-primary/30 animate-pulse-dot" style={{ animationDelay: "1s" }} />
 
       {/* Content */}
-      <div ref={ref} className="relative z-10 px-[7%] w-full grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-20 items-center">
+      <div ref={ref} className="relative z-10 px-[7%] w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left text */}
         <div>
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/[0.28] px-3.5 py-1 rounded-full mb-6 animate-fade-up">
-            <div className="w-[7px] h-[7px] bg-teal rounded-full animate-pulse-dot" />
-            <span className="text-teal text-[11px] font-medium tracking-[0.1em] uppercase font-mono">
+          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 px-3.5 py-1.5 rounded-full mb-6 animate-fade-up">
+            <div className="w-[7px] h-[7px] bg-accent rounded-full animate-pulse-dot" />
+            <span className="text-accent-foreground text-[11px] font-medium tracking-[0.1em] uppercase font-mono">
               2025 Intake — Now Open
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(42px,5.2vw,72px)] font-semibold text-primary-foreground leading-[1.08] tracking-tight mb-5 animate-fade-up">
-            Advance Your Career.<br />
-            Earn <em className="italic text-teal">Global</em><br />
-            Certifications.
+          <h1 className="font-display text-[clamp(38px,5vw,68px)] font-semibold text-foreground leading-[1.08] tracking-tight mb-5 animate-fade-up">
+            Smart Learning,<br />
+            Deeper & More<br />
+            <em className="italic text-accent-foreground not-italic bg-gradient-to-r from-accent to-teal-dark bg-clip-text text-transparent">Amazing.</em>
           </h1>
 
-          <p className="text-base text-primary-foreground/60 leading-relaxed max-w-[500px] mb-10 font-light animate-fade-up-delay-1">
+          <p className="text-base text-muted-foreground leading-relaxed max-w-[480px] mb-8 font-light animate-fade-up-delay-1">
             Uganda's premier Center for Professional Courses — partnered with CIM, ACCA, CIPS, CPA & CILT. Join 1,000+ alumni now leading across East Africa.
           </p>
 
-          <div className="flex gap-3 flex-wrap mb-14 animate-fade-up-delay-2">
+          <div className="flex gap-3 flex-wrap mb-12 animate-fade-up-delay-2">
             <a
               href="#programs"
-              className="bg-teal text-navy px-[30px] py-3.5 rounded-[7px] font-bold text-sm no-underline shadow-[0_4px_22px_rgba(45,212,191,0.32)] hover:-translate-y-0.5 hover:shadow-[0_8px_36px_rgba(45,212,191,0.42)] transition-all"
+              className="bg-accent text-accent-foreground px-7 py-3.5 rounded-full font-bold text-sm no-underline shadow-[0_4px_22px_hsl(var(--accent)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_36px_hsl(var(--accent)/0.4)] transition-all flex items-center gap-2"
             >
               Explore Programs
+              <span className="text-lg">→</span>
             </a>
             <a
               href="#contact"
-              className="bg-transparent text-primary-foreground px-[30px] py-3.5 rounded-[7px] font-medium text-sm no-underline border border-primary-foreground/[0.22] hover:bg-primary-foreground/[0.07] hover:border-primary-foreground/40 transition-all"
+              className="bg-transparent text-foreground px-7 py-3.5 rounded-full font-medium text-sm no-underline border border-border hover:bg-muted hover:border-muted-foreground/20 transition-all flex items-center gap-2"
             >
-              Talk to an Advisor
+              <span className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-accent-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+              How it Works
             </a>
           </div>
 
-          <div className="flex gap-9 animate-fade-up-delay-3">
+          {/* Stats inline */}
+          <div className="flex gap-8 animate-fade-up-delay-3">
             {[
               { value: alumni, suffix: "+", label: "Alumni" },
               { value: certs, suffix: "+", label: "Certifications" },
               { value: courses, suffix: "+", label: "Short Courses" },
             ].map((s) => (
-              <div key={s.label}>
-                <div className="font-display text-[34px] font-bold text-primary-foreground leading-none">
+              <div key={s.label} className="flex items-baseline gap-1.5">
+                <span className="font-display text-[32px] font-bold text-foreground leading-none">
                   {s.value >= 100 ? s.value.toLocaleString() : s.value}
-                  <span className="text-teal">{s.suffix}</span>
-                </div>
-                <div className="text-[10px] text-primary-foreground/[0.38] mt-1 uppercase tracking-[0.1em] font-mono">
+                  <span className="text-accent">{s.suffix}</span>
+                </span>
+                <span className="text-[11px] text-muted-foreground leading-tight max-w-[60px]">
                   {s.label}
-                </div>
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Enrollment Card */}
-        <div className="hidden lg:block bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-[34px] backdrop-blur-[12px] relative overflow-hidden animate-slide-left">
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-teal to-transparent" />
-          <div className="text-[10px] uppercase tracking-[0.14em] text-teal font-mono mb-4">Quick Enrollment</div>
-          <div className="font-display text-[22px] font-semibold text-primary-foreground mb-5 leading-tight">
-            Find Your Perfect Program
-          </div>
+        {/* Right — hero image with decorative accents */}
+        <div className="hidden lg:flex justify-center items-center relative animate-slide-left">
+          {/* Decorative geometric shapes behind image */}
+          <div className="absolute -top-8 -right-4 w-[280px] h-[340px] rounded-[30px] bg-accent/15 rotate-6" />
+          <div className="absolute -bottom-6 -left-4 w-[200px] h-[250px] rounded-[24px] bg-primary/10 -rotate-3" />
 
-          {[
-            { label: "I am a", options: ["Working Professional", "Recent Graduate", "Corporate Organisation", "Student"] },
-            { label: "Interested In", options: ["CIM — Chartered Marketing", "ACCA — Accounting & Finance", "CIPS — Procurement & Supply", "CPA — Certified Public Accountant", "CILT — Logistics & Transport", "Short Courses"] },
-          ].map((field) => (
-            <div key={field.label} className="mb-3">
-              <label className="block text-[11px] text-primary-foreground/40 mb-1 font-medium uppercase tracking-[0.06em]">
-                {field.label}
-              </label>
-              <select className="w-full p-[11px] bg-primary-foreground/[0.06] border border-primary-foreground/[0.13] rounded-lg text-primary-foreground text-sm outline-none focus:border-teal transition-colors appearance-none">
-                {field.options.map((o) => (
-                  <option key={o} className="bg-navy">{o}</option>
-                ))}
-              </select>
+          <div className="relative z-[1]">
+            <img
+              src={heroStudent}
+              alt="Professional student at Basewood Institute"
+              className="w-[400px] h-auto rounded-[28px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
+            />
+            {/* Floating enrollment card */}
+            <div className="absolute -bottom-6 -left-10 bg-background border border-border rounded-xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.08)] backdrop-blur-sm animate-fade-up-delay-2 max-w-[220px]">
+              <div className="text-[10px] uppercase tracking-[0.12em] text-accent font-mono mb-1.5">Quick Enrollment</div>
+              <div className="text-sm font-semibold text-foreground mb-2">Find Your Program</div>
+              <button
+                onClick={handleSubmit}
+                className={`w-full p-2 rounded-lg font-bold text-xs cursor-pointer transition-all hover:opacity-90 ${
+                  formSent ? "bg-teal-dark text-primary-foreground" : "bg-accent text-accent-foreground"
+                }`}
+              >
+                {formSent ? "✓ Sent!" : "Get Details →"}
+              </button>
             </div>
-          ))}
 
-          <div className="mb-3">
-            <label className="block text-[11px] text-primary-foreground/40 mb-1 font-medium uppercase tracking-[0.06em]">Full Name</label>
-            <input type="text" placeholder="e.g. John Ssemakula" className="w-full p-[11px] bg-primary-foreground/[0.06] border border-primary-foreground/[0.13] rounded-lg text-primary-foreground text-sm outline-none focus:border-teal transition-colors placeholder:text-primary-foreground/25" />
+            {/* Floating badge top-right */}
+            <div className="absolute -top-3 -right-6 bg-background border border-border rounded-xl px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.06)] animate-fade-up flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center text-lg">🎓</div>
+              <div>
+                <div className="text-[10px] text-muted-foreground">Global</div>
+                <div className="text-xs font-bold text-foreground">Certified</div>
+              </div>
+            </div>
           </div>
-          <div className="mb-3">
-            <label className="block text-[11px] text-primary-foreground/40 mb-1 font-medium uppercase tracking-[0.06em]">Phone / WhatsApp</label>
-            <input type="tel" placeholder="+256 7xx xxx xxx" className="w-full p-[11px] bg-primary-foreground/[0.06] border border-primary-foreground/[0.13] rounded-lg text-primary-foreground text-sm outline-none focus:border-teal transition-colors placeholder:text-primary-foreground/25" />
-          </div>
-
-          <button
-            onClick={handleSubmit}
-            className={`w-full p-3 rounded-lg font-bold text-sm cursor-pointer mt-1.5 transition-all hover:opacity-90 hover:-translate-y-px ${
-              formSent ? "bg-teal-dark text-primary-foreground" : "bg-teal text-navy"
-            }`}
-          >
-            {formSent ? "✓ Request Sent! We'll contact you shortly." : "Get Course Details →"}
-          </button>
         </div>
-      </div>
-
-      {/* Slide dots */}
-      <div className="absolute bottom-7 right-[7%] z-10 flex gap-[7px] items-center">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goSlide(i)}
-            className={`h-[2px] rounded-[2px] cursor-pointer transition-all duration-300 ${
-              i === current ? "bg-teal w-9" : "bg-primary-foreground/[0.22] w-[22px]"
-            }`}
-          />
-        ))}
       </div>
     </section>
   );

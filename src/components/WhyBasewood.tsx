@@ -1,11 +1,12 @@
 import { useReveal } from "@/hooks/useReveal";
 import { useEffect, useState, useRef } from "react";
+import { Globe, Award, Calendar, Cpu } from "lucide-react";
 
 const features = [
-  { icon: "🎓", title: "Global Accreditation", desc: "UK & international certifications recognised by top employers worldwide." },
-  { icon: "🏆", title: "Expert Facilitators", desc: "Learn from active practitioners — CMOs, CFOs and industry leaders." },
-  { icon: "📅", title: "Flexible Scheduling", desc: "Blended learning built around working professionals — evenings & weekends." },
-  { icon: "🤖", title: "AI-Powered Learning", desc: "Proprietary AI platforms for online content delivery and student support." },
+  { icon: "globe", title: "Global Accreditation", desc: "UK & international certifications recognised by top employers worldwide." },
+  { icon: "award", title: "Expert Facilitators", desc: "Learn from active practitioners — CMOs, CFOs and industry leaders." },
+  { icon: "calendar", title: "Flexible Scheduling", desc: "Blended learning built around working professionals — evenings & weekends." },
+  { icon: "cpu", title: "AI-Powered Learning", desc: "Proprietary AI platforms for online content delivery and student support." },
 ];
 
 const FloatingOrb = ({ delay, size, x, y }: { delay: number; size: number; x: string; y: string }) => (
@@ -94,8 +95,11 @@ const WhyBasewood = () => {
                 {/* Glow effect on hover */}
                 <div className={`absolute -top-12 -right-12 w-24 h-24 rounded-full bg-teal/10 blur-2xl transition-opacity duration-500 ${hoveredCard === i ? "opacity-100" : "opacity-0"}`} />
                 
-                <span className={`text-[26px] mb-2.5 block transition-transform duration-300 ${hoveredCard === i ? "scale-110" : ""}`}>
-                  {f.icon}
+                <span className={`mb-2.5 block transition-transform duration-300 ${hoveredCard === i ? "scale-110" : ""}`}>
+                  {f.icon === "globe" && <Globe className="w-7 h-7 text-teal-dark" />}
+                  {f.icon === "award" && <Award className="w-7 h-7 text-teal-dark" />}
+                  {f.icon === "calendar" && <Calendar className="w-7 h-7 text-teal-dark" />}
+                  {f.icon === "cpu" && <Cpu className="w-7 h-7 text-teal-dark" />}
                 </span>
                 <h4 className="text-sm font-semibold text-navy mb-1 relative z-[1]">{f.title}</h4>
                 <p className="text-[13px] text-muted-foreground leading-relaxed relative z-[1]">{f.desc}</p>

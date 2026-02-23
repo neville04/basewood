@@ -17,7 +17,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden bg-cream">
+    <section
+      className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden"
+      style={{
+        background: "linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 20%, #ffffff 40%, #e0f2fe 60%, #f8fafc 80%, #dbeafe 100%)",
+        backgroundSize: "300% 300%",
+        animation: "awsShift 12s ease-in-out infinite alternate",
+      }}
+    >
       {/* Decorative shapes */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[80px]" />
       <div className="absolute bottom-[-15%] left-[-8%] w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[60px]" />

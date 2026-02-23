@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
-const tabs = ["All Programs", "Marketing", "Finance", "Supply Chain", "Logistics", "Short Courses"];
-
 const programs = [
   {
     name: "Chartered Institute of Marketing",
@@ -16,16 +14,22 @@ const programs = [
   {
     name: "ACCA — Accounting & Finance",
     org: "Association of Chartered Certified Accountants",
-    pills: ["Foundation", "Professional"],
+    pills: ["Applied Knowledge", "Applied Skills", "Strategic Professional", "CBE Centre"],
     img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80",
   },
   {
     name: "CPA Uganda",
     org: "Institute of Certified Public Accountants of Uganda",
-    pills: ["Foundation", "Advanced"],
+    pills: ["Level I", "Level II", "Level III", "Level IV"],
     badge: "Recognised Provider",
     badgeType: "new" as const,
     img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&q=80",
+  },
+  {
+    name: "CILT — Logistics & Transport",
+    org: "Chartered Institute of Logistics & Transport",
+    pills: ["International Diploma", "International Certificate", "Short Courses"],
+    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=200&q=80",
   },
   {
     name: "CIPS — Procurement & Supply",
@@ -34,14 +38,8 @@ const programs = [
     img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=200&q=80",
   },
   {
-    name: "CILT — Logistics & Transport",
-    org: "Chartered Institute of Logistics & Transport",
-    pills: ["Certificate", "Diploma"],
-    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=200&q=80",
-  },
-  {
-    name: "CISCM — Sales & Customer Service",
-    org: "Chartered Institute of Sales & Customer Service Management",
+    name: "FRM — Financial Risk Manager",
+    org: "Global Association of Risk Professionals (GARP)",
     pills: ["Professional"],
     img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&q=80",
   },
@@ -52,39 +50,17 @@ const shortCourses = [
   { cat: "Finance", name: "IPSAS — Public Sector Accounting" },
   { cat: "Finance", name: "Finance for Non-Finance Managers" },
   { cat: "Finance", name: "Internal Control Systems" },
-  { cat: "Finance", name: "Accounting Policies Review" },
-  { cat: "Finance", name: "Financial Statements Preparation" },
-  { cat: "CILT", name: "Transport Planning & Management" },
-  { cat: "CILT", name: "Sustainable Logistics & Smart Fleet" },
-  { cat: "CILT", name: "Supply Chain Financing" },
-  { cat: "CILT", name: "Import and Export Management" },
-  { cat: "Marketing", name: "Campaign Planning & Execution" },
-  { cat: "Marketing", name: "Sustainability in Marketing" },
-  { cat: "Marketing", name: "Business Intelligence for Marketing" },
-  { cat: "Marketing", name: "Strategic Brand Management" },
-  { cat: "Marketing", name: "Innovations in Marketing" },
-  { cat: "Digital", name: "Mastering Digital Customer Experience" },
   { cat: "Digital", name: "AI Powered Marketing" },
   { cat: "Digital", name: "Social Media Marketing & Management" },
-  { cat: "Digital", name: "Marketing & Digital Strategies" },
-  { cat: "Digital", name: "Search Engine & Digital Optimization" },
-  { cat: "Compliance", name: "Manufacturing Accounting" },
-  { cat: "Compliance", name: "Tax Planning Strategies" },
-  { cat: "Compliance", name: "Risk Management & Governance" },
-  { cat: "Compliance", name: "Internal Audits" },
-  { cat: "Sales", name: "Sales & Distribution Strategy" },
-  { cat: "Sales", name: "Customer Service & Conflict Resolution" },
-  { cat: "Sales", name: "Sales Leadership & Team Management" },
-  { cat: "Sales", name: "Advanced Sales Techniques" },
-  { cat: "Sales", name: "Data Driven Sales Decision Making" },
+  { cat: "Digital", name: "Search Engine Optimization" },
+  { cat: "Digital", name: "Mastering Digital Customer Experience" },
+  { cat: "Marketing", name: "Strategic Brand Management" },
+  { cat: "Marketing", name: "Campaign Planning & Execution" },
   { cat: "Supply Chain", name: "Sustainability & Circular Economy" },
-  { cat: "Supply Chain", name: "Operations & Manufacturing Efficiency" },
-  { cat: "Supply Chain", name: "ESG in Circular Economy" },
-  { cat: "Supply Chain", name: "Supply Chain Optimization" },
+  { cat: "Sales", name: "Sales Leadership & Team Management" },
 ];
 
 const Programs = () => {
-  const [activeTab, setActiveTab] = useState(0);
   const [scOpen, setScOpen] = useState(false);
   const { ref, visible } = useReveal();
 
@@ -111,27 +87,10 @@ const Programs = () => {
             <p className="text-[15px] text-[#1a1a2e]/60 leading-relaxed font-light lg:text-right max-w-[320px]">
               Internationally recognised qualifications — designed for working professionals. Evenings, weekends, blended.
             </p>
-            <a href="#" className="text-[13px] font-semibold text-indigo-700 no-underline inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            <a href="/programs" className="text-[13px] font-semibold text-indigo-700 no-underline inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
               View all programs →
             </a>
           </div>
-        </div>
-
-        {/* Filter tabs */}
-        <div className="flex gap-1 border-b border-indigo-500/20 mb-9 overflow-x-auto">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(i)}
-              className={`px-[18px] py-2.5 text-[13px] font-medium bg-transparent border-b-2 -mb-px transition-all whitespace-nowrap ${
-                i === activeTab
-                  ? "text-[#1a1a2e] border-purple-700 font-semibold"
-                  : "text-[#1a1a2e]/45 border-transparent hover:text-[#1a1a2e]"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
         </div>
 
         {/* Program rows */}
@@ -144,10 +103,8 @@ const Programs = () => {
               } ${prog.featured ? "grid-cols-[96px_1fr_auto] py-[26px]" : "grid-cols-[72px_1fr_auto]"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              {/* Hover bg */}
               <div className="absolute inset-0 -inset-x-8 bg-white/55 backdrop-blur-[10px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-0" />
 
-              {/* Thumb */}
               <div
                 className={`bg-cover bg-center rounded-[10px] overflow-hidden relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300 z-[1] ${
                   prog.featured ? "w-[78px] h-[78px] rounded-[13px]" : "w-[52px] h-[52px]"
@@ -157,7 +114,6 @@ const Programs = () => {
                 <div className="absolute inset-0 bg-navy/[0.16] group-hover:opacity-0 transition-opacity" />
               </div>
 
-              {/* Content */}
               <div className="px-4 lg:px-7 flex flex-col gap-1 z-[1]">
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <div className={`font-display font-semibold text-[#1a1a2e] group-hover:text-purple-700 transition-colors ${prog.featured ? "text-[25px]" : "text-xl"}`}>
@@ -187,7 +143,6 @@ const Programs = () => {
                 </div>
               </div>
 
-              {/* Right */}
               <div className="flex flex-col items-end gap-2 flex-shrink-0 min-w-[100px] z-[1]">
                 <a
                   href="/enroll"
@@ -211,7 +166,7 @@ const Programs = () => {
               <div className="w-[34px] h-[34px] bg-[#1a1a2e] rounded-lg flex items-center justify-center text-[15px]">📚</div>
               <div className="text-left">
                 <div className="font-display text-[17px] font-semibold text-[#1a1a2e]">Short Courses & Executive Programs</div>
-                <div className="text-[10px] font-mono text-[#1a1a2e]/40 tracking-[0.06em] mt-0.5">34+ COURSES · 8 CATEGORIES</div>
+                <div className="text-[10px] font-mono text-[#1a1a2e]/40 tracking-[0.06em] mt-0.5">25+ COURSES · 6 CATEGORIES</div>
               </div>
             </div>
             <div className="text-[12px] text-[#1a1a2e]/40 font-mono flex items-center gap-1.5">

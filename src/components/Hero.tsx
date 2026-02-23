@@ -62,13 +62,10 @@ const Hero = () => {
               <span className="text-lg">→</span>
             </a>
             <a
-              href="#contact"
+              href="/enroll"
               className="bg-transparent text-foreground px-7 py-3.5 rounded-full font-medium text-sm no-underline border border-border hover:bg-muted hover:border-muted-foreground/20 transition-all flex items-center gap-2"
             >
-              <span className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center">
-                <svg className="w-4 h-4 text-accent-foreground" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </span>
-              How it Works
+              Enroll Now →
             </a>
           </div>
 

@@ -27,13 +27,14 @@ const Navbar = () => {
 
       {/* Desktop links */}
       <ul className="hidden md:flex items-center gap-8 list-none">
-        <li><a href="#programs" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Programs</a></li>
-        <li><a href="#certifications" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Certifications</a></li>
-        <li><a href="#team" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Our Team</a></li>
-        <li><a href="#alumni" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Alumni</a></li>
+        <li><a href="/#about" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">About</a></li>
+        <li><a href="/#programs" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Programs</a></li>
+        <li><a href="/#certifications" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Certifications</a></li>
+        <li><a href="/#team" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Our Team</a></li>
+        <li><a href="/#alumni" className="no-underline text-muted-foreground text-sm font-medium hover:text-navy transition-colors">Alumni</a></li>
         <li>
           <a
-            href="#contact"
+            href="/enroll"
             className="no-underline bg-navy text-primary-foreground px-5 py-2 rounded-[7px] font-semibold text-sm hover:bg-teal-dark transition-colors"
           >
             Enroll Now
@@ -55,11 +56,12 @@ const Navbar = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="absolute top-[68px] left-0 right-0 bg-background border-b border-border p-6 flex flex-col gap-4 md:hidden shadow-lg">
-          <a href="#programs" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Programs</a>
-          <a href="#certifications" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Certifications</a>
-          <a href="#team" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Our Team</a>
-          <a href="#alumni" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Alumni</a>
-          <a href="#contact" onClick={() => setMobileOpen(false)} className="bg-navy text-primary-foreground px-5 py-2 rounded-[7px] font-semibold text-sm text-center">Enroll Now</a>
+          <a href="/#about" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">About</a>
+          <a href="/#programs" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Programs</a>
+          <a href="/#certifications" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Certifications</a>
+          <a href="/#team" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Our Team</a>
+          <a href="/#alumni" onClick={() => setMobileOpen(false)} className="text-muted-foreground font-medium">Alumni</a>
+          <a href="/enroll" onClick={() => setMobileOpen(false)} className="bg-navy text-primary-foreground px-5 py-2 rounded-[7px] font-semibold text-sm text-center">Enroll Now</a>
         </div>
       )}
     </nav>

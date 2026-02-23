@@ -10,7 +10,11 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <section className="pt-[120px] pb-[100px] bg-cream min-h-screen" ref={ref}>
+      <section className="pt-[120px] pb-[100px] min-h-screen" style={{
+        background: "linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 18%, #ffffff 38%, #bae6fd 55%, #f8fafc 72%, #e0f2fe 88%, #ffffff 100%)",
+        backgroundSize: "400% 400%",
+        animation: "awsShift 10s ease-in-out infinite alternate",
+      }} ref={ref}>
         <div className="max-w-[900px] mx-auto px-[7%]">
           <div className={`text-center mb-14 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-2.5">Contact Us</div>

@@ -53,9 +53,9 @@ const Enroll = () => {
     <>
       <Navbar />
       <section className="pt-[120px] pb-[80px] min-h-screen" style={{
-        background: "linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 20%, #ffffff 40%, #e0f2fe 60%, #f8fafc 80%, #dbeafe 100%)",
-        backgroundSize: "300% 300%",
-        animation: "awsShift 12s ease-in-out infinite alternate",
+        background: "linear-gradient(160deg, #86efac 0%, #bbf7d0 15%, #a7f3d0 25%, #6ee7b7 35%, #7dd3fc 50%, #93c5fd 60%, #bae6fd 72%, #e0f2fe 82%, #ffffff 100%)",
+        backgroundSize: "400% 400%",
+        animation: "awsShift 10s ease-in-out infinite alternate",
       }}>
         <div className="max-w-[700px] mx-auto px-[7%]" ref={ref}>
           <div className={`text-center mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>

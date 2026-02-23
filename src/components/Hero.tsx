@@ -20,9 +20,9 @@ const Hero = () => {
     <section
       className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 20%, #ffffff 40%, #e0f2fe 60%, #f8fafc 80%, #dbeafe 100%)",
-        backgroundSize: "300% 300%",
-        animation: "awsShift 12s ease-in-out infinite alternate",
+        background: "linear-gradient(160deg, #86efac 0%, #a7f3d0 15%, #6ee7b7 28%, #7dd3fc 45%, #93c5fd 58%, #bae6fd 70%, #e0f2fe 82%, #ffffff 100%)",
+        backgroundSize: "400% 400%",
+        animation: "awsShift 10s ease-in-out infinite alternate",
       }}
     >
       {/* Decorative shapes */}

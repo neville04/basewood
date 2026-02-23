@@ -4,23 +4,23 @@ const testimonials = [
   {
     name: "Natasha Nyonyozi",
     role: "Accountant · Miss World Uganda 2024–25",
-    company: "NSSF",
+    company: "Basewood Alumni",
     img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80",
-    text: "Integrity in the accounting profession is instilled at Basewood — this drives the compliance mindset that has been critical to my career.",
+    text: "At Basewood Institute, integrity in the accounting profession is instilled and this drives compliance which is of great help in my career.",
+  },
+  {
+    name: "Abdul Hameed",
+    role: "Chief Marketing Officer — Metro Cement",
+    company: "MCIM",
+    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80",
+    text: "The blended approach programme coupled with experienced world class facilitators provided me with a lot of professional marketing and strategic skills that are very relevant and resonates well with my daily work and organisation's strategic intent.",
   },
   {
     name: "Geofrey Ssajjabi",
     role: "Chief Commercial Officer, NSSF",
     company: "NSSF",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80",
+    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
     text: "The real-world approach to marketing education gave me the strategic foundation needed to lead at the highest level of a national institution.",
-  },
-  {
-    name: "Sandrah Rhodah Namutebi",
-    role: "Head of Marketing, Uganda Airlines",
-    company: "Uganda Airlines",
-    img: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80",
-    text: "CIM through Basewood connected me with a powerful network of professionals and equipped me with tools that make a real difference every day.",
   },
 ];
 

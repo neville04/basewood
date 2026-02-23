@@ -52,14 +52,35 @@ const shortCourses = [
   { cat: "Finance", name: "IPSAS — Public Sector Accounting" },
   { cat: "Finance", name: "Finance for Non-Finance Managers" },
   { cat: "Finance", name: "Internal Control Systems" },
+  { cat: "Finance", name: "Accounting Policies Review" },
+  { cat: "Finance", name: "Financial Statements Preparation" },
+  { cat: "CILT", name: "Transport Planning & Management" },
+  { cat: "CILT", name: "Sustainable Logistics & Smart Fleet" },
+  { cat: "CILT", name: "Supply Chain Financing" },
+  { cat: "CILT", name: "Import and Export Management" },
+  { cat: "Marketing", name: "Campaign Planning & Execution" },
+  { cat: "Marketing", name: "Sustainability in Marketing" },
+  { cat: "Marketing", name: "Business Intelligence for Marketing" },
+  { cat: "Marketing", name: "Strategic Brand Management" },
+  { cat: "Marketing", name: "Innovations in Marketing" },
+  { cat: "Digital", name: "Mastering Digital Customer Experience" },
   { cat: "Digital", name: "AI Powered Marketing" },
   { cat: "Digital", name: "Social Media Marketing & Management" },
-  { cat: "Digital", name: "Search Engine Optimization" },
-  { cat: "Digital", name: "Mastering Digital Customer Experience" },
-  { cat: "Marketing", name: "Strategic Brand Management" },
-  { cat: "Marketing", name: "Campaign Planning & Execution" },
-  { cat: "Supply Chain", name: "Sustainability & Circular Economy" },
+  { cat: "Digital", name: "Marketing & Digital Strategies" },
+  { cat: "Digital", name: "Search Engine & Digital Optimization" },
+  { cat: "Compliance", name: "Manufacturing Accounting" },
+  { cat: "Compliance", name: "Tax Planning Strategies" },
+  { cat: "Compliance", name: "Risk Management & Governance" },
+  { cat: "Compliance", name: "Internal Audits" },
+  { cat: "Sales", name: "Sales & Distribution Strategy" },
+  { cat: "Sales", name: "Customer Service & Conflict Resolution" },
   { cat: "Sales", name: "Sales Leadership & Team Management" },
+  { cat: "Sales", name: "Advanced Sales Techniques" },
+  { cat: "Sales", name: "Data Driven Sales Decision Making" },
+  { cat: "Supply Chain", name: "Sustainability & Circular Economy" },
+  { cat: "Supply Chain", name: "Operations & Manufacturing Efficiency" },
+  { cat: "Supply Chain", name: "ESG in Circular Economy" },
+  { cat: "Supply Chain", name: "Supply Chain Optimization" },
 ];
 
 const Programs = () => {
@@ -169,7 +190,7 @@ const Programs = () => {
               {/* Right */}
               <div className="flex flex-col items-end gap-2 flex-shrink-0 min-w-[100px] z-[1]">
                 <a
-                  href="#contact"
+                  href="/enroll"
                   className="px-5 py-2 bg-[#1a1a2e] text-primary-foreground rounded-[7px] text-[13px] font-semibold no-underline opacity-0 translate-x-2.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 hover:bg-purple-700 whitespace-nowrap"
                 >
                   Enroll Now →
@@ -190,7 +211,7 @@ const Programs = () => {
               <div className="w-[34px] h-[34px] bg-[#1a1a2e] rounded-lg flex items-center justify-center text-[15px]">📚</div>
               <div className="text-left">
                 <div className="font-display text-[17px] font-semibold text-[#1a1a2e]">Short Courses & Executive Programs</div>
-                <div className="text-[10px] font-mono text-[#1a1a2e]/40 tracking-[0.06em] mt-0.5">25+ COURSES · 6 CATEGORIES</div>
+                <div className="text-[10px] font-mono text-[#1a1a2e]/40 tracking-[0.06em] mt-0.5">34+ COURSES · 8 CATEGORIES</div>
               </div>
             </div>
             <div className="text-[12px] text-[#1a1a2e]/40 font-mono flex items-center gap-1.5">
@@ -218,7 +239,7 @@ const Programs = () => {
             <div className="mt-1.5 text-sm text-[#1a1a2e]/[0.52] font-light">We'll match you to the right program based on your career goals and schedule.</div>
           </div>
           <div className="flex gap-2.5 flex-shrink-0">
-            <a href="#contact" className="px-[26px] py-3 bg-[#1a1a2e] text-primary-foreground rounded-lg font-bold text-sm no-underline whitespace-nowrap hover:bg-purple-700 transition-colors shadow-[0_4px_16px_rgba(26,26,46,0.2)]">
+            <a href="/enroll" className="px-[26px] py-3 bg-[#1a1a2e] text-primary-foreground rounded-lg font-bold text-sm no-underline whitespace-nowrap hover:bg-purple-700 transition-colors shadow-[0_4px_16px_rgba(26,26,46,0.2)]">
               Enroll Now
             </a>
             <a href="https://wa.me/256773099672" className="px-[26px] py-3 bg-transparent text-[#1a1a2e]/60 rounded-lg font-medium text-sm no-underline border border-[#1a1a2e]/25 whitespace-nowrap hover:border-purple-700 hover:text-[#1a1a2e] transition-all">

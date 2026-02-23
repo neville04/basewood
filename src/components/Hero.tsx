@@ -44,9 +44,9 @@ const Hero = () => {
           </div>
 
           <h1 className="font-display text-[clamp(38px,5vw,68px)] font-semibold text-foreground leading-[1.08] tracking-tight mb-5 animate-fade-up">
-            Smart Learning,<br />
-            Deeper & More<br />
-            <em className="italic text-accent-foreground not-italic bg-gradient-to-r from-accent to-teal-dark bg-clip-text text-transparent">Amazing.</em>
+            Advance Your Career.<br />
+            Earn Global<br />
+            <em className="italic text-accent-foreground not-italic bg-gradient-to-r from-accent to-teal-dark bg-clip-text text-transparent">Certifications.</em>
           </h1>
 
           <p className="text-base text-muted-foreground leading-relaxed max-w-[480px] mb-8 font-light animate-fade-up-delay-1">

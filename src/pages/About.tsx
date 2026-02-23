@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { useReveal } from "@/hooks/useReveal";
 import { Target, Eye, Star, Users, Lightbulb, Heart } from "lucide-react";
+import officeImg from "@/assets/office-location.png";
 
 const values = [
   { icon: Star, label: "Excellence" },
@@ -18,14 +19,22 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <section className="pt-[120px] pb-[100px] bg-cream" ref={ref}>
+      {/* Hero banner with office image */}
+      <div className="relative w-full h-[340px] md:h-[420px] overflow-hidden">
+        <img src={officeImg} alt="Basewood Institute office on Kanjokya Street, Kampala" className="w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/40 to-transparent" />
+        <div className="absolute bottom-8 left-[7%] z-[1]">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2">Know Us Better</div>
+          <h1 className="font-display text-[clamp(32px,3.6vw,50px)] font-bold text-primary-foreground leading-[1.12] tracking-tight">About Us</h1>
+        </div>
+      </div>
+      <section className="pt-16 pb-[100px] bg-cream" ref={ref}>
         <div className="max-w-[1200px] mx-auto px-[7%]">
           {/* Header */}
           <div className={`text-center mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-2.5">About Us</div>
-            <h1 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-foreground leading-[1.12] tracking-tight">
+            <h2 className="font-display text-[clamp(28px,3vw,42px)] font-semibold text-foreground leading-[1.12] tracking-tight">
               A Professional Training Institute<br />to <em className="italic text-accent-foreground">Experience</em>
-            </h1>
+            </h2>
           </div>
 
           {/* Summary */}

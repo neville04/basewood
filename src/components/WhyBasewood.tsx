@@ -1,6 +1,7 @@
 import { useReveal } from "@/hooks/useReveal";
 import { useEffect, useState, useRef } from "react";
 import { Globe, Award, Calendar, Cpu } from "lucide-react";
+import abdulHameed from "@/assets/abdul-hameed.png";
 
 const features = [
   { icon: "globe", title: "Global Accreditation", desc: "UK & international certifications recognised by top employers worldwide." },
@@ -122,9 +123,7 @@ const WhyBasewood = () => {
               "The blended programme coupled with experienced world-class facilitators provided me with professional marketing and strategic skills that resonate deeply with my daily work."
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-[46px] h-[46px] rounded-full bg-gradient-to-br from-teal to-navy-light flex items-center justify-center font-display text-[19px] text-primary-foreground font-semibold flex-shrink-0 animate-[breathe_5s_ease-in-out_infinite_1s]">
-                A
-              </div>
+              <img src={abdulHameed} alt="Abdul Hameed" className="w-[46px] h-[46px] rounded-full object-cover flex-shrink-0 border-2 border-teal/30" />
               <div>
                 <div className="font-semibold text-sm text-primary-foreground">Abdul Hameed, MCIM</div>
                 <div className="text-xs text-primary-foreground/45 mt-0.5">Chief Marketing Officer — Metro Cement</div>

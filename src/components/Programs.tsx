@@ -82,65 +82,56 @@ const Programs = () => {
           </div>
         </div>
 
-        {/* Program rows */}
-        <div className="flex flex-col">
+        {/* Program Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {programs.map((prog, i) => (
             <div
               key={prog.name}
-              className={`group grid items-center py-5 border-b border-indigo-500/[0.12] cursor-pointer relative transition-all duration-500 ${
+              className={`group bg-white/45 border border-white/75 backdrop-blur-[20px] rounded-[14px] p-7 shadow-[0_8px_32px_rgba(109,40,217,0.1)] cursor-pointer hover:shadow-[0_12px_40px_rgba(109,40,217,0.16)] transition-all duration-500 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              } ${prog.featured ? "grid-cols-[60px_1fr] sm:grid-cols-[96px_1fr_auto] py-[26px]" : "grid-cols-[52px_1fr] sm:grid-cols-[72px_1fr_auto]"}`}
+              }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="absolute inset-0 -inset-x-8 bg-white/55 backdrop-blur-[10px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-0" />
-
               <div
-                className={`bg-cover bg-center rounded-[10px] overflow-hidden relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300 z-[1] ${
-                  prog.featured ? "w-[78px] h-[78px] rounded-[13px]" : "w-[52px] h-[52px]"
-                }`}
+                className="w-[52px] h-[52px] bg-cover bg-center rounded-[10px] overflow-hidden relative flex-shrink-0 group-hover:scale-105 transition-transform duration-300 mb-4"
                 style={{ backgroundImage: `url('${prog.img}')` }}
               >
                 <div className="absolute inset-0 bg-navy/[0.16] group-hover:opacity-0 transition-opacity" />
               </div>
 
-              <div className="px-4 lg:px-7 flex flex-col gap-1 z-[1]">
-                <div className="flex items-center gap-2.5 flex-wrap">
-                  <div className={`font-display font-semibold text-[#1a1a2e] group-hover:text-purple-700 transition-colors ${prog.featured ? "text-[25px]" : "text-xl"}`}>
-                    {prog.name}
-                  </div>
-                  {prog.badge && (
-                    <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] font-mono tracking-[0.06em] uppercase ${
-                        prog.badgeType === "hot"
-                          ? "bg-teal-dark/10 text-teal-dark border border-teal-dark/[0.22]"
-                          : "bg-purple-700/[0.08] text-purple-700 border border-purple-700/20"
-                      }`}
-                    >
-                      {prog.badge}
-                    </span>
-                  )}
+              <div className="flex items-center gap-2.5 flex-wrap mb-1">
+                <div className="font-display text-xl font-semibold text-[#1a1a2e] group-hover:text-purple-700 transition-colors">
+                  {prog.name}
                 </div>
-                <div className="flex items-center gap-3.5 flex-wrap">
-                  <span className="text-[13px] text-[#1a1a2e]/[0.48]">{prog.org}</span>
-                  <div className="flex gap-1.5 flex-wrap">
-                    {prog.pills.map((p) => (
-                      <span key={p} className="text-[10px] text-[#1a1a2e]/60 bg-white/60 px-2 py-0.5 rounded-full font-mono tracking-[0.04em]">
-                        {p}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                {prog.badge && (
+                  <span
+                    className={`px-2 py-0.5 rounded-full text-[10px] font-mono tracking-[0.06em] uppercase ${
+                      prog.badgeType === "hot"
+                        ? "bg-teal-dark/10 text-teal-dark border border-teal-dark/[0.22]"
+                        : "bg-purple-700/[0.08] text-purple-700 border border-purple-700/20"
+                    }`}
+                  >
+                    {prog.badge}
+                  </span>
+                )}
               </div>
 
-              <div className="hidden sm:flex flex-col items-end gap-2 flex-shrink-0 min-w-[100px] z-[1]">
-                <a
-                  href="/enroll"
-                  className="px-5 py-2 bg-[#1a1a2e] text-primary-foreground rounded-[7px] text-[13px] font-semibold no-underline opacity-0 translate-x-2.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 hover:bg-purple-700 whitespace-nowrap"
-                >
-                  Enroll Now →
-                </a>
-                <span className="text-[17px] text-[#1a1a2e]/[0.28] group-hover:text-purple-700 group-hover:translate-x-1 transition-all">→</span>
+              <span className="text-[13px] text-[#1a1a2e]/[0.48] block mb-3">{prog.org}</span>
+
+              <div className="flex gap-1.5 flex-wrap mb-5">
+                {prog.pills.map((p) => (
+                  <span key={p} className="text-[10px] text-[#1a1a2e]/60 bg-white/60 px-2 py-0.5 rounded-full font-mono tracking-[0.04em]">
+                    {p}
+                  </span>
+                ))}
               </div>
+
+              <a
+                href="/enroll"
+                className="px-5 py-2 bg-[#1a1a2e] text-primary-foreground rounded-[7px] text-[13px] font-semibold no-underline hover:bg-purple-700 transition-colors whitespace-nowrap inline-block"
+              >
+                Enroll Now →
+              </a>
             </div>
           ))}
         </div>

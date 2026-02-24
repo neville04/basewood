@@ -4,6 +4,8 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { useReveal } from "@/hooks/useReveal";
 import { Target, Eye, Star, Users, Lightbulb, Heart } from "lucide-react";
 import officeImg from "@/assets/office-location.png";
+import marketingSummitImg from "@/assets/sponsors/marketing-summit-sponsors.png";
+import strategicPartnersImg from "@/assets/sponsors/strategic-partners.png";
 
 const values = [
   { icon: Star, label: "Excellence" },
@@ -104,6 +106,24 @@ const About = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Marketing Summit Sponsors */}
+          <div className={`mt-20 transition-all duration-700 delay-[450ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+            <img
+              src={marketingSummitImg}
+              alt="Our official Marketing Summit Sponsors"
+              className="w-full max-w-[900px] mx-auto rounded-2xl"
+            />
+          </div>
+
+          {/* Strategic Partners */}
+          <div className={`mt-16 transition-all duration-700 delay-[500ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+            <img
+              src={strategicPartnersImg}
+              alt="Our Strategic Partners"
+              className="w-full max-w-[900px] mx-auto rounded-2xl"
+            />
           </div>
         </div>
       </section>

@@ -29,7 +29,7 @@ const Navbar = () => {
       }`}
     >
       <Link to="/" className="flex items-center gap-2 no-underline">
-        <img src={basewoodLogo} alt="Basewood Logo" className="h-[38px] w-auto" />
+        <img src={basewoodLogo} alt="Basewood Logo" className="h-[42px] w-auto min-w-[180px]" />
       </Link>
 
       {/* Desktop links */}

@@ -3,18 +3,12 @@ import { useReveal } from "@/hooks/useReveal";
 
 const programs = [
   {
-    name: "Chartered Institute of Marketing",
-    org: "CIM — UK Accredited",
-    pills: ["Diploma", "Postgraduate", "Blended"],
-    badge: "Most Popular",
-    badgeType: "hot" as const,
-    featured: true,
-    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80",
-  },
-  {
     name: "ACCA — Accounting & Finance",
     org: "Association of Chartered Certified Accountants",
     pills: ["Applied Knowledge", "Applied Skills", "Strategic Professional", "CBE Centre"],
+    badge: "Most Popular",
+    badgeType: "hot" as const,
+    featured: true,
     img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80",
   },
   {
@@ -30,18 +24,6 @@ const programs = [
     org: "Chartered Institute of Logistics & Transport",
     pills: ["International Diploma", "International Certificate", "Short Courses"],
     img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=200&q=80",
-  },
-  {
-    name: "CIPS — Procurement & Supply",
-    org: "Chartered Institute of Procurement & Supply",
-    pills: ["Level 4", "Level 5", "Level 6"],
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=200&q=80",
-  },
-  {
-    name: "FRM — Financial Risk Manager",
-    org: "Global Association of Risk Professionals (GARP)",
-    pills: ["Professional"],
-    img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&q=80",
   },
 ];
 
@@ -60,8 +42,15 @@ const shortCourses = [
   { cat: "Sales", name: "Sales Leadership & Team Management" },
 ];
 
+const morePrograms = [
+  { name: "CIM — Marketing", org: "Chartered Institute of Marketing — UK Accredited", pills: ["Diploma", "Postgraduate", "Blended"] },
+  { name: "CIPS — Procurement & Supply", org: "Chartered Institute of Procurement & Supply", pills: ["Level 4", "Level 5", "Level 6"] },
+  { name: "FRM — Financial Risk Manager", org: "Global Association of Risk Professionals (GARP)", pills: ["Professional"] },
+];
+
 const Programs = () => {
   const [scOpen, setScOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const { ref, visible } = useReveal();
 
   return (
@@ -154,6 +143,39 @@ const Programs = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Explore More Programs */}
+        <div className={`mt-11 border border-indigo-500/[0.15] rounded-[14px] overflow-hidden transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+          <button
+            onClick={() => setMoreOpen(!moreOpen)}
+            className="flex items-center justify-between w-full px-[26px] py-[18px] bg-white/45 backdrop-blur-[10px] border-b border-indigo-500/[0.12] cursor-pointer hover:bg-white/65 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-[34px] h-[34px] bg-[#1a1a2e] rounded-lg flex items-center justify-center text-[15px]">🎓</div>
+              <div className="text-left">
+                <div className="font-display text-[17px] font-semibold text-[#1a1a2e]">More Professional Programs</div>
+                <div className="text-[10px] font-mono text-[#1a1a2e]/40 tracking-[0.06em] mt-0.5">CIM · CIPS · FRM</div>
+              </div>
+            </div>
+            <div className="text-[12px] text-[#1a1a2e]/40 font-mono flex items-center gap-1.5">
+              <span>Explore</span>
+              <span className={`transition-transform duration-300 inline-block ${moreOpen ? "rotate-180" : ""}`}>↓</span>
+            </div>
+          </button>
+          <div className={`overflow-hidden transition-all duration-[420ms] ease-in-out ${moreOpen ? "max-h-[500px]" : "max-h-0"}`}>
+            {morePrograms.map((prog) => (
+              <div key={prog.name} className="px-[26px] py-4 border-b border-indigo-500/10 last:border-b-0 hover:bg-white/50 transition-colors">
+                <div className="font-display text-[16px] font-semibold text-[#1a1a2e] mb-1">{prog.name}</div>
+                <div className="text-[12px] text-[#1a1a2e]/50 mb-2">{prog.org}</div>
+                <div className="flex gap-1.5 flex-wrap">
+                  {prog.pills.map((p) => (
+                    <span key={p} className="text-[10px] text-[#1a1a2e]/60 bg-white/60 px-2 py-0.5 rounded-full font-mono tracking-[0.04em]">{p}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Short Courses */}

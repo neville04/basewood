@@ -100,7 +100,7 @@ const Programs = () => {
               key={prog.name}
               className={`group grid items-center py-5 border-b border-indigo-500/[0.12] cursor-pointer relative transition-all duration-500 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              } ${prog.featured ? "grid-cols-[96px_1fr_auto] py-[26px]" : "grid-cols-[72px_1fr_auto]"}`}
+              } ${prog.featured ? "grid-cols-[60px_1fr] sm:grid-cols-[96px_1fr_auto] py-[26px]" : "grid-cols-[52px_1fr] sm:grid-cols-[72px_1fr_auto]"}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="absolute inset-0 -inset-x-8 bg-white/55 backdrop-blur-[10px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-0" />
@@ -143,7 +143,7 @@ const Programs = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col items-end gap-2 flex-shrink-0 min-w-[100px] z-[1]">
+              <div className="hidden sm:flex flex-col items-end gap-2 flex-shrink-0 min-w-[100px] z-[1]">
                 <a
                   href="/enroll"
                   className="px-5 py-2 bg-[#1a1a2e] text-primary-foreground rounded-[7px] text-[13px] font-semibold no-underline opacity-0 translate-x-2.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 hover:bg-purple-700 whitespace-nowrap"

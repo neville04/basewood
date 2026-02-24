@@ -114,9 +114,9 @@ const WhyBasewood = () => {
 
         {/* Right */}
         <div className={`transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="bg-navy rounded-2xl overflow-hidden text-primary-foreground relative grid grid-cols-[1fr_1.2fr]">
+          <div className="bg-navy rounded-2xl overflow-hidden text-primary-foreground relative grid grid-cols-1 sm:grid-cols-[1fr_1.2fr]">
             {/* Image half */}
-            <div className="h-full min-h-[280px]">
+            <div className="h-[200px] sm:h-full sm:min-h-[280px]">
               <img src={abdulHameed} alt="Abdul Hameed" className="w-full h-full object-cover object-top" />
             </div>
             {/* Text half */}

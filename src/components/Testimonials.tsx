@@ -1,26 +1,18 @@
 import { useReveal } from "@/hooks/useReveal";
+import abdulHameedImg from "@/assets/abdul-hameed.png";
 
 const testimonials = [
   {
     name: "Natasha Nyonyozi",
-    role: "Accountant · Miss World Uganda 2024–25",
-    company: "Basewood Alumni",
+    role: "Accountant\nMiss World Uganda 2024–25",
     img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80",
     text: "At Basewood Institute, integrity in the accounting profession is instilled and this drives compliance which is of great help in my career.",
   },
   {
-    name: "Abdul Hameed",
-    role: "Chief Marketing Officer — Metro Cement",
-    company: "MCIM",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80",
+    name: "Abdul Hameed (MCIM)",
+    role: "Chief Marketing Officer –\nMETRO CEMENT",
+    img: abdulHameedImg,
     text: "The blended approach programme coupled with experienced world class facilitators provided me with a lot of professional marketing and strategic skills that are very relevant and resonates well with my daily work and organisation's strategic intent.",
-  },
-  {
-    name: "Geofrey Ssajjabi",
-    role: "Chief Commercial Officer, NSSF",
-    company: "NSSF",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
-    text: "The real-world approach to marketing education gave me the strategic foundation needed to lead at the highest level of a national institution.",
   },
 ];
 
@@ -33,43 +25,54 @@ const Testimonials = () => {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.016) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.016) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.016) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
       <div className="max-w-[1200px] mx-auto relative z-[1]" ref={ref}>
-        <div className={`text-center mb-[52px] transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2.5">Alumni Voices</div>
+        <div
+          className={`text-center mb-[52px] transition-all duration-500 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
           <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-primary-foreground leading-[1.12] tracking-tight">
-            Trusted by <em className="italic text-teal-dark">Leaders</em><br />Across East Africa
+            Alumni Messages <em className="italic text-teal">about us</em>
           </h2>
-          <p className="text-[15px] text-primary-foreground/[0.48] leading-relaxed font-light max-w-[440px] mx-auto mt-3">
-            Our graduates hold senior positions at Uganda's most respected organisations.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className={`bg-primary-foreground/[0.04] border border-primary-foreground/[0.07] rounded-[14px] overflow-hidden hover:bg-primary-foreground/[0.07] hover:-translate-y-1 transition-all duration-250 ${
+              className={`flex flex-col items-center text-center transition-all duration-500 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className="w-full h-[190px] bg-cover bg-center bg-top relative" style={{ backgroundImage: `url('${t.img}')` }}>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/[0.88] to-transparent via-transparent via-[60%]" />
-                <span className="absolute top-3 right-3 bg-black/50 backdrop-blur-md border border-primary-foreground/[0.14] rounded-md px-2.5 py-1 text-[11px] font-bold text-primary-foreground z-[2]">
-                  {t.company}
-                </span>
-                <div className="absolute bottom-3 left-4 z-[2]">
-                  <strong className="block text-sm font-semibold text-primary-foreground font-display">{t.name}</strong>
-                  <span className="text-[11px] text-primary-foreground/50 font-mono">{t.role}</span>
-                </div>
+              {/* Circular photo */}
+              <div className="w-[130px] h-[130px] rounded-full border-4 border-teal overflow-hidden mb-6 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+                <img
+                  src={t.img}
+                  alt={t.name}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-              <div className="p-[18px_20px_22px]">
-                <div className="font-display text-[44px] text-teal leading-[0.85] mb-2 opacity-50">"</div>
-                <p className="font-display text-base text-primary-foreground/80 leading-relaxed italic">{t.text}</p>
+
+              {/* Quote card */}
+              <div className="bg-teal/20 border border-teal/30 rounded-2xl p-6 relative">
+                <div className="font-display text-[48px] text-navy-deep leading-[0.8] mb-2 opacity-70">
+                  "
+                </div>
+                <p className="text-[15px] text-primary-foreground/90 leading-relaxed italic mb-5">
+                  {t.text}
+                </p>
+                <strong className="block text-sm font-bold text-primary-foreground font-display">
+                  {t.name}
+                </strong>
+                <span className="text-[12px] text-primary-foreground/60 font-mono whitespace-pre-line leading-relaxed">
+                  {t.role}
+                </span>
               </div>
             </div>
           ))}

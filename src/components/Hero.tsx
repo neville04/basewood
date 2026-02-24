@@ -18,13 +18,21 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[600px] lg:min-h-screen flex items-center overflow-hidden"
       style={{
         background: "linear-gradient(160deg, #93c5fd 0%, #bae6fd 15%, #c4b5fd 28%, #ddd6fe 42%, #ede9fe 55%, #f0f9ff 70%, #f5f3ff 85%, #ffffff 100%)",
         backgroundSize: "400% 400%",
         animation: "awsShift 10s ease-in-out infinite alternate",
       }}
     >
+      {/* Mobile background image */}
+      <div
+        className="absolute inset-0 lg:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroStudent})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/90" />
+      </div>
+
       {/* Decorative shapes */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-accent/[0.07] blur-[80px]" />
       <div className="absolute bottom-[-15%] left-[-8%] w-[400px] h-[400px] rounded-full bg-primary/[0.05] blur-[60px]" />

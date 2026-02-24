@@ -8,7 +8,7 @@ import Consultants from "@/components/Consultants";
 const OurTeam = () => (
   <>
     <Navbar />
-    <div className="pt-[68px] bg-navy min-h-screen">
+    <div className="pt-[68px] bg-black min-h-screen">
       <Team />
       <Consultants />
       <AlumniTable />

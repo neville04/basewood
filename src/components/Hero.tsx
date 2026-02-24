@@ -101,28 +101,6 @@ const Hero = () => {
               alt="Professional student at Basewood Institute"
               className="w-[400px] h-auto rounded-[28px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
             />
-            {/* Floating enrollment card */}
-            <div className="absolute -bottom-6 -left-10 bg-background border border-border rounded-xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.08)] backdrop-blur-sm animate-fade-up-delay-2 max-w-[220px]">
-              <div className="text-[10px] uppercase tracking-[0.12em] text-accent font-mono mb-1.5">Quick Enrollment</div>
-              <div className="text-sm font-semibold text-foreground mb-2">Find Your Program</div>
-              <button
-                onClick={handleSubmit}
-                className={`w-full p-2 rounded-lg font-bold text-xs cursor-pointer transition-all hover:opacity-90 ${
-                  formSent ? "bg-teal-dark text-primary-foreground" : "bg-accent text-accent-foreground"
-                }`}
-              >
-                {formSent ? "✓ Sent!" : "Get Details →"}
-              </button>
-            </div>
-
-            {/* Floating badge top-right */}
-            <div className="absolute -top-3 -right-6 bg-background border border-border rounded-xl px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.06)] animate-fade-up flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center text-lg">🎓</div>
-              <div>
-                <div className="text-[10px] text-muted-foreground">Global</div>
-                <div className="text-xs font-bold text-foreground">Certified</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

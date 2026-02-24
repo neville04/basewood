@@ -7,6 +7,8 @@ export function useReveal(threshold = 0.1) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Use a very small threshold so tall sections trigger on mobile
+    const effectiveThreshold = Math.min(threshold, 0.05);
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -14,7 +16,7 @@ export function useReveal(threshold = 0.1) {
           obs.unobserve(el);
         }
       },
-      { threshold }
+      { threshold: effectiveThreshold, rootMargin: "50px 0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();

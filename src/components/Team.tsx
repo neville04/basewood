@@ -31,11 +31,11 @@ const Team = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="team" className="py-[100px] px-[7%] bg-cream">
+    <section id="team" className="py-[100px] px-[7%] bg-transparent">
       <div className="max-w-[1200px] mx-auto" ref={ref}>
         <div className={`mb-12 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal-dark mb-2.5">Our People</div>
-          <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-navy leading-[1.12] tracking-tight">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2.5">Our People</div>
+          <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-primary-foreground leading-[1.12] tracking-tight">
             Led by <em className="italic text-teal-dark">Practitioners</em>,<br />Not Just Professors
           </h2>
         </div>

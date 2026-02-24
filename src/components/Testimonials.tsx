@@ -1,5 +1,5 @@
 import { useReveal } from "@/hooks/useReveal";
-import abdulHameedImg from "@/assets/abdul-hameed.png";
+import abdulHameedImg from "@/assets/abdul-hameed-new.png";
 
 const testimonials = [
   {

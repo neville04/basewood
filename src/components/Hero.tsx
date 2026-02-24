@@ -20,7 +20,7 @@ const Hero = () => {
     <section
       className="relative min-h-[700px] lg:min-h-screen flex items-center overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #86efac 0%, #a7f3d0 15%, #6ee7b7 28%, #7dd3fc 45%, #93c5fd 58%, #bae6fd 70%, #e0f2fe 82%, #ffffff 100%)",
+        background: "linear-gradient(160deg, #93c5fd 0%, #bae6fd 15%, #c4b5fd 28%, #ddd6fe 42%, #ede9fe 55%, #f0f9ff 70%, #f5f3ff 85%, #ffffff 100%)",
         backgroundSize: "400% 400%",
         animation: "awsShift 10s ease-in-out infinite alternate",
       }}

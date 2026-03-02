@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ChatBot from "@/components/ChatBot";
 import { useReveal } from "@/hooks/useReveal";
 import { Target, Eye, Star, Users, Lightbulb, Heart } from "lucide-react";
 import officeImg from "@/assets/office-location.png";
@@ -128,7 +128,7 @@ const About = () => {
         </div>
       </section>
       <Footer />
-      <FloatingWhatsApp />
+      <ChatBot />
     </>
   );
 };

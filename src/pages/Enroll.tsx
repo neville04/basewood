@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ChatBot from "@/components/ChatBot";
 import { useReveal } from "@/hooks/useReveal";
 
 const programOptions = [
@@ -52,11 +52,7 @@ const Enroll = () => {
   return (
     <>
       <Navbar />
-      <section className="pt-[120px] pb-[80px] min-h-screen" style={{
-        background: "linear-gradient(160deg, #86efac 0%, #bbf7d0 15%, #a7f3d0 25%, #6ee7b7 35%, #7dd3fc 50%, #93c5fd 60%, #bae6fd 72%, #e0f2fe 82%, #ffffff 100%)",
-        backgroundSize: "400% 400%",
-        animation: "awsShift 10s ease-in-out infinite alternate",
-      }}>
+      <section className="pt-[120px] pb-[80px] min-h-screen bg-cream">
         <div className="max-w-[700px] mx-auto px-[7%]" ref={ref}>
           <div className={`text-center mb-12 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-2.5">Enrollment</div>
@@ -131,7 +127,7 @@ const Enroll = () => {
         </div>
       </section>
       <Footer />
-      <FloatingWhatsApp />
+      <ChatBot />
     </>
   );
 };

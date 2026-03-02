@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ChatBot from "@/components/ChatBot";
 import Team from "@/components/Team";
 import AlumniTable from "@/components/AlumniTable";
 import Consultants from "@/components/Consultants";
@@ -14,7 +14,7 @@ const OurTeam = () => (
       <AlumniTable />
     </div>
     <Footer />
-    <FloatingWhatsApp />
+    <ChatBot />
   </>
 );
 

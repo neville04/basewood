@@ -158,6 +158,11 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.animate-scroll-left {
-  animation: scrollLeft 20s linear infinite;
+/* Scrollbar utilities */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

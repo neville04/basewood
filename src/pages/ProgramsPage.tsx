@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import ChatBot from "@/components/ChatBot";
 import { useReveal } from "@/hooks/useReveal";
 
 const ciltCourses = [
@@ -155,7 +155,7 @@ const ProgramsPage = () => {
         </div>
       </section>
       <Footer />
-      <FloatingWhatsApp />
+      <ChatBot />
     </>
   );
 };

@@ -4,23 +4,18 @@ const companies = [
 ];
 
 const TrustStrip = () => (
-  <div className="bg-navy border-b border-primary-foreground/[0.07] px-[7%] py-4 overflow-hidden">
-    <div className="max-w-[1200px] mx-auto flex items-center gap-6">
-      <span className="text-[10px] uppercase tracking-[0.18em] text-teal font-mono whitespace-nowrap flex-shrink-0 z-10 pr-4">
-        Alumni at
+  <div className="bg-secondary border-b border-border py-4 px-[7%]">
+    <div className="max-w-[1200px] mx-auto flex items-center gap-6 flex-wrap">
+      <span className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-semibold whitespace-nowrap flex-shrink-0">
+        Our Alumni Work At:
       </span>
-      <div className="w-px h-6 bg-primary-foreground/[0.15] flex-shrink-0" />
-      <div className="relative overflow-hidden flex-1">
-        <div className="flex animate-scroll-left">
-          {[...companies, ...companies].map((c, i) => (
-            <span key={`${c}-${i}`} className="flex items-center gap-8 flex-shrink-0 mx-4">
-              <span className="w-[3px] h-[3px] bg-teal rounded-full opacity-40 flex-shrink-0" />
-              <span className="text-[13px] font-semibold text-primary-foreground/50 whitespace-nowrap">
-                {c}
-              </span>
-            </span>
-          ))}
-        </div>
+      <div className="w-px h-4 bg-border flex-shrink-0 hidden sm:block" />
+      <div className="flex items-center gap-6 flex-wrap">
+        {companies.map((c) => (
+          <span key={c} className="text-[13px] font-semibold text-navy/60 whitespace-nowrap">
+            {c}
+          </span>
+        ))}
       </div>
     </div>
   </div>

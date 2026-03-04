@@ -1,5 +1,3 @@
-import { useReveal } from "@/hooks/useReveal";
-
 const certs = [
   { abbr: "CIM", name: "Chartered Institute of Marketing" },
   { abbr: "ACCA", name: "Chartered Certified Accountants" },
@@ -10,33 +8,30 @@ const certs = [
 ];
 
 const Certifications = () => {
-  const { ref, visible } = useReveal();
-
   return (
-    <section id="certifications" className="py-[90px] px-[7%] bg-cream">
-      <div className="max-w-[1200px] mx-auto" ref={ref}>
-        <div className={`text-center mb-14 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal-dark mb-2.5">Our Accreditations</div>
-          <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-bold text-navy leading-[1.12] tracking-tight">
-            Internationally <em className="italic text-teal-dark">Recognised</em> Qualifications
+    <section id="certifications" className="py-16 px-[7%] bg-background border-b border-border">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="border-b-2 border-navy pb-5 mb-10">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Our Accreditations</p>
+          <h2 className="font-display text-[clamp(26px,3vw,40px)] font-bold text-navy leading-tight tracking-tight">
+            Internationally Recognised Qualifications
           </h2>
-          <p className="text-[15px] text-muted-foreground leading-relaxed font-light max-w-[460px] mx-auto mt-3.5">
+          <p className="text-[14px] text-muted-foreground mt-2 max-w-[500px]">
             Every course is delivered in partnership with globally accredited professional bodies.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-0 border border-border">
           {certs.map((c, i) => (
             <div
               key={c.abbr}
-              className={`group bg-background rounded-xl p-7 text-center border border-border cursor-pointer transition-all duration-300 hover:bg-navy hover:border-navy hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(15,30,92,0.2)] ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              className={`p-7 text-center bg-background hover:bg-navy group transition-colors cursor-pointer border-border ${
+                i % 6 !== 5 ? "border-r" : ""
               }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="font-display text-[28px] font-bold text-navy group-hover:text-teal transition-colors mb-2">
+              <div className="font-display text-[26px] font-bold text-navy group-hover:text-white transition-colors mb-2">
                 {c.abbr}
               </div>
-              <div className="text-[11px] text-muted-foreground leading-snug group-hover:text-primary-foreground/55 transition-colors">
+              <div className="text-[11px] text-muted-foreground group-hover:text-primary-foreground/60 transition-colors leading-snug">
                 {c.name}
               </div>
             </div>

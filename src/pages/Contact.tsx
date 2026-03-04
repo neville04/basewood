@@ -66,21 +66,19 @@ const Contact = () => {
             <div className="space-y-4">
               <a
                 href="/enroll"
-                className="block bg-accent text-accent-foreground rounded-2xl p-8 text-center no-underline hover:-translate-y-1 hover:shadow-lg transition-all"
+                className="block bg-navy text-white p-8 text-center no-underline hover:bg-teal-dark transition-colors"
               >
-                <div className="text-3xl mb-3">📝</div>
                 <h3 className="font-display text-xl font-semibold mb-2">Enroll Now</h3>
-                <p className="text-sm opacity-80">Start your professional certification journey today</p>
+                <p className="text-sm opacity-70">Start your professional certification journey today</p>
               </a>
 
               <a
                 href="https://wa.me/256773099672"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-background border border-border rounded-2xl p-8 text-center no-underline hover:-translate-y-1 hover:shadow-lg transition-all"
+                className="block bg-background border border-border p-8 text-center no-underline hover:border-navy transition-colors"
               >
-                <div className="text-3xl mb-3">💬</div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-2">WhatsApp Us</h3>
+                <h3 className="font-display text-xl font-semibold text-navy mb-2">WhatsApp Us</h3>
                 <p className="text-sm text-muted-foreground">Chat with our admissions team directly</p>
               </a>
             </div>

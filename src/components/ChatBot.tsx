@@ -85,7 +85,7 @@ function getResponse(question: string): string {
   }
 
   if (q.includes("enroll") || q.includes("apply") || q.includes("join") || q.includes("register") || q.includes("admission")) {
-    return "To enroll at Basewood Institute:\n\n1. **Choose your program** from our offerings\n2. **Fill the form** at basewood.lovable.app/enroll\n3. Or **contact us directly:**\n   • 📧 info@basewoodconsult.ac.ug\n   • 📱 WhatsApp: +256 773 099 672\n   • 📞 +256 744 488 316\n\nOur team will guide you on scheduling, fees, and payment. Classes run evenings & weekends — perfect for working professionals!";
+    return "To enroll at Basewood Institute:\n\n1. **Choose your program** from our offerings\n2. **Submit the enrollment form** at basewoodconsult.ac.ug/enroll\n3. Or **contact us directly:**\n   • 📧 info@basewoodconsult.ac.ug\n   • 📱 WhatsApp: +256 773 099 672\n   • 📞 +256 744 488 316\n\nOur team will guide you on scheduling, fees, and payment. Classes run evenings & weekends — perfect for working professionals!";
   }
 
   if (q.includes("acca")) {

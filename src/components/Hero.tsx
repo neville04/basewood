@@ -19,33 +19,43 @@ const slides = [
   },
 ];
 
-const extendedSlides = [...slides, slides[0]];
+const loopSlides = [slides[slides.length - 1], ...slides, slides[0]];
 
 const Hero = () => {
-  const [displayIndex, setDisplayIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const [current, setCurrent] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDisplayIndex((prev) => prev + 1);
-    }, 5000);
+      setIndex((prev) => prev + 1);
+    }, 9000);
     return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
-    setCurrent(displayIndex % slides.length);
+    const normalized = ((index - 1 + slides.length) % slides.length + slides.length) % slides.length;
+    setCurrent(normalized);
+  }, [index]);
 
-    if (displayIndex === slides.length) {
-      const timeout = setTimeout(() => {
-        setIsAnimating(false);
-        setDisplayIndex(0);
-      }, 1200);
-      return () => clearTimeout(timeout);
+  useEffect(() => {
+    if (!isTransitionEnabled) {
+      const id = requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+      });
+      return () => cancelAnimationFrame(id);
     }
+  }, [isTransitionEnabled]);
 
-    setIsAnimating(true);
-  }, [displayIndex]);
+  const handleTransitionEnd = () => {
+    if (index === loopSlides.length - 1) {
+      setIsTransitionEnabled(false);
+      setIndex(1);
+    } else if (index === 0) {
+      setIsTransitionEnabled(false);
+      setIndex(loopSlides.length - 2);
+    }
+  };
 
   return (
     <section className="relative overflow-hidden bg-black" style={{ minHeight: "92vh" }}>
@@ -54,12 +64,13 @@ const Hero = () => {
         <div
           className="h-full w-full flex flex-col"
           style={{
-            transform: `translateY(-${displayIndex * 100}%)`,
-            transition: isAnimating ? "transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)" : "none",
+            transform: `translateY(-${index * 100}%)`,
+            transition: isTransitionEnabled ? "transform 7.5s cubic-bezier(0.45, 0, 0.55, 1)" : "none",
           }}
+          onTransitionEnd={handleTransitionEnd}
         >
-          {extendedSlides.map((slide, idx) => {
-            const isPriority = idx === 0;
+          {loopSlides.map((slide, idx) => {
+            const isPriority = idx === 1;
             return (
               <div key={`${slide.img}-${idx}`} className="h-full w-full flex-shrink-0 relative">
                 <img
@@ -136,8 +147,8 @@ const Hero = () => {
               <button
                 key={i}
                 onClick={() => {
-                  setIsAnimating(true);
-                  setDisplayIndex(i);
+                  setIsTransitionEnabled(true);
+                  setIndex(i + 1);
                 }}
                 className="w-6 h-[3px] transition-all duration-300"
                 style={{

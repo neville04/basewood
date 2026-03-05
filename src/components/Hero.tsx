@@ -58,16 +58,22 @@ const Hero = () => {
             transition: isAnimating ? "transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)" : "none",
           }}
         >
-          {extendedSlides.map((slide, idx) => (
-            <div key={`${slide.img}-${idx}`} className="h-full w-full flex-shrink-0 relative">
-              <img
-                src={slide.img}
-                alt={slide.label}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
-            </div>
-          ))}
+          {extendedSlides.map((slide, idx) => {
+            const isPriority = idx === 0;
+            return (
+              <div key={`${slide.img}-${idx}`} className="h-full w-full flex-shrink-0 relative">
+                <img
+                  src={slide.img}
+                  alt={slide.label}
+                  className="w-full h-full object-cover"
+                  loading={isPriority ? "eager" : "lazy"}
+                  decoding="async"
+                  data-priority={isPriority ? "true" : undefined}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
+              </div>
+            );
+          })}
         </div>
       </div>
 

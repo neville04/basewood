@@ -1,21 +1,9 @@
-import abdulHameedImg from "@/assets/abdul-hameed-new.png";
-
-const avatarStyles: Record<string, string> = {
-  "Abdul Hameed (MCIM)": "w-[86px] h-[86px] rounded-full border-2 border-teal-dark bg-white shadow-[0_10px_30px_rgba(5,40,65,0.25)]",
-};
-
 const testimonials = [
   {
     name: "Natasha Nyonyozi",
     role: "Accountant · Miss World Uganda 2024–25",
     img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80",
     text: "At Basewood Institute, integrity in the accounting profession is instilled and this drives compliance which is of great help in my career.",
-  },
-  {
-    name: "Abdul Hameed (MCIM)",
-    role: "Chief Marketing Officer — METRO CEMENT",
-    img: abdulHameedImg,
-    text: "The blended approach programme coupled with experienced world class facilitators provided me with a lot of professional marketing and strategic skills that are very relevant and resonates well with my daily work.",
   },
 ];
 
@@ -36,8 +24,8 @@ const Testimonials = () => {
               key={t.name}
               className="bg-background border border-border p-8 relative"
             >
-              <div className={`flex items-center gap-4 mb-5 ${t.name === "Abdul Hameed (MCIM)" ? "justify-between" : ""}`}>
-                <div className={`${avatarStyles[t.name] ?? "w-[64px] h-[64px] border-2 border-navy"} overflow-hidden flex-shrink-0 flex items-center justify-center bg-white`}>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-[64px] h-[64px] border-2 border-navy overflow-hidden flex-shrink-0 flex items-center justify-center bg-white">
                   <img src={t.img} alt={t.name} className="w-full h-full object-cover object-center" />
                 </div>
                 <div className="flex-1">

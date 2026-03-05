@@ -23,10 +23,12 @@ const Enroll = () => {
   const { ref, visible } = useReveal(0.1);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
+    setError(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -36,17 +38,36 @@ const Enroll = () => {
     const program = data.get("program") as string;
     const message = data.get("message") as string;
 
-    const subject = encodeURIComponent(`Enrollment Request: ${program}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProgram: ${program}\n\nMessage:\n${message}`
-    );
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@basewoodconsult.ac.ug", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          program,
+          message,
+          _subject: `Enrollment Request: ${program}`,
+          _template: "table",
+        }),
+      });
 
-    window.location.href = `mailto:info@basewoodconsult.ac.ug?subject=${subject}&body=${body}`;
+      if (!response.ok) {
+        throw new Error("Failed to submit enrollment.");
+      }
 
-    setTimeout(() => {
-      setSending(false);
+      form.reset();
       setSubmitted(true);
-    }, 1000);
+    } catch (err) {
+      console.error(err);
+      setError("We couldn't send your request automatically. Please try again or email info@basewoodconsult.ac.ug.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -67,14 +88,16 @@ const Enroll = () => {
           {submitted ? (
             <div className={`bg-background border border-border rounded-2xl p-12 text-center transition-all duration-500 ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
               <div className="text-5xl mb-4">✓</div>
-              <h2 className="font-display text-2xl font-semibold text-foreground mb-2">Email Client Opened!</h2>
+              <h2 className="font-display text-2xl font-semibold text-foreground mb-2">Request Received!</h2>
               <p className="text-muted-foreground text-sm">
-                Please send the email from your mail app. If it didn't open, you can email us directly at{" "}
-                <a href="mailto:info@basewoodconsult.ac.ug" className="text-accent font-medium">info@basewoodconsult.ac.ug</a>
+                Thank you for contacting Basewood Institute. Our enrollment advisors will reach out to the email you provided within one business day.
               </p>
               <button onClick={() => setSubmitted(false)} className="mt-6 px-6 py-2.5 bg-accent text-accent-foreground rounded-lg font-semibold text-sm">
                 Submit Another
               </button>
+              <p className="text-xs text-muted-foreground mt-4">
+                Need immediate help? Email <a href="mailto:info@basewoodconsult.ac.ug" className="text-accent font-medium">info@basewoodconsult.ac.ug</a> or call <a href="tel:+256773099672" className="text-accent font-medium">+256 773 099 672</a>.
+              </p>
             </div>
           ) : (
             <form
@@ -116,8 +139,14 @@ const Enroll = () => {
                 disabled={sending}
                 className="w-full py-3.5 bg-accent text-accent-foreground rounded-lg font-bold text-sm shadow-[0_4px_22px_hsl(var(--accent)/0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_36px_hsl(var(--accent)/0.4)] transition-all disabled:opacity-60"
               >
-                {sending ? "Opening Email..." : "Submit Enrollment →"}
+                {sending ? "Sending..." : "Submit Enrollment →"}
               </button>
+
+              {error && (
+                <div className="text-center text-xs text-red-600 bg-red-50 border border-red-100 rounded-md py-2 px-3">
+                  {error}
+                </div>
+              )}
 
               <p className="text-center text-xs text-muted-foreground">
                 Or contact us directly: <a href="tel:+256773099672" className="text-accent font-medium">+256 773 099 672</a> · <a href="https://wa.me/256773099672" className="text-accent font-medium">WhatsApp</a>

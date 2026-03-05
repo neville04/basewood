@@ -23,7 +23,14 @@ const Navbar = () => {
         <div className="max-w-[1200px] mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 no-underline">
-            <img src={basewoodLogo} alt="Basewood Logo" className="h-[56px] w-auto" />
+            <img
+              src={basewoodLogo}
+              alt="Basewood Logo"
+              className="h-[56px] w-auto"
+              loading="eager"
+              decoding="async"
+              data-priority="true"
+            />
             <div className="flex flex-col leading-none border-l border-border pl-3">
               <span className="text-[20px] font-bold tracking-tight text-navy uppercase leading-tight font-display">Basewood</span>
               <span className="text-[10px] font-medium text-muted-foreground tracking-[0.14em] uppercase mt-0.5">Institute</span>
@@ -54,7 +61,14 @@ const Navbar = () => {
         <div className="max-w-[1200px] mx-auto px-[6%] flex items-center justify-between">
           {/* Mobile logo */}
           <Link to="/" className="md:hidden flex items-center gap-2 no-underline py-3">
-            <img src={basewoodLogo} alt="Basewood Logo" className="h-9 w-auto" />
+            <img
+              src={basewoodLogo}
+              alt="Basewood Logo"
+              className="h-9 w-auto"
+              loading="eager"
+              decoding="async"
+              data-priority="true"
+            />
             <span className="text-[15px] font-bold text-primary-foreground uppercase tracking-tight">Basewood</span>
           </Link>
 

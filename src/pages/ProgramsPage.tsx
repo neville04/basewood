@@ -3,49 +3,43 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import programsHero from "@/assets/programs-hero.jpg";
-import accaImg from "@/assets/programs/acca.jpg";
-import cpaImg from "@/assets/programs/cpa.jpg";
-import ciltImg from "@/assets/programs/cilt.jpg";
-import cimImg from "@/assets/programs/cim.jpg";
-import cipsImg from "@/assets/programs/cips.jpg";
-import frmImg from "@/assets/programs/frm.jpg";
 
 const programs = [
   {
     abbr: "ACCA",
     full: "Association of Chartered Certified Accountants",
     tag: "Approved Learning Partner",
-    img: accaImg,
+    img: "/acca.jpg",
   },
   {
     abbr: "CPA Uganda",
     full: "Institute of Certified Public Accountants of Uganda",
     tag: "Recognised Tuition Provider",
-    img: cpaImg,
+    img: "/cpa.jpg",
   },
   {
     abbr: "CILT",
     full: "Chartered Institute of Logistics & Transport",
     tag: "Accredited Study Centre",
-    img: ciltImg,
+    img: "/logistics.jpg",
   },
   {
     abbr: "CIM",
     full: "Chartered Institute of Marketing",
     tag: "UK Accredited",
-    img: cimImg,
+    img: "/marketing.jpg",
   },
   {
     abbr: "CIPS",
     full: "Chartered Institute of Procurement & Supply",
     tag: "Levels 4 – 6",
-    img: cipsImg,
+    img: "/procurement.jpg",
   },
   {
     abbr: "FRM",
     full: "Financial Risk Manager — GARP",
     tag: "Professional Certification",
-    img: frmImg,
+    img: "/financial%20risk.jpg",
   },
 ];
 

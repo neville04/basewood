@@ -1,5 +1,9 @@
 import abdulHameedImg from "@/assets/abdul-hameed-new.png";
 
+const avatarStyles: Record<string, string> = {
+  "Abdul Hameed (MCIM)": "w-[86px] h-[86px] rounded-full border-2 border-teal-dark bg-white shadow-[0_10px_30px_rgba(5,40,65,0.25)]",
+};
+
 const testimonials = [
   {
     name: "Natasha Nyonyozi",
@@ -30,13 +34,13 @@ const Testimonials = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-background border border-border p-8"
+              className="bg-background border border-border p-8 relative"
             >
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-[64px] h-[64px] border-2 border-navy overflow-hidden flex-shrink-0">
-                  <img src={t.img} alt={t.name} className="w-full h-full object-cover object-top" />
+              <div className={`flex items-center gap-4 mb-5 ${t.name === "Abdul Hameed (MCIM)" ? "justify-between" : ""}`}>
+                <div className={`${avatarStyles[t.name] ?? "w-[64px] h-[64px] border-2 border-navy"} overflow-hidden flex-shrink-0 flex items-center justify-center bg-white`}>
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover object-center" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <div className="font-bold text-navy text-sm">{t.name}</div>
                   <div className="text-[12px] text-muted-foreground mt-0.5 leading-relaxed">{t.role}</div>
                 </div>

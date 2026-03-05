@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import accaImg from "@/assets/programs/acca.jpg";
-import cpaImg from "@/assets/programs/cpa.jpg";
-import ciltImg from "@/assets/programs/cilt.jpg";
 
 const programs = [
   {
@@ -11,7 +8,7 @@ const programs = [
     subtitle: "Accounting & Finance",
     org: "Association of Chartered Certified Accountants",
     badge: "Most Popular",
-    img: accaImg,
+    img: "/acca.jpg",
   },
   {
     id: "cpa",
@@ -19,7 +16,7 @@ const programs = [
     subtitle: "Certified Public Accountant",
     org: "Institute of Certified Public Accountants of Uganda",
     badge: "Recognised Provider",
-    img: cpaImg,
+    img: "/cpa.jpg",
   },
   {
     id: "cilt",
@@ -27,7 +24,7 @@ const programs = [
     subtitle: "Logistics & Transport",
     org: "Chartered Institute of Logistics & Transport",
     badge: null,
-    img: ciltImg,
+    img: "/logistics.jpg",
   },
 ];
 

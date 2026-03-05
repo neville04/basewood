@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import basewoodLogo from "@/assets/basewood-logo.png";
 
 const footerCols = [
   {
@@ -29,13 +30,13 @@ const Footer = () => (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.5fr_1fr_1fr_1.6fr] gap-10 pb-10 border-b border-white/10 mb-8">
         {/* Brand */}
         <div>
-          <Link to="/" className="flex items-center gap-3 no-underline mb-5">
-            {/* Text-based logo fallback that always shows */}
-            <div className="flex flex-col leading-none">
-              <span className="font-display font-bold text-[22px] text-white tracking-widest uppercase leading-tight">BASEWOOD</span>
-              <span className="text-[10px] text-white/50 tracking-[0.18em] uppercase mt-0.5 font-medium">Institute · Center for Professional Courses</span>
-            </div>
+          <Link to="/" className="inline-flex items-center no-underline mb-5" aria-label="Basewood home">
+            <img src={basewoodLogo} alt="Basewood Logo" className="h-[60px] w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]" />
           </Link>
+          <div className="flex flex-col leading-none">
+            <span className="font-display font-bold text-[22px] text-white tracking-widest uppercase leading-tight">BASEWOOD</span>
+            <span className="text-[10px] text-white/50 tracking-[0.18em] uppercase mt-0.5 font-medium">Institute · Center for Professional Courses</span>
+          </div>
           <p className="text-[13px] leading-[1.8] text-white/40 max-w-[260px] mb-5">
             Uganda's premier Center for Professional Courses. Empowering individuals and organisations through globally accredited training and consultancy.
           </p>

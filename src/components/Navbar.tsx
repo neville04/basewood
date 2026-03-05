@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="max-w-[1200px] mx-auto px-[6%] flex items-center justify-between">
           {/* Mobile logo */}
           <Link to="/" className="md:hidden flex items-center gap-2 no-underline py-3">
-            <img src={basewoodLogo} alt="Basewood Logo" className="h-9 w-auto brightness-0 invert" />
+            <img src={basewoodLogo} alt="Basewood Logo" className="h-9 w-auto" />
             <span className="text-[15px] font-bold text-primary-foreground uppercase tracking-tight">Basewood</span>
           </Link>
 

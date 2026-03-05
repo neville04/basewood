@@ -1,43 +1,51 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import programsHero from "@/assets/programs-hero.jpg";
+import accaImg from "@/assets/programs/acca.jpg";
+import cpaImg from "@/assets/programs/cpa.jpg";
+import ciltImg from "@/assets/programs/cilt.jpg";
+import cimImg from "@/assets/programs/cim.jpg";
+import cipsImg from "@/assets/programs/cips.jpg";
+import frmImg from "@/assets/programs/frm.jpg";
 
 const programs = [
   {
     abbr: "ACCA",
     full: "Association of Chartered Certified Accountants",
     tag: "Approved Learning Partner",
-    href: "/enroll",
+    img: accaImg,
   },
   {
     abbr: "CPA Uganda",
     full: "Institute of Certified Public Accountants of Uganda",
     tag: "Recognised Tuition Provider",
-    href: "/enroll",
+    img: cpaImg,
   },
   {
     abbr: "CILT",
     full: "Chartered Institute of Logistics & Transport",
     tag: "Accredited Study Centre",
-    href: "/enroll",
+    img: ciltImg,
   },
   {
     abbr: "CIM",
     full: "Chartered Institute of Marketing",
     tag: "UK Accredited",
-    href: "/enroll",
+    img: cimImg,
   },
   {
     abbr: "CIPS",
     full: "Chartered Institute of Procurement & Supply",
     tag: "Levels 4 – 6",
-    href: "/enroll",
+    img: cipsImg,
   },
   {
     abbr: "FRM",
     full: "Financial Risk Manager — GARP",
     tag: "Professional Certification",
-    href: "/enroll",
+    img: frmImg,
   },
 ];
 
@@ -61,45 +69,69 @@ const ProgramsPage = () => {
     <>
       <Navbar />
 
-      {/* Page header — navy band */}
-      <div className="bg-navy pt-[100px] pb-10">
-        <div className="max-w-[1200px] mx-auto px-[7%]">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-teal font-semibold mb-2">Basewood Institute</p>
-          <h1 className="font-display text-[clamp(28px,3vw,42px)] font-bold text-white leading-tight">
-            Professional Certification Programs
-          </h1>
-          <p className="text-white/60 text-[14px] mt-2">
-            Internationally recognised qualifications — designed for working professionals.
-          </p>
+      {/* Hero image banner */}
+      <div className="relative overflow-hidden" style={{ height: "420px", marginTop: "0" }}>
+        <img
+          src={programsHero}
+          alt="Basewood Institute Programs"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-navy/72" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-12 pt-[100px]">
+          <div className="max-w-[1200px] mx-auto px-[7%] w-full">
+            <p className="text-[11px] uppercase tracking-[0.16em] font-semibold mb-2" style={{ color: "hsl(var(--teal))" }}>
+              Basewood Institute
+            </p>
+            <h1 className="font-display text-[clamp(28px,3.5vw,48px)] font-bold text-white leading-tight mb-3">
+              Professional Certification Programs
+            </h1>
+            <p className="text-white/60 text-[14px] max-w-[540px]">
+              Internationally recognised qualifications — designed for working professionals across East Africa.
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Programs grid */}
       <section className="bg-background py-14 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-[7%]">
+          <div className="border-b-2 border-navy pb-5 mb-10">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Our Qualifications</p>
+            <h2 className="font-display text-[clamp(22px,2.5vw,34px)] font-bold text-navy">
+              Professional Certifications
+            </h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border">
             {programs.map((p) => (
-              <a
+              <Link
                 key={p.abbr}
-                href={p.href}
-                className="border-b border-r border-border bg-background hover:bg-secondary transition-colors p-8 flex flex-col items-center text-center no-underline group"
+                to="/enroll"
+                className="border-b border-r border-border bg-background hover:bg-secondary transition-colors no-underline group flex flex-col"
               >
-                {/* Abbr as display */}
-                <div className="font-display text-[clamp(28px,4vw,40px)] font-bold text-navy mb-3 group-hover:text-teal-dark transition-colors">
-                  {p.abbr}
+                {/* Image */}
+                <div className="overflow-hidden h-[180px]">
+                  <img
+                    src={p.img}
+                    alt={p.abbr}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div className="text-[13px] text-foreground font-medium leading-snug mb-3">
-                  {p.full}
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="font-display text-[clamp(22px,2vw,28px)] font-bold text-navy mb-1 group-hover:text-teal-dark transition-colors">
+                    {p.abbr}
+                  </div>
+                  <div className="text-[12px] text-muted-foreground leading-snug mb-4 flex-1">{p.full}</div>
+                  <div className="flex items-center justify-between">
+                    <span className="inline-block text-[10px] uppercase tracking-[0.1em] font-semibold text-teal-dark border border-teal-dark/40 px-2.5 py-1">
+                      {p.tag}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-navy/40 group-hover:text-navy transition-colors">
+                      Enroll →
+                    </span>
+                  </div>
                 </div>
-                <div className="mt-auto">
-                  <span className="inline-block text-[10px] uppercase tracking-[0.1em] font-semibold text-teal-dark border border-teal-dark/40 px-2.5 py-1">
-                    {p.tag}
-                  </span>
-                </div>
-                <div className="mt-4 text-[12px] font-bold uppercase tracking-[0.08em] text-navy/40 group-hover:text-navy transition-colors">
-                  View Program →
-                </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -108,16 +140,20 @@ const ProgramsPage = () => {
       {/* Short Courses */}
       <section className="bg-secondary py-14 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-[7%]">
-          <div className="mb-8">
+          <div className="border-b-2 border-navy pb-5 mb-10">
             <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Executive & Short Programs</p>
             <h2 className="font-display text-[clamp(22px,2.5vw,32px)] font-bold text-navy">Short Courses</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border bg-background">
             {shortCourses.map((sc) => (
-              <div key={sc.name} className="border-b border-r border-border p-5 hover:bg-secondary transition-colors">
+              <Link
+                key={sc.name}
+                to="/enroll"
+                className="border-b border-r border-border p-5 hover:bg-secondary transition-colors no-underline group"
+              >
                 <div className="text-[10px] font-bold text-teal-dark uppercase tracking-[0.1em] mb-1">{sc.cat}</div>
-                <div className="text-[14px] font-medium text-navy leading-snug">{sc.name}</div>
-              </div>
+                <div className="text-[14px] font-medium text-navy leading-snug group-hover:text-teal-dark transition-colors">{sc.name}</div>
+              </Link>
             ))}
           </div>
         </div>
@@ -127,16 +163,16 @@ const ProgramsPage = () => {
       <section className="bg-navy py-14">
         <div className="max-w-[1200px] mx-auto px-[7%] flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.14em] text-teal font-semibold mb-1">Not sure where to start?</p>
+            <p className="text-[11px] uppercase tracking-[0.14em] font-semibold mb-1" style={{ color: "hsl(var(--teal))" }}>Not sure where to start?</p>
             <h3 className="font-display text-[clamp(20px,2.2vw,30px)] font-bold text-white">
               Speak with an Enrollment Advisor
             </h3>
             <p className="text-white/60 text-sm mt-1">We'll match you to the right program based on your career goals.</p>
           </div>
           <div className="flex gap-3 flex-shrink-0">
-            <a href="/enroll" className="px-6 py-3 bg-white text-navy font-bold text-sm uppercase tracking-[0.06em] no-underline hover:bg-teal hover:text-white transition-colors">
+            <Link to="/enroll" className="px-6 py-3 bg-white text-navy font-bold text-sm uppercase tracking-[0.06em] no-underline hover:bg-teal hover:text-white transition-colors">
               Enroll Now
-            </a>
+            </Link>
             <a href="https://wa.me/256773099672" className="px-6 py-3 border-2 border-white/40 text-white font-bold text-sm uppercase tracking-[0.06em] no-underline hover:border-white transition-colors">
               WhatsApp Us
             </a>

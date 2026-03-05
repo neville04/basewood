@@ -61,7 +61,7 @@ const Programs = () => {
           {programs.map((prog) => (
             <Link
               key={prog.id}
-              to={`/programs/${prog.id}`}
+              to="/programs"
               className="border-b border-r border-border bg-background hover:bg-secondary transition-colors no-underline group flex flex-col"
             >
               {/* Image */}
@@ -111,7 +111,7 @@ const Programs = () => {
               {morePrograms.map((prog) => (
                 <Link
                   key={prog.id}
-                  to={`/programs/${prog.id}`}
+                  to="/programs"
                   className="px-6 py-5 border-b md:border-b-0 border-r border-border bg-background hover:bg-secondary transition-colors no-underline group last:border-r-0"
                 >
                   <div className="font-display text-[20px] font-bold text-navy mb-0.5 group-hover:text-teal-dark transition-colors">{prog.name}</div>

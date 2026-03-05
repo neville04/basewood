@@ -1,82 +1,78 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import carousel1 from "@/assets/hero-carousel-1.jpg";
-import carousel2 from "@/assets/hero-carousel-2.jpg";
-import carousel3 from "@/assets/hero-carousel-3.jpg";
 
 const slides = [
   {
-    img: carousel1,
-    label: "Leadership & Finance",
-    caption: "Training working professionals for global certification.",
+    img: "/studying1.jpg",
+    label: "Immersive Study Pods",
+    caption: "Late-night cohorts mastering CIM and CIPS deliverables.",
   },
   {
-    img: carousel2,
-    label: "Recognition & Achievement",
-    caption: "Celebrating alumni who lead across East Africa.",
+    img: "/studying2.jpg",
+    label: "Executive Workshops",
+    caption: "Hands-on simulations for finance and logistics leaders.",
   },
   {
-    img: carousel3,
-    label: "Graduation & Excellence",
-    caption: "Joining a community of 1,000+ certified professionals.",
+    img: "/studying3.jpg",
+    label: "Peer-to-Peer Coaching",
+    caption: "Collaborative learning that keeps alumni connected.",
   },
 ];
 
+const extendedSlides = [...slides, slides[0]];
+
 const Hero = () => {
+  const [displayIndex, setDisplayIndex] = useState(0);
   const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+      setDisplayIndex((prev) => prev + 1);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    setCurrent(displayIndex % slides.length);
+
+    if (displayIndex === slides.length) {
+      const timeout = setTimeout(() => {
+        setIsAnimating(false);
+        setDisplayIndex(0);
+      }, 1200);
+      return () => clearTimeout(timeout);
+    }
+
+    setIsAnimating(true);
+  }, [displayIndex]);
+
   return (
-    <section className="relative overflow-hidden bg-navy" style={{ minHeight: "92vh" }}>
-      {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-        poster={carousel1}
-      >
-        <source
-          src="https://videos.pexels.com/video-files/3255246/3255246-uhd_2560_1440_25fps.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-navy/75" />
-
-      {/* Carousel images — right side panel (desktop) */}
-      <div className="absolute inset-y-0 right-0 w-[42%] hidden lg:block overflow-hidden">
-        {slides.map((slide, i) => (
-          <div
-            key={i}
-            className="absolute inset-0 transition-opacity duration-1000"
-            style={{ opacity: i === current ? 1 : 0 }}
-          >
-            <img
-              src={slide.img}
-              alt={slide.label}
-              className="w-full h-full object-cover"
-            />
-            {/* Gradient blend to left */}
-            <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent" />
-          </div>
-        ))}
-        {/* Caption overlay bottom */}
-        <div className="absolute bottom-0 left-0 right-0 px-8 py-6 bg-gradient-to-t from-navy/80 to-transparent">
-          <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-teal mb-1">
-            {slides[current].label}
-          </div>
-          <div className="text-[13px] text-white/70">{slides[current].caption}</div>
+    <section className="relative overflow-hidden bg-black" style={{ minHeight: "92vh" }}>
+      {/* Background carousel */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="h-full w-full flex flex-col"
+          style={{
+            transform: `translateY(-${displayIndex * 100}%)`,
+            transition: isAnimating ? "transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1)" : "none",
+          }}
+        >
+          {extendedSlides.map((slide, idx) => (
+            <div key={`${slide.img}-${idx}`} className="h-full w-full flex-shrink-0 relative">
+              <img
+                src={slide.img}
+                alt={slide.label}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.12),transparent_55%)]" />
 
       {/* Content */}
       <div
@@ -115,7 +111,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-10 flex-wrap pt-8 border-t border-white/15">
+          <div className="flex gap-10 flex-wrap pt-8 border-t border-white/25">
             {[
               { value: "1,000+", label: "Alumni" },
               { value: "6+", label: "Certifications" },
@@ -133,7 +129,10 @@ const Hero = () => {
             {slides.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrent(i)}
+                onClick={() => {
+                  setIsAnimating(true);
+                  setDisplayIndex(i);
+                }}
                 className="w-6 h-[3px] transition-all duration-300"
                 style={{
                   backgroundColor: i === current ? "hsl(var(--teal))" : "hsl(var(--teal) / 0.3)",
@@ -141,6 +140,10 @@ const Hero = () => {
                 aria-label={`Slide ${i + 1}`}
               />
             ))}
+          </div>
+
+          <div className="mt-6 text-[11px] uppercase tracking-[0.14em] text-white/70">
+            {slides[current].label} — <span className="text-white/60 normal-case tracking-normal text-[13px]">{slides[current].caption}</span>
           </div>
         </div>
       </div>

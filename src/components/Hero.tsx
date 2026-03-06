@@ -98,7 +98,7 @@ const Hero = () => {
       >
         <div className="max-w-[580px] py-20">
           <div className="inline-block bg-teal-dark text-white text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1.5 mb-6">
-            2025 Intake — Now Open
+            2026 Intake — Now Open
           </div>
 
           <h1 className="font-display text-[clamp(36px,4.5vw,64px)] font-bold text-white leading-[1.08] tracking-tight mb-6">

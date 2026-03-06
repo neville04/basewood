@@ -38,22 +38,32 @@ const Enroll = () => {
     const program = data.get("program") as string;
     const message = data.get("message") as string;
 
+    const logoUrl = typeof window !== "undefined" ? `${window.location.origin}/email-logo.png` : "/email-logo.png";
+
+    const formPayload = new FormData();
+    formPayload.append("_subject", `Enrollment Request: ${program}`);
+    formPayload.append("_template", "table");
+    formPayload.append(
+      "Basewood",
+      `<div style="text-align:center;">
+        <img src="${logoUrl}" alt="Basewood Logo" style="height:52px;margin-bottom:6px;" />
+        <div style="font-weight:600;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#0d1b2a;">Basewood Institute Enrollment</div>
+      </div>`
+    );
+    formPayload.append("Applicant Name", name);
+    formPayload.append("Email Address", email);
+    formPayload.append("Phone Number", phone);
+    formPayload.append("Program Interest", program);
+    formPayload.append("Additional Message", message?.trim() || "(No additional message provided)");
+    formPayload.append("Submitted On", new Date().toLocaleString());
+
     try {
-      const response = await fetch("https://formsubmit.co/ajax/info@basewoodconsult.ac.ug", {
+      const response = await fetch("https://formsubmit.co/ajax/elijahmukiibi18@gmail.com", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          program,
-          message,
-          _subject: `Enrollment Request: ${program}`,
-          _template: "table",
-        }),
+        body: formPayload,
       });
 
       if (!response.ok) {

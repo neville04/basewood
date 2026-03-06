@@ -39,11 +39,7 @@ const Navbar = () => {
 
           {/* Quick action links */}
           <div className="flex items-center divide-x divide-border text-[13px]">
-            {[
-              { label: "Apply Now", href: "/enroll" },
-              { label: "FAQs", href: "/contact" },
-              { label: "Contact Us", href: "/contact" },
-            ].map((item) => (
+            {[{ label: "Apply Now", href: "/enroll" }, { label: "Contact Us", href: "/contact" }].map((item) => (
               <Link
                 key={item.label}
                 to={item.href}

@@ -83,7 +83,7 @@ const Footer = () => (
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between items-center text-[12px] gap-2">
-        <span className="text-white/25">© 2025 Basewood Consult Uganda Limited. All rights reserved.</span>
+        <span className="text-white/25">© 2026 Basewood Consult Uganda Limited. All rights reserved.</span>
         <span className="text-white/25">Center for Professional Courses · Kampala, Uganda</span>
       </div>
     </div>

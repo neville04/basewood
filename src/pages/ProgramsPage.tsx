@@ -64,14 +64,14 @@ const ProgramsPage = () => {
       <Navbar />
 
       {/* Hero image banner */}
-      <div className="relative overflow-hidden" style={{ height: "420px", marginTop: "0" }}>
+      <div className="relative overflow-hidden h-[260px] sm:h-[320px] lg:h-[420px]">
         <img
           src={programsHero}
           alt="Basewood Institute Programs"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-navy/72" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-12 pt-[100px]">
+        <div className="absolute inset-0 flex flex-col justify-end pb-10 pt-16 sm:pb-12 sm:pt-[100px]">
           <div className="max-w-[1200px] mx-auto px-[7%] w-full">
             <p className="text-[11px] uppercase tracking-[0.16em] font-semibold mb-2" style={{ color: "hsl(var(--teal))" }}>
               Basewood Institute

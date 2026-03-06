@@ -40,42 +40,27 @@ const Team = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {team.map((m, i) => (
             <div
               key={m.name}
-              className={`bg-background rounded-[14px] overflow-hidden border border-border cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_20px_52px_rgba(15,30,92,0.1)] transition-all duration-[280ms] ${
-                m.featured ? "sm:col-span-2 grid sm:grid-cols-[220px_1fr]" : ""
-              } ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className={`bg-navy rounded-xl overflow-hidden border border-navy-light/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-[280ms] ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${i * 70}ms` }}
             >
-              <div
-                className={`bg-cover bg-center bg-top relative overflow-hidden ${
-                  m.featured ? "aspect-auto h-full min-h-[220px]" : "w-full aspect-[3/4]"
-                }`}
-                style={{ backgroundImage: `url('${m.img}')` }}
-              >
-                <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-gradient-to-t from-navy-deep/65 to-transparent" />
-                <span className="absolute top-3 right-3 bg-teal text-navy text-[9px] font-mono font-bold px-2 py-[3px] rounded tracking-[0.06em] uppercase z-[2]">
+              <div className="w-full aspect-square overflow-hidden">
+                <img src={m.img} alt={m.name} className="w-full h-full object-cover object-top" />
+              </div>
+              <div className="p-4 text-center">
+                <span className="inline-block text-[9px] font-mono font-semibold tracking-[0.08em] text-navy uppercase bg-teal/90 text-navy rounded px-2 py-[3px] mb-2">
                   {m.badge}
                 </span>
-              </div>
-              <div className={`p-4 ${m.featured ? "p-[26px_28px] flex flex-col justify-center" : ""}`}>
-                <div className={`font-display font-semibold text-navy mb-0.5 ${m.featured ? "text-2xl" : "text-[17px]"}`}>
-                  {m.name}
-                </div>
-                <div className={`text-teal-dark font-medium ${m.featured ? "text-[13px] mb-2.5" : "text-xs mb-0.5"}`}>
-                  {m.role}
-                </div>
-                <div className="text-[11px] text-muted-foreground font-mono">{m.quals}</div>
-                {m.featured && m.bio && (
-                  <>
-                    <p className="text-[13px] text-muted-foreground leading-relaxed mt-2.5 mb-4">{m.bio}</p>
-                    <div className="flex gap-2">
-                      <button className="px-3.5 py-1.5 rounded-md text-xs font-medium bg-cream text-navy border border-border hover:bg-navy hover:text-primary-foreground transition-colors">LinkedIn</button>
-                      <button className="px-3.5 py-1.5 rounded-md text-xs font-medium bg-cream text-navy border border-border hover:bg-navy hover:text-primary-foreground transition-colors">Email</button>
-                    </div>
-                  </>
+                <div className="font-display text-sm font-semibold text-primary-foreground mb-1">{m.name}</div>
+                <div className="text-[11px] text-teal font-medium mb-1 leading-snug">{m.role}</div>
+                <div className="text-[10px] text-primary-foreground/50 font-mono">{m.quals}</div>
+                {m.bio && (
+                  <p className="text-[10px] text-primary-foreground/40 mt-2 leading-snug line-clamp-3">{m.bio}</p>
                 )}
               </div>
             </div>

@@ -7,7 +7,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 60% 12%;
+    --foreground: 218 51% 21%;
 
     --card: 0 0% 100%;
     --card-foreground: 222 60% 12%;
@@ -15,34 +15,36 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 60% 12%;
 
-    --primary: 228 73% 21%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 214 52% 24%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 33% 96%;
-    --secondary-foreground: 228 73% 21%;
+    --secondary: 216 45% 95%;
+    --secondary-foreground: 214 52% 24%;
 
-    --muted: 40 33% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 216 30% 90%;
+    --muted-foreground: 217 15% 45%;
 
-    --accent: 168 76% 49%;
-    --accent-foreground: 228 73% 21%;
+    --accent: 169 66% 50%;
+    --accent-foreground: 218 51% 21%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 30% 91%;
     --input: 220 30% 91%;
-    --ring: 228 73% 21%;
+    --ring: 214 52% 24%;
     --radius: 0.5rem;
 
     /* Basewood custom tokens */
-    --navy: 228 73% 21%;
-    --navy-mid: 228 63% 29%;
-    --navy-light: 222 63% 33%;
-    --navy-deep: 232 75% 13%;
-    --teal: 168 76% 49%;
-    --teal-dark: 173 82% 32%;
-    --cream: 40 33% 96%;
+    --navy: 214 52% 24%;
+    --navy-mid: 216 46% 32%;
+    --navy-light: 217 31% 45%;
+    --navy-deep: 226 70% 17%;
+    --teal: 169 65% 48%;
+    --teal-dark: 169 65% 40%;
+    --cream: 216 45% 96%;
+    --soft-blue: 216 40% 95%;
+    --soft-blue-alt: 214 42% 93%;
     --whatsapp: 142 70% 49%;
 
     --sidebar-background: 0 0% 98%;
@@ -61,9 +63,22 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
+    color: #1a2e50;
+    line-height: 1.75;
+    background: #ffffff;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #1e3a5f;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  p {
+    color: #4b5563;
   }
   html {
     scroll-behavior: smooth;

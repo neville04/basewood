@@ -5,38 +5,50 @@ const testimonials = [
     img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80",
     text: "At Basewood Institute, integrity in the accounting profession is instilled and this drives compliance which is of great help in my career.",
   },
+  {
+    name: "Michael Okello",
+    role: "CFO · Nimbus Logistics",
+    img: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=600&q=80",
+    text: "The advisory sessions and mock boards sharpened both my technical knowledge and the executive presence I needed to lead a regional finance team.",
+  },
+  {
+    name: "Sarah Kintu",
+    role: "Head of Procurement · UG Power",
+    img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80",
+    text: "Basewood's CIPS pathway translated directly into supplier savings — their facilitators bring real tenders into the classroom.",
+  },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-16 px-[7%] bg-secondary border-b border-border">
+    <section className="py-20 px-[7%] bg-[#F0F4FA] border-t border-black/5">
       <div className="max-w-[1200px] mx-auto">
-        <div className="border-b-2 border-navy pb-5 mb-10">
+        <div className="border-b-2 border-navy/60 pb-6 mb-12">
           <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">What Our Alumni Say</p>
-          <h2 className="font-display text-[clamp(26px,3vw,40px)] font-bold text-navy leading-tight tracking-tight">
+          <h2 className="font-display text-[clamp(32px,3.2vw,46px)] font-bold text-navy leading-tight tracking-tight">
             Alumni Messages About Us
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-background border border-border p-8 relative"
+              className="bg-white border border-black/5 p-8 rounded-2xl shadow-[0_16px_45px_rgba(15,23,42,0.08)] flex flex-col h-full"
             >
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-[64px] h-[64px] border-2 border-navy overflow-hidden flex-shrink-0 flex items-center justify-center bg-white">
-                  <img src={t.img} alt={t.name} className="w-full h-full object-cover object-center" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-[60px] h-[60px] rounded-full overflow-hidden border-2 border-[#EEF2F8]">
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
                 </div>
-                <div className="flex-1">
-                  <div className="font-bold text-navy text-sm">{t.name}</div>
-                  <div className="text-[12px] text-muted-foreground mt-0.5 leading-relaxed">{t.role}</div>
+                <div>
+                  <div className="font-semibold text-[#1E3A5F] text-sm">{t.name}</div>
+                  <div className="text-[11px] uppercase tracking-[0.08em] text-[#6B7280]">{t.role}</div>
                 </div>
               </div>
 
-              <p className="text-[14px] text-foreground/80 leading-[1.8] italic border-l-4 border-teal-dark pl-4">
-                "{t.text}"
-              </p>
+              <div className="border-l-4 border-[#2DD4BF] pl-5 flex-1">
+                <p className="font-display text-[17px] text-[#1A2E50] leading-relaxed italic">“{t.text}”</p>
+              </div>
             </div>
           ))}
         </div>

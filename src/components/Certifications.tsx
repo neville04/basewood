@@ -8,27 +8,27 @@ const certs = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-16 px-[7%] bg-background border-b border-border">
+    <section id="certifications" className="py-20 px-[7%] bg-white border-t border-black/5">
       <div className="max-w-[1200px] mx-auto">
-        <div className="border-b-2 border-navy pb-5 mb-10">
+        <div className="border-b-2 border-navy/60 pb-6 mb-12">
           <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Our Accreditations</p>
-          <h2 className="font-display text-[clamp(26px,3vw,40px)] font-bold text-navy leading-tight tracking-tight">
+          <h2 className="font-display text-[clamp(32px,3.2vw,46px)] font-bold text-navy leading-tight tracking-tight">
             Internationally Recognised Qualifications
           </h2>
-          <p className="text-[14px] text-muted-foreground mt-2 max-w-[500px]">
+          <p className="text-[14px] text-[#6B7280] mt-3 max-w-[520px]">
             Every course is delivered in partnership with globally accredited professional bodies.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
           {certs.map((c, i) => (
             <div
               key={c.abbr}
-              className="flex flex-col items-center justify-center bg-background py-6 px-4 text-center gap-3 rounded-xl border border-border hover:bg-cream transition-colors"
+              className="flex flex-col items-center justify-center bg-white py-7 px-4 text-center gap-3 rounded-2xl border border-black/5 shadow-[0_10px_28px_rgba(15,23,42,0.06)] hover:-translate-y-1 transition-all duration-200"
             >
               <div className="h-20 flex items-center justify-center w-full">
                 <img src={c.logo} alt={c.abbr} className="h-full w-auto object-contain" loading={i < 3 ? "eager" : "lazy"} />
               </div>
-              <div className="text-[11px] text-muted-foreground leading-snug">
+              <div className="text-[11px] text-[#6B7280] leading-snug">
                 {c.name}
               </div>
             </div>

@@ -64,13 +64,18 @@ const Contact = () => {
 
             {/* Quick Actions */}
             <div className="space-y-4">
-              <a
-                href="/enroll"
-                className="block bg-navy text-white p-8 text-center no-underline hover:bg-teal-dark transition-colors"
-              >
-                <h3 className="font-display text-xl font-semibold mb-2">Enroll Now</h3>
-                <p className="text-sm opacity-70">Start your professional certification journey today</p>
-              </a>
+              <div className="bg-[#1E3A5F] text-white p-8 rounded-2xl text-center shadow-[0_18px_38px_rgba(15,23,42,0.25)]">
+                <h3 className="font-display text-xl font-semibold text-white mb-2">Enroll Now</h3>
+                <p className="text-sm text-[#CBD5E1] mb-6">
+                  Start your professional certification journey today
+                </p>
+                <a
+                  href="/enroll"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#2DD4BF] text-white font-semibold text-[13px] uppercase tracking-[0.08em] rounded-full no-underline shadow-[0_10px_24px_rgba(7,44,90,0.25)] transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  Begin Application
+                </a>
+              </div>
 
               <a
                 href="https://wa.me/256773099672"

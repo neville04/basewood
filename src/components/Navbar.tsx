@@ -90,7 +90,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link
               to="/enroll"
-              className="no-underline bg-teal-dark text-white px-6 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-teal transition-colors"
+              className="no-underline bg-[#2DD4BF] text-[#1A2E50] px-6 py-2.5 text-[13px] font-bold uppercase tracking-[0.06em] rounded-full shadow-[0_15px_32px_rgba(2,32,71,0.35)] transition-all duration-200 hover:-translate-y-0.5"
             >
               Enroll Now
             </Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
             <Link
               to="/enroll"
               onClick={() => setMobileOpen(false)}
-              className="bg-teal-dark text-white px-5 py-3 font-bold text-sm uppercase tracking-[0.06em] text-center no-underline mt-3"
+              className="bg-[#2DD4BF] text-[#1A2E50] px-5 py-3 font-bold text-sm uppercase tracking-[0.06em] text-center no-underline mt-3 rounded-full"
             >
               Enroll Now
             </Link>

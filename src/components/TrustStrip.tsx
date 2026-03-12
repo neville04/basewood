@@ -12,7 +12,7 @@ const logos = [
 const marqueeLogos = [...logos, ...logos];
 
 const TrustStrip = () => (
-  <section className="relative border-y border-border/70 bg-gradient-to-r from-cream via-white to-cream py-8">
+  <section className="relative border-t border-black/5 bg-[#F3F6FB] py-20">
     <div className="max-w-[1200px] mx-auto px-[7%]">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
         <div>
@@ -24,14 +24,14 @@ const TrustStrip = () => (
       </div>
 
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream via-cream/90 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream via-cream/90 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#F3F6FB] via-[#F3F6FB]/90 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#F3F6FB] via-[#F3F6FB]/90 to-transparent" />
 
-        <div className="flex w-max items-center gap-8 animate-trust-marquee justify-center">
+        <div className="flex w-max items-center gap-10 animate-trust-marquee justify-center">
           {marqueeLogos.map((logo, idx) => (
             <div
               key={`${logo.name}-${idx}`}
-              className="flex items-center justify-center rounded-2xl border border-white/70 bg-white/95 shadow-md px-8 py-6 h-24 min-w-[180px]"
+              className="flex items-center justify-center rounded-2xl border border-white/80 bg-white shadow-[0_6px_20px_rgba(0,0,0,0.05)] px-8 py-6 h-24 min-w-[200px]"
             >
               <img
                 src={logo.src}

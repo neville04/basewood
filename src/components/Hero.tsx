@@ -58,7 +58,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-black" style={{ minHeight: "92vh" }}>
+    <section className="relative overflow-hidden bg-white" style={{ minHeight: "92vh" }}>
       {/* Background carousel */}
       <div className="absolute inset-0 overflow-hidden">
         <div
@@ -81,7 +81,7 @@ const Hero = () => {
                   decoding="async"
                   data-priority={isPriority ? "true" : undefined}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-[#EEF2F8]/55" />
               </div>
             );
           })}
@@ -89,7 +89,7 @@ const Hero = () => {
       </div>
 
       {/* Subtle texture overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.12),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(32,54,89,0.08),transparent_55%)]" />
 
       {/* Content */}
       <div
@@ -97,17 +97,17 @@ const Hero = () => {
         style={{ minHeight: "92vh" }}
       >
         <div className="max-w-[580px] py-20">
-          <div className="inline-block bg-teal-dark text-white text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1.5 mb-6">
+          <div className="inline-block bg-[#2DD4BF] text-white text-[11px] font-bold uppercase tracking-[0.18em] px-4 py-1.5 mb-6 rounded-full">
             2026 Intake — Now Open
           </div>
 
-          <h1 className="font-display text-[clamp(36px,4.5vw,64px)] font-bold text-white leading-[1.08] tracking-tight mb-6">
+          <h1 className="font-display text-[clamp(36px,4.5vw,64px)] font-bold text-[#1E3A5F] leading-[1.08] tracking-tight mb-6">
             Advance Your Career.<br />
             Earn Global<br />
-            <span style={{ color: "hsl(var(--teal))" }}>Certifications.</span>
+            <span className="text-[#2DD4BF]">Certifications.</span>
           </h1>
 
-          <p className="text-[15px] text-white/65 leading-relaxed max-w-[480px] mb-10">
+          <p className="text-[15px] text-[#4B5563] leading-relaxed max-w-[460px] mb-10">
             Uganda's premier Center for Professional Courses — partnered with CIM, ACCA, CIPS, CPA &amp; CILT.
             Join 1,000+ alumni leading across East Africa.
           </p>
@@ -115,28 +115,28 @@ const Hero = () => {
           <div className="flex gap-3 flex-wrap mb-14">
             <a
               href="#programs"
-              className="bg-teal-dark text-white px-8 py-3.5 font-bold text-sm uppercase tracking-[0.06em] no-underline hover:bg-teal transition-colors"
+              className="bg-[#2DD4BF] text-white px-8 py-3.5 font-bold text-sm uppercase tracking-[0.08em] no-underline rounded-md shadow-[0_18px_24px_rgba(32,54,89,0.18)] transition-all duration-200 hover:-translate-y-0.5"
             >
               Explore Programs
             </a>
             <Link
               to="/enroll"
-              className="border-2 border-white/40 text-white px-8 py-3.5 font-bold text-sm uppercase tracking-[0.06em] no-underline hover:border-white transition-colors"
+              className="border border-[#1E3A5F] text-[#1E3A5F] px-8 py-3.5 font-bold text-sm uppercase tracking-[0.08em] no-underline rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#F0F4FA]"
             >
               Enroll Now
             </Link>
           </div>
 
           {/* Stats */}
-          <div className="flex gap-10 flex-wrap pt-8 border-t border-white/25">
+          <div className="flex gap-10 flex-wrap pt-8 border-t border-[#1E3A5F]/15">
             {[
               { value: "1,000+", label: "Alumni" },
               { value: "6+", label: "Certifications" },
               { value: "25+", label: "Short Courses" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="font-display text-[34px] font-bold text-white leading-none">{s.value}</div>
-                <div className="text-[11px] text-white/45 mt-1 uppercase tracking-[0.1em]">{s.label}</div>
+                <div className="font-display text-[34px] font-bold text-[#1E3A5F] leading-none">{s.value}</div>
+                <div className="text-[11px] text-[#1E3A5F]/65 mt-1 uppercase tracking-[0.12em]">{s.label}</div>
               </div>
             ))}
           </div>
@@ -159,8 +159,8 @@ const Hero = () => {
             ))}
           </div>
 
-          <div className="mt-6 text-[11px] uppercase tracking-[0.14em] text-white/70">
-            {slides[current].label} — <span className="text-white/60 normal-case tracking-normal text-[13px]">{slides[current].caption}</span>
+          <div className="mt-6 text-[11px] uppercase tracking-[0.14em] text-[#1E3A5F]/70">
+            {slides[current].label} — <span className="text-[#4B5563] normal-case tracking-normal text-[13px]">{slides[current].caption}</span>
           </div>
         </div>
       </div>

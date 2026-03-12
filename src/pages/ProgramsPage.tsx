@@ -9,19 +9,19 @@ const programs = [
     abbr: "ACCA",
     full: "Association of Chartered Certified Accountants",
     tag: "Approved Learning Partner",
-    img: "/acca.jpg",
+    img: "/acca.png",
   },
   {
     abbr: "CPA Uganda",
     full: "Institute of Certified Public Accountants of Uganda",
     tag: "Recognised Tuition Provider",
-    img: "/cpa.jpg",
+    img: "/cpa.png",
   },
   {
     abbr: "CILT",
     full: "Chartered Institute of Logistics & Transport",
     tag: "Accredited Study Centre",
-    img: "/logistics.jpg",
+    img: "/logistics.png",
   },
   {
     abbr: "CIM",

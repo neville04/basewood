@@ -89,10 +89,16 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "trust-marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "trust-marquee": "trust-marquee 28s linear infinite",
+        "partners-marquee": "trust-marquee 34s linear infinite",
       },
     },
   },

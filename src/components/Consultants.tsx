@@ -13,8 +13,8 @@ import shailenderSaharan from "@/assets/consultants/shailender-saharan.jpg";
 const consultants = [
   { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
   { name: "Deepa Shah", title: "Consultant — Sustainability Transformation in Global Marketing", quals: "", desc: "", img: deepaShah },
-  { name: "John Ssenkeezi", title: "Seasoned Digital and Growth Marketing Specialist", quals: "DipM, MCIM", desc: "President of the Uganda Digital Society · Digital Supervisor at NSSF", img: johnSsenkeezi },
-  { name: "Lydia Tusiime", title: "Manager Business Development", quals: "DipM", desc: "Institute of Certified Public Accountants of Uganda — ICPAU", img: lydiaTusiime },
+  { name: "Lydia Tusiime", title: "Seasoned Digital and Growth Marketing Specialist", quals: "DipM, MCIM", desc: "President of the Uganda Digital Society · Digital Supervisor at NSSF", img: johnSsenkeezi },
+  { name: "John Ssenkeezi", title: "Manager Business Development", quals: "DipM", desc: "Institute of Certified Public Accountants of Uganda — ICPAU", img: lydiaTusiime },
   { name: "Francis Mutebi", title: "Member of Association of Chartered Certified Accountants", quals: "FCCA (since 2008)", desc: "", img: francisMutebi },
   { name: "Hillary Baguma", title: "Brand Builder, Marketing Professional and Sustainability Advocate", quals: "DipM", desc: "Brand Manager at Uganda Breweries Ltd", img: hillaryBaguma },
   { name: "Kayongo Daniel", title: "Brand Management Strategist and Digital Marketing Expert", quals: "DipM, MCIM", desc: "Brand Manager at Kansai Plascon Uganda", img: kayongoDaniel },

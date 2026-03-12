@@ -8,7 +8,7 @@ const programs = [
     subtitle: "Accounting & Finance",
     org: "Association of Chartered Certified Accountants",
     badge: "Most Popular",
-    img: "/acca.jpg",
+    img: "/acca.png",
   },
   {
     id: "cpa",
@@ -16,7 +16,7 @@ const programs = [
     subtitle: "Certified Public Accountant",
     org: "Institute of Certified Public Accountants of Uganda",
     badge: "Recognised Provider",
-    img: "/cpa.jpg",
+    img: "/cpa.png",
   },
   {
     id: "cilt",
@@ -24,7 +24,7 @@ const programs = [
     subtitle: "Logistics & Transport",
     org: "Chartered Institute of Logistics & Transport",
     badge: null,
-    img: "/logistics.jpg",
+    img: "/logistics.png",
   },
 ];
 

@@ -1,10 +1,9 @@
 const certs = [
-  { abbr: "CIM", name: "Chartered Institute of Marketing" },
-  { abbr: "ACCA", name: "Chartered Certified Accountants" },
-  { abbr: "CPA", name: "Certified Public Accountants Uganda" },
-  { abbr: "CIPS", name: "Procurement & Supply" },
-  { abbr: "CILT", name: "Logistics & Transport" },
-  { abbr: "CISCM", name: "Sales & Customer Service Mgmt" },
+  { abbr: "CIM", name: "Chartered Institute of Marketing", logo: "/CIM.png" },
+  { abbr: "ACCA", name: "Association of Chartered Certified Accountants", logo: "/acca.png" },
+  { abbr: "CPA", name: "Certified Public Accountants Uganda", logo: "/cpa.png" },
+  { abbr: "CIPS", name: "Chartered Institute of Procurement & Supply", logo: "/CIPS.png" },
+  { abbr: "CILT", name: "Chartered Institute of Logistics & Transport", logo: "/logistics.png" },
 ];
 
 const Certifications = () => {
@@ -20,18 +19,16 @@ const Certifications = () => {
             Every course is delivered in partnership with globally accredited professional bodies.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-0 border border-border">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {certs.map((c, i) => (
             <div
               key={c.abbr}
-              className={`p-7 text-center bg-background hover:bg-navy group transition-colors cursor-pointer border-border ${
-                i % 6 !== 5 ? "border-r" : ""
-              }`}
+              className="flex flex-col items-center justify-center bg-background py-6 px-4 text-center gap-3 rounded-xl border border-border hover:bg-cream transition-colors"
             >
-              <div className="font-display text-[26px] font-bold text-navy group-hover:text-white transition-colors mb-2">
-                {c.abbr}
+              <div className="h-20 flex items-center justify-center w-full">
+                <img src={c.logo} alt={c.abbr} className="h-full w-auto object-contain" loading={i < 3 ? "eager" : "lazy"} />
               </div>
-              <div className="text-[11px] text-muted-foreground group-hover:text-primary-foreground/60 transition-colors leading-snug">
+              <div className="text-[11px] text-muted-foreground leading-snug">
                 {c.name}
               </div>
             </div>

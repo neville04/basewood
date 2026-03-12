@@ -1,8 +1,49 @@
 # Welcome to your Lovable project
 
+Marketing website for **Basewood Institute** — Uganda's premier Center for Professional Courses. Showcases programs (ACCA, CPA, CILT, CIM, CIPS, FRM), team, alumni, and enrollment.
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+
+## Quick Start
+
+```sh
+# Install dependencies
+npm install
+
+# Start development server (http://localhost:8080)
+npm run dev
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run Vitest unit tests |
+| `npm run test:e2e` | Run Playwright E2E tests |
+| `npm run test:e2e:ui` | Run E2E tests with Playwright UI |
+| `npm run test:e2e:headed` | Run E2E tests with visible browser |
+
+## Testing
+
+**Unit tests (Vitest):**
+```sh
+npm run test
+npm run test:watch   # Watch mode
+```
+
+**E2E tests (Playwright):**
+```sh
+npx playwright install   # First time only
+npm run test:e2e
+```
+
+See [tests/README.md](tests/README.md) for details.
 
 ## How can I edit this code?
 
@@ -60,6 +101,15 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+Additional: Vitest (unit tests), Playwright (E2E tests), react-router-dom, react-hook-form, zod.
+
+## Documentation
+
+| Doc | Description |
+|-----|-------------|
+| [docs/SYSTEM_DESIGN.md](docs/SYSTEM_DESIGN.md) | Architecture and system design |
+| [docs/ISSUES_AND_IMPROVEMENTS.md](docs/ISSUES_AND_IMPROVEMENTS.md) | Known issues and improvement ideas |
+| [docs/TEST_PLAN.md](docs/TEST_PLAN.md) | Testing strategy and coverage |
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.

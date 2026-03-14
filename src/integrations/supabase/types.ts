@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      enrollments: {
+        Row: {
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string
+          program: string
+          submitted_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone: string
+          program: string
+          submitted_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string
+          program?: string
+          submitted_at?: string
+        }
+        Relationships: []
+      }
+      news_posts: {
+        Row: {
+          body: string | null
+          category: string
+          created_at: string
+          id: string
+          media_type: string | null
+          media_url: string | null
+          published: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          category: string
+          created_at?: string
+          id?: string
+          media_type?: string | null
+          media_url?: string | null
+          published?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          category?: string
+          created_at?: string
+          id?: string
+          media_type?: string | null
+          media_url?: string | null
+          published?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

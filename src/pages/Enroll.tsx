@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { useReveal } from "@/hooks/useReveal";
+import { supabase } from "@/lib/supabase";
 
 const programOptions = [
   "CIM — Chartered Institute of Marketing",

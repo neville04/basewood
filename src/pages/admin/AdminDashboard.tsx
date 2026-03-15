@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { isAdminLoggedIn, adminLogout } from "./AdminLogin";
 import AdminNewsPosts from "./AdminNewsPosts";
 import AdminEnrollments from "./AdminEnrollments";
 
@@ -12,14 +12,15 @@ const AdminDashboard = () => {
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (!data.session) navigate("/admin/login");
+    if (!isAdminLoggedIn()) {
+      navigate("/admin/login");
+    } else {
       setChecking(false);
-    });
+    }
   }, [navigate]);
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
+  const handleLogout = () => {
+    adminLogout();
     navigate("/admin/login");
   };
 

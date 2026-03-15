@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+
+const ADMIN_EMAIL = "info@basewoodconsult.ac.ug";
+const ADMIN_PASSWORD = "basewood@2026";
+const SESSION_KEY = "basewood_admin_session";
+
+export const isAdminLoggedIn = () => sessionStorage.getItem(SESSION_KEY) === "true";
+export const adminLogout = () => sessionStorage.removeItem(SESSION_KEY);
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState("info@basewoodconsult.ac.ug");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -14,12 +20,14 @@ const AdminLogin = () => {
     setLoading(true);
     setError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    // Simulate a brief loading state
+    await new Promise((r) => setTimeout(r, 400));
 
-    if (error) {
-      setError("Invalid credentials. Please check your email and password.");
-    } else {
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      sessionStorage.setItem(SESSION_KEY, "true");
       navigate("/admin");
+    } else {
+      setError("Invalid credentials. Please check your email and password.");
     }
     setLoading(false);
   };

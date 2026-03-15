@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import type { NewsPost } from "@/lib/supabase";
+import type { Tables } from "@/integrations/supabase/types";
+
+type NewsPost = Tables<"news_posts">;
 
 const CATEGORY_LABELS = {
   article: { label: "Article", color: "bg-blue-100 text-blue-700" },

@@ -51,7 +51,7 @@ const AdminNewsPosts = () => {
     setEditing(post);
     setForm({
       title: post.title,
-      category: post.category,
+      category: post.category as "article" | "blog" | "announcement",
       body: post.body || "",
       media_url: post.media_url || "",
       media_type: (post.media_type as "image" | "video") || "image",

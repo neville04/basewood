@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { supabase, type Enrollment } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
+
+type Enrollment = Tables<"enrollments">;
 
 const AdminEnrollments = () => {
   const [enrollments, setEnrollments] = useState<Enrollment[]>([]);

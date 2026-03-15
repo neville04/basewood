@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { supabase, type NewsPost } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
+
+type NewsPost = Tables<"news_posts">;
 
 const CATEGORY_LABELS = {
   article: { label: "Article", color: "bg-blue-100 text-blue-700" },
@@ -48,7 +51,7 @@ const AdminNewsPosts = () => {
     setEditing(post);
     setForm({
       title: post.title,
-      category: post.category,
+      category: post.category as "article" | "blog" | "announcement",
       body: post.body || "",
       media_url: post.media_url || "",
       media_type: (post.media_type as "image" | "video") || "image",

@@ -56,11 +56,11 @@ const consultants = [
     img: jamesOchen,
   },
   {
-    name: "John Paul Okwi",
-    title: "Chartered Marketer",
-    quals: "",
-    desc: "Board Member of Uganda Marketers' Society · Events and Sponsorship Manager at MTN-Uganda",
-    img: johnPaulOkwi,
+    name: "Francis Mutebi",
+    title: "Member of FCCA",
+    quals: "Since 2008",
+    desc: "",
+    img: francisMutebi,
   },
   {
     name: "Shailender Singh Saharan",

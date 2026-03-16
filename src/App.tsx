@@ -11,6 +11,9 @@ import OurTeam from "./pages/OurTeam";
 import Contact from "./pages/Contact";
 import ProgramsPage from "./pages/ProgramsPage";
 import NotFound from "./pages/NotFound";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import NewsPostPage from "./pages/NewsPostPage";
 
 const queryClient = new QueryClient();
 
@@ -21,12 +24,8 @@ const App = () => {
     const applyAttributes = (root: ParentNode = document) => {
       const images = root.querySelectorAll<HTMLImageElement>("img:not([data-priority='true'])");
       images.forEach((img) => {
-        if (!img.hasAttribute("loading")) {
-          img.setAttribute("loading", "lazy");
-        }
-        if (!img.hasAttribute("decoding")) {
-          img.setAttribute("decoding", "async");
-        }
+        if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
+        if (!img.hasAttribute("decoding")) img.setAttribute("decoding", "async");
       });
     };
 
@@ -64,6 +63,11 @@ const App = () => {
             <Route path="/team" element={<OurTeam />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/programs" element={<ProgramsPage />} />
+            {/* News Post detail */}
+            <Route path="/news/:id" element={<NewsPostPage />} />
+            {/* Admin Portal */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

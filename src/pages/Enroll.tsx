@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { useReveal } from "@/hooks/useReveal";
+import { supabase } from "@/lib/supabase";
 
 const programOptions = [
   "CIM — Chartered Institute of Marketing",
@@ -58,23 +59,29 @@ const Enroll = () => {
     formPayload.append("Submitted On", new Date().toLocaleString());
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/elijahmukiibi18@gmail.com", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-        body: formPayload,
-      });
+      // Save to Supabase
+      const { error: dbError } = await supabase.from("enrollments").insert([{
+        name,
+        email,
+        phone,
+        program,
+        message: message?.trim() || null,
+      }]);
 
-      if (!response.ok) {
-        throw new Error("Failed to submit enrollment.");
-      }
+      if (dbError) throw dbError;
+
+      // Also send email via FormSubmit (fire-and-forget, non-blocking)
+      fetch("https://formsubmit.co/ajax/elijahmukiibi18@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formPayload,
+      }).catch(() => {});
 
       form.reset();
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      setError("We couldn't send your request automatically. Please try again or email info@basewoodconsult.ac.ug.");
+      setError("We couldn't send your request. Please try again or email info@basewoodconsult.ac.ug.");
     } finally {
       setSending(false);
     }

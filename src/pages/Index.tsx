@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
+import WhatsNew from "@/components/WhatsNew";
 import Programs from "@/components/Programs";
 import WhyBasewood from "@/components/WhyBasewood";
 import StatsSection from "@/components/StatsSection";
@@ -16,6 +17,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <TrustStrip />
+      <WhatsNew />
       <Programs />
       <WhyBasewood />
       <StatsSection />

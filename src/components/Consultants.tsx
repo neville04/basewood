@@ -13,10 +13,10 @@ import shailenderSaharan from "@/assets/consultants/shailender-saharan.jpg";
 const consultants = [
   { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
   {
-    name: "James Ocen",
-    title: "Leadership and Sales Expert",
-    quals: "Corporate Investment banking",
-    desc: "DFCU Bank",
+    name: "Hillary Baguma",
+    title: "DipM. Brand Builder, Marketing Professional.",
+    quals: "Sustainability Advocate. Brand ambassador at Uganda Breweries Ltd.",
+    desc: "",
     img: deepaShah,
   },
   {

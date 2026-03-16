@@ -34,10 +34,10 @@ const consultants = [
     img: lydiaTusiime,
   },
   {
-    name: "Francis Mutebi",
-    title: "Member of Association of Chartered Certified Accountants",
+    name: "John Senkeezi",
+    title: "DipM, MCIM",
     quals: "FCCA (since 2008)",
-    desc: "",
+    desc: "Seasoned Digital and Growth Marketing Specialist. President-Uganda Digital Society|Digital Supervisor, NSSF",
     img: francisMutebi,
   },
   {

@@ -12,56 +12,6 @@ import shailenderSaharan from "@/assets/consultants/shailender-saharan.jpg";
 
 const consultants = [
   { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
-  {
-    name: "Hillary Baguma",
-    title: "DipM. Brand Builder, Marketing Professional.",
-    quals: "Sustainability Advocate. Brand ambassador at Uganda Breweries Ltd.",
-    desc: "",
-    img: deepaShah,
-  },
-  {
-    name: "Deepa Shah",
-    title: "Consultant",
-    quals: "",
-    desc: "Sustainability Transformation in Global Marketing",
-    img: johnSsenkeezi,
-  },
-  {
-    name: "Kayongo Daniel",
-    title: "DipM, MCIM",
-    quals: "Brand Management Strategist and Digital Marketing Expert.",
-    desc: "Brand Manager at Kansai Plascon Uganda.",
-    img: lydiaTusiime,
-  },
-  {
-    name: "John Senkeezi",
-    title: "DipM, MCIM",
-    quals: "FCCA (since 2008), Seasoned Digital and Growth Marketing Specialist. President-Uganda Digital Society",
-    desc: "Digital Supervisor, NSSF",
-    img: francisMutebi,
-  },
-
-  {
-    name: "James Ochen",
-    title: "Leadership and Sales Expert",
-    quals: "",
-    desc: "Corporate Investment Banking — DFCU Bank",
-    img: hillaryBaguma,
-  },
-  {
-    name: "Francis Mutebi",
-    title: "Member of FCCA",
-    quals: "Since 2008",
-    desc: "",
-    img: johnPaulOkwi,
-  },
-  {
-    name: "Shailender Singh Saharan",
-    title: "Seasoned professional in International Marketing and Business Development",
-    quals: "DipM, MCIM",
-    desc: "",
-    img: shailenderSaharan,
-  },
 ];
 
 const Consultants = () => {

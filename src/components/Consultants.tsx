@@ -60,7 +60,7 @@ const consultants = [
     title: "Member of FCCA",
     quals: "Since 2008",
     desc: "",
-    img: francisMutebi,
+    img: johnPaulOkwi,
   },
   {
     name: "Shailender Singh Saharan",

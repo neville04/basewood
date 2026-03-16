@@ -47,13 +47,7 @@ const consultants = [
     desc: "Brand Manager at Uganda Breweries Ltd",
     img: hillaryBaguma,
   },
-  {
-    name: "Kayongo Daniel",
-    title: "Brand Management Strategist and Digital Marketing Expert",
-    quals: "DipM, MCIM",
-    desc: "Brand Manager at Kansai Plascon Uganda",
-    img: kayongoDaniel,
-  },
+
   {
     name: "James Ochen",
     title: "Leadership and Sales Expert",

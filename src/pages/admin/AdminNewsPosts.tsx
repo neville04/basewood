@@ -133,22 +133,24 @@ const AdminNewsPosts = () => {
     e.preventDefault();
     if (!isFormValid()) return;
     setSaving(true);
-    const payload = {
+    const basePayload = {
       title: form.title,
       category: form.category,
-      summary: form.category !== "announcement" ? form.summary || null : null,
       body: form.body || null,
-      author: form.category !== "announcement" ? form.author || null : null,
       media_url: form.media_url || null,
       media_type: form.media_url ? form.media_type : null,
-    } as Record<string, unknown>;
+      // @ts-expect-error - new columns added via migration, types not yet regenerated
+      summary: form.category !== "announcement" ? form.summary || null : null,
+      // @ts-expect-error
+      author: form.category !== "announcement" ? form.author || null : null,
+    };
 
     if (editing) {
-      await supabase.from("news_posts").update(payload).eq("id", editing.id);
+      await supabase.from("news_posts").update(basePayload).eq("id", editing.id);
     } else {
       await supabase
         .from("news_posts")
-        .insert([{ ...payload, published: true }]);
+        .insert([{ ...basePayload, published: true }]);
     }
     setSaving(false);
     setShowForm(false);

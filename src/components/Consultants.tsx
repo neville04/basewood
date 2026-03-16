@@ -40,20 +40,13 @@ const consultants = [
     desc: "Digital Supervisor, NSSF",
     img: francisMutebi,
   },
-  {
-    name: "James Ocen",
-    title: "Leadership and Sales Expert",
-    quals: "DFCU Bank",
-    desc: "Corporate Investment Banking",
-    img: hillaryBaguma,
-  },
 
   {
     name: "James Ochen",
     title: "Leadership and Sales Expert",
     quals: "",
     desc: "Corporate Investment Banking — DFCU Bank",
-    img: jamesOchen,
+    img: hillaryBaguma,
   },
   {
     name: "Francis Mutebi",

@@ -41,10 +41,10 @@ const consultants = [
     img: francisMutebi,
   },
   {
-    name: "Hillary Baguma",
-    title: "Brand Builder, Marketing Professional and Sustainability Advocate",
-    quals: "DipM",
-    desc: "Brand Manager at Uganda Breweries Ltd",
+    name: "James Ocen",
+    title: "Leadership and Sales Expert",
+    quals: "DFCU Bank",
+    desc: "Corporate Investment Banking",
     img: hillaryBaguma,
   },
 

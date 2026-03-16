@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { supabase, type NewsPost } from "@/lib/supabase";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import type { Tables } from "@/integrations/supabase/types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const CATEGORY_STYLES = {
+type NewsPost = Tables<"news_posts"> & { author?: string | null; summary?: string | null };
+
+const CATEGORY_STYLES: Record<string, string> = {
   article: "bg-blue-100 text-blue-700",
   blog: "bg-purple-100 text-purple-700",
   announcement: "bg-amber-100 text-amber-800",
 };
+
+const isClickable = (category: string) =>
+  category === "article" || category === "blog";
 
 const WhatsNew = () => {
   const [posts, setPosts] = useState<NewsPost[]>([]);
@@ -14,6 +21,7 @@ const WhatsNew = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     supabase
@@ -22,7 +30,7 @@ const WhatsNew = () => {
       .eq("published", true)
       .order("created_at", { ascending: false })
       .then(({ data }) => {
-        setPosts(data || []);
+        setPosts((data as NewsPost[]) || []);
         setLoading(false);
       });
   }, []);
@@ -98,65 +106,94 @@ const WhatsNew = () => {
             className="flex gap-5 overflow-x-auto pb-3 scroll-smooth"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {posts.map((post) => (
-              <article
-                key={post.id}
-                className="flex-shrink-0 w-[300px] bg-white rounded-2xl border border-black/5 shadow-[0_8px_30px_rgba(0,0,0,0.07)] overflow-hidden flex flex-col group hover:shadow-[0_16px_45px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300"
-              >
-                {/* Media */}
-                <div className="relative h-44 overflow-hidden bg-gradient-to-br from-navy/5 to-teal-500/10">
-                  {post.media_url ? (
-                    post.media_type === "video" ? (
-                      <video
-                        src={post.media_url}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        muted
-                        autoPlay
-                        loop
-                        playsInline
-                      />
+            {posts.map((post) => {
+              const clickable = isClickable(post.category);
+              const cardContent = (
+                <article
+                  className={`flex-shrink-0 w-[300px] bg-white rounded-2xl border border-black/5 shadow-[0_8px_30px_rgba(0,0,0,0.07)] overflow-hidden flex flex-col transition-all duration-300 ${
+                    clickable
+                      ? "hover:shadow-[0_16px_45px_rgba(0,0,0,0.12)] hover:-translate-y-1 cursor-pointer group"
+                      : "cursor-default"
+                  }`}
+                >
+                  {/* Media */}
+                  <div className="relative h-44 overflow-hidden bg-gradient-to-br from-navy/5 to-teal-500/10">
+                    {post.media_url ? (
+                      post.media_type === "video" ? (
+                        <video
+                          src={post.media_url}
+                          className={`w-full h-full object-cover ${clickable ? "group-hover:scale-105" : ""} transition-transform duration-500`}
+                          muted
+                          autoPlay
+                          loop
+                          playsInline
+                        />
+                      ) : (
+                        <img
+                          src={post.media_url}
+                          alt={post.title}
+                          className={`w-full h-full object-cover ${clickable ? "group-hover:scale-105" : ""} transition-transform duration-500`}
+                          loading="lazy"
+                        />
+                      )
                     ) : (
-                      <img
-                        src={post.media_url}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    )
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-5xl opacity-20">📰</span>
-                    </div>
-                  )}
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-5xl opacity-20">📰</span>
+                      </div>
+                    )}
 
-                  {/* Category badge top-right */}
-                  <span
-                    className={`absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full backdrop-blur-sm ${
-                      CATEGORY_STYLES[post.category]
-                    }`}
-                  >
-                    {post.category}
-                  </span>
-                </div>
+                    {/* Category badge */}
+                    <span
+                      className={`absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full backdrop-blur-sm ${
+                        CATEGORY_STYLES[post.category] || "bg-gray-100 text-gray-600"
+                      }`}
+                    >
+                      {post.category}
+                    </span>
+                  </div>
 
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-1">
-                  <p className="text-[11px] text-gray-400 mb-2">
-                    {new Date(post.created_at).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
-                  <h3 className="font-display font-semibold text-navy text-[15px] leading-snug mb-2 flex-1">
-                    {post.title}
-                  </h3>
-                  {post.body && (
-                    <p className="text-[13px] text-gray-500 leading-relaxed line-clamp-3">{post.body}</p>
-                  )}
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <p className="text-[11px] text-gray-400 mb-2">
+                      {new Date(post.created_at).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                    <h3 className="font-display font-semibold text-navy text-[15px] leading-snug mb-2 flex-1">
+                      {post.title}
+                    </h3>
+                    {/* Use summary for card; fall back to body snippet */}
+                    {(post.summary || post.body) && (
+                      <p className="text-[13px] text-gray-500 leading-relaxed line-clamp-3">
+                        {post.summary || post.body}
+                      </p>
+                    )}
+                    {/* Read more hint for clickable types */}
+                    {clickable && (
+                      <span className="mt-3 text-[12px] font-semibold text-teal-dark">
+                        Read more →
+                      </span>
+                    )}
+                  </div>
+                </article>
+              );
+
+              return clickable ? (
+                <div
+                  key={post.id}
+                  onClick={() => navigate(`/news/${post.id}`)}
+                  role="link"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && navigate(`/news/${post.id}`)}
+                >
+                  {cardContent}
                 </div>
-              </article>
-            ))}
+              ) : (
+                <div key={post.id}>{cardContent}</div>
+              );
+            })}
           </div>
         )}
       </div>

@@ -13,6 +13,7 @@ import ProgramsPage from "./pages/ProgramsPage";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import NewsPostPage from "./pages/NewsPostPage";
 
 const queryClient = new QueryClient();
 

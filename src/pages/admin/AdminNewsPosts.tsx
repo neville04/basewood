@@ -133,27 +133,23 @@ const AdminNewsPosts = () => {
     e.preventDefault();
     if (!isFormValid()) return;
     setSaving(true);
-    const basePayload = {
+    const base = {
       title: form.title,
       category: form.category,
       body: form.body || null,
       media_url: form.media_url || null,
       media_type: form.media_url ? form.media_type : null,
-    } as Record<string, unknown>;
-    if (form.category !== "announcement") {
-      basePayload.summary = form.summary || null;
-      basePayload.author = form.author || null;
-    } else {
-      basePayload.summary = null;
-      basePayload.author = null;
-    }
+      summary: form.category !== "announcement" ? (form.summary || null) : null,
+      author: form.category !== "announcement" ? (form.author || null) : null,
+    };
 
     if (editing) {
-      await supabase.from("news_posts").update(basePayload as never).eq("id", editing.id);
+      await (supabase.from("news_posts") as ReturnType<typeof supabase.from>)
+        .update(base)
+        .eq("id", editing.id);
     } else {
-      await supabase
-        .from("news_posts")
-        .insert([{ ...(basePayload as never), published: true }]);
+      await (supabase.from("news_posts") as ReturnType<typeof supabase.from>)
+        .insert([{ ...base, published: true }]);
     }
     setSaving(false);
     setShowForm(false);

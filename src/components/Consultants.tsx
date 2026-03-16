@@ -20,10 +20,10 @@ const consultants = [
     img: deepaShah,
   },
   {
-    name: "Lydia Tusiime",
-    title: "Seasoned Digital and Growth Marketing Specialist",
-    quals: "DipM, MCIM",
-    desc: "President of the Uganda Digital Society · Digital Supervisor at NSSF",
+    name: "Deepa Shah",
+    title: "Consultant",
+    quals: "",
+    desc: "Sustainability Transformation in Global Marketing",
     img: johnSsenkeezi,
   },
   {

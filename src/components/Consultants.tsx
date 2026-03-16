@@ -27,10 +27,10 @@ const consultants = [
     img: johnSsenkeezi,
   },
   {
-    name: "John Ssenkeezi",
-    title: "Manager Business Development",
-    quals: "DipM",
-    desc: "Institute of Certified Public Accountants of Uganda — ICPAU",
+    name: "Kayongo Daniel",
+    title: "DipM, MCIM",
+    quals: "Brand Management Strategist and Digital Marketing Expert.",
+    desc: "Brand Manager at Kansai Plascon Uganda.",
     img: lydiaTusiime,
   },
   {

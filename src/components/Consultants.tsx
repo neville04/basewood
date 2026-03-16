@@ -36,8 +36,8 @@ const consultants = [
   {
     name: "John Senkeezi",
     title: "DipM, MCIM",
-    quals: "FCCA (since 2008)",
-    desc: "Seasoned Digital and Growth Marketing Specialist. President-Uganda Digital Society|Digital Supervisor, NSSF",
+    quals: "FCCA (since 2008), Seasoned Digital and Growth Marketing Specialist. President-Uganda Digital Society|",
+    desc: "Digital Supervisor, NSSF",
     img: francisMutebi,
   },
   {

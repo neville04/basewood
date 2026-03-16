@@ -46,6 +46,7 @@ export type Database = {
       }
       news_posts: {
         Row: {
+          author: string | null
           body: string | null
           category: string
           created_at: string
@@ -53,10 +54,12 @@ export type Database = {
           media_type: string | null
           media_url: string | null
           published: boolean
+          summary: string | null
           title: string
           updated_at: string
         }
         Insert: {
+          author?: string | null
           body?: string | null
           category: string
           created_at?: string
@@ -64,10 +67,12 @@ export type Database = {
           media_type?: string | null
           media_url?: string | null
           published?: boolean
+          summary?: string | null
           title: string
           updated_at?: string
         }
         Update: {
+          author?: string | null
           body?: string | null
           category?: string
           created_at?: string
@@ -75,6 +80,7 @@ export type Database = {
           media_type?: string | null
           media_url?: string | null
           published?: boolean
+          summary?: string | null
           title?: string
           updated_at?: string
         }

@@ -1,17 +1,80 @@
 import { useReveal } from "@/hooks/useReveal";
 import cleoAmanyire from "@/assets/consultants/cleo-amanyire.jpg";
 import deepaShah from "@/assets/consultants/deepa-shah.jpg";
-import johnSsenkeezi from "@/assets/consultants/john-ssenkeezi.jpg";
-import lydiaTusiime from "@/assets/consultants/lydia-tusiime.jpg";
+import johnSsenkeezi from "@/assets/consultants/John-ssenkeezi.jpg";
 import francisMutebi from "@/assets/consultants/francis-mutebi.jpg";
 import hillaryBaguma from "@/assets/consultants/hillary-baguma.jpg";
 import kayongoDaniel from "@/assets/consultants/kayongo-daniel.jpg";
-import jamesOchen from "@/assets/consultants/james-ochen.jpg";
-import johnPaulOkwi from "@/assets/consultants/john-paul-okwi.jpg";
+import lydiaTusiime from "@/assets/consultants/lydia-tusiime.jpg";
+import jamesOchen from "@/assets/consultants/james-ochen1.jpg";
+import johnPaulOkwi from "@/assets/consultants/johnpaul-okwi.jpg";
 import shailenderSaharan from "@/assets/consultants/shailender-saharan.jpg";
 
 const consultants = [
   { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
+  {
+    name: "Hillary Baguma",
+    title: "DipM",
+    quals: "Brand Builder, Marketing Professional and Sustainability Advocate",
+    desc: "Brand Manager at Uganda Breweries Ltd",
+    img: hillaryBaguma,
+  },
+  {
+    name: "Deepa Shah",
+    title: "Consultant",
+    quals: "Sustainability Transformation in Global Marketing",
+    desc: "",
+    img: deepaShah,
+  },
+  {
+    name: "Kayongo Daniel",
+    title: "DipM, MCIM",
+    quals: "Brand Management Strategist and Digital Marketing Expert",
+    desc: "Brand Manager at Kansai Plascon Uganda",
+    img: kayongoDaniel,
+  },
+  {
+    name: "John Ssenkeezi",
+    title: "DipM, MCIM",
+    quals: "Seasoned Digital and Growth Marketing Specialist. President of the Uganda Digital Society",
+    desc: "Digital Supervisor at NSSF",
+    img: johnSsenkeezi,
+  },
+  {
+    name: "James Ochen",
+    title: "Leadership and Sales Expert",
+    quals: "Corporate Investment Banking - DFCU Bank",
+    desc: "",
+    img: jamesOchen,
+  },
+  {
+    name: "Lydia Tusiime",
+    title: "DipM",
+    quals: "Manager Business Development, Institute of Certified Public Accountants of Uganda (ICPAU)",
+    desc: "",
+    img: lydiaTusiime,
+  },
+  {
+    name: "John Paul Okwi",
+    title: "Chartered Marketer",
+    quals: "Board Member of Uganda Marketers' Society",
+    desc: "Events and Sponsorship Manager at MTN-Uganda",
+    img: johnPaulOkwi,
+  },
+  {
+    name: "Francis Mutebi",
+    title: "Member of Association of Chartered Certified Accountants",
+    quals: "FCCA since 2008",
+    desc: "",
+    img: francisMutebi,
+  },
+  {
+    name: "Shailender Singh Saharan",
+    title: "DipM, MCIM",
+    quals: "Seasoned professional in International Marketing and Business Development",
+    desc: "",
+    img: shailenderSaharan,
+  },
 ];
 
 const Consultants = () => {

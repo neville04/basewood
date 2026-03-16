@@ -14,9 +14,8 @@ const consultants = [
   { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
   {
     name: "Hillary Baguma",
-    title:
-      "Brand Builder, Marketing Professional and Sustainability Advocate. Brand ambassador at Uganda Breweries Ltd.",
-    quals: "",
+    title: "DipM. Brand Builder, Marketing Professional.",
+    quals: "Sustainability Advocate. Brand ambassador at Uganda Breweries Ltd.",
     desc: "",
     img: deepaShah,
   },

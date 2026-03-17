@@ -166,6 +166,23 @@ const Consultants = () => {
             </div>
           ))}
         </div>
+
+        {/* Download CTA */}
+        <div
+          className={`mt-12 flex justify-center transition-all duration-500 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+          style={{ transitionDelay: `${consultants.length * 40 + 100}ms` }}
+        >
+          <a
+            href="/basewood-company-profile.pdf"
+            download="Basewood_Company_Profile.pdf"
+            className="inline-flex items-center gap-3 bg-teal hover:bg-teal/90 text-navy font-semibold text-sm px-8 py-4 rounded-full shadow-lg hover:shadow-teal/30 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <Download className="w-4 h-4" />
+            Find more here
+          </a>
+        </div>
       </div>
     </section>
   );

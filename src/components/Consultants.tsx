@@ -1,7 +1,7 @@
 import { useReveal } from "@/hooks/useReveal";
 import cleoAmanyire from "@/assets/consultants/cleo-amanyire.jpg";
 import deepaShah from "@/assets/consultants/deepa-shah.jpg";
-import johnSsenkeezi from "@/assets/consultants/John-ssenkeezi.jpg";
+import johnSsenkeezi from "@/assets/consultants/john-ssenkeezi.jpg";
 import francisMutebi from "@/assets/consultants/francis-mutebi.jpg";
 import hillaryBaguma from "@/assets/consultants/hillary-baguma.jpg";
 import kayongoDaniel from "@/assets/consultants/kayongo-daniel.jpg";
@@ -10,72 +10,174 @@ import jamesOchen from "@/assets/consultants/james-ochen1.jpg";
 import johnPaulOkwi from "@/assets/consultants/johnpaul-okwi.jpg";
 import shailenderSaharan from "@/assets/consultants/shailender-saharan.jpg";
 
-const consultants = [
-  { name: "Dr Cleo Amanyire", title: "Supply Chain Expert", quals: "", desc: "", img: cleoAmanyire },
+type Consultant = {
+  name: string;
+  title: string;
+  details: string;
+  org: string;
+  img: string | null;
+};
+
+const consultants: Consultant[] = [
+  // ── Row 1 (image 1) ────────────────────────────────────────────────────────
   {
-    name: "Hillary Baguma",
-    title: "DipM",
-    quals: "Brand Builder, Marketing Professional and Sustainability Advocate",
-    desc: "Brand Manager at Uganda Breweries Ltd",
-    img: hillaryBaguma,
+    name: "Dr Cleo Amanyire",
+    title: "Supply Chain Expert",
+    details: "",
+    org: "",
+    img: cleoAmanyire,
   },
   {
     name: "Deepa Shah",
     title: "Consultant",
-    quals: "Sustainability Transformation in Global Marketing",
-    desc: "",
+    details: "Sustainability Transformation in Global Marketing",
+    org: "",
     img: deepaShah,
-  },
-  {
-    name: "Kayongo Daniel",
-    title: "DipM, MCIM",
-    quals: "Brand Management Strategist and Digital Marketing Expert",
-    desc: "Brand Manager at Kansai Plascon Uganda",
-    img: kayongoDaniel,
   },
   {
     name: "John Ssenkeezi",
     title: "DipM, MCIM",
-    quals: "Seasoned Digital and Growth Marketing Specialist. President of the Uganda Digital Society",
-    desc: "Digital Supervisor at NSSF",
+    details: "Seasoned Digital and Growth Marketing Specialist. President of the Uganda Digital Society",
+    org: "Digital Supervisor at NSSF",
     img: johnSsenkeezi,
-  },
-  {
-    name: "James Ochen",
-    title: "Leadership and Sales Expert",
-    quals: "Corporate Investment Banking - DFCU Bank",
-    desc: "",
-    img: jamesOchen,
   },
   {
     name: "Lydia Tusiime",
     title: "DipM",
-    quals: "Manager Business Development, Institute of Certified Public Accountants of Uganda (ICPAU)",
-    desc: "",
+    details: "Manager Business Development, Institute of Certified Public Accountants of Uganda (ICPAU)",
+    org: "",
     img: lydiaTusiime,
-  },
-  {
-    name: "John Paul Okwi",
-    title: "Chartered Marketer",
-    quals: "Board Member of Uganda Marketers' Society",
-    desc: "Events and Sponsorship Manager at MTN-Uganda",
-    img: johnPaulOkwi,
   },
   {
     name: "Francis Mutebi",
     title: "Member of Association of Chartered Certified Accountants",
-    quals: "FCCA since 2008",
-    desc: "",
+    details: "FCCA since 2008",
+    org: "",
     img: francisMutebi,
+  },
+  // ── Row 2 (image 1) ────────────────────────────────────────────────────────
+  {
+    name: "Hillary Baguma",
+    title: "DipM",
+    details: "Brand Builder, Marketing Professional and Sustainability Advocate",
+    org: "Brand Manager at Uganda Breweries Ltd",
+    img: hillaryBaguma,
+  },
+  {
+    name: "Kayongo Daniel",
+    title: "DipM, MCIM",
+    details: "Brand Management Strategist and Digital Marketing Expert",
+    org: "Brand Manager at Kansai Plascon Uganda",
+    img: kayongoDaniel,
+  },
+  {
+    name: "James Ochen",
+    title: "Leadership and Sales Expert",
+    details: "Corporate Investment Banking – DFCU Bank",
+    org: "",
+    img: jamesOchen,
+  },
+  {
+    name: "John Paul Okwi",
+    title: "Chartered Marketer",
+    details: "Board Member of Uganda Marketers' Society",
+    org: "Events and Sponsorship Manager at MTN-Uganda",
+    img: johnPaulOkwi,
   },
   {
     name: "Shailender Singh Saharan",
     title: "DipM, MCIM",
-    quals: "Seasoned professional in International Marketing and Business Development",
-    desc: "",
+    details: "A seasoned professional in International Marketing and Business Development",
+    org: "",
     img: shailenderSaharan,
   },
+  // ── Row 1 (image 2) ────────────────────────────────────────────────────────
+  {
+    name: "Lawrence Kagimu",
+    title: "(MCIM), MBA",
+    details: "Certified Leadership & Management Coach",
+    org: "",
+    img: null,
+  },
+  {
+    name: "Kayiwa Enoch Mutumba",
+    title: "DBS, MBA, MCIM",
+    details: "Business and Marketing Strategist",
+    org: "Head Commercial Honda",
+    img: null,
+  },
+  {
+    name: "Leah Namuleme",
+    title: "BBA, MBA, DipM, MCIM",
+    details: "Customer experience strategist and analyst",
+    org: "Manager Customer Experience, Multichoice Uganda Ltd",
+    img: null,
+  },
+  {
+    name: "Mufumuula Jude",
+    title: "MCIM",
+    details: "DipM, Banking, MA.Econ (Economic Policy and Management)",
+    org: "",
+    img: null,
+  },
+  {
+    name: "Festo S. Mwebaze",
+    title: "MPH, Chartered Marketer",
+    details: "",
+    org: "Head Marketing at Quality Chemicals Industries Ltd",
+    img: null,
+  },
+  // ── Row 2 (image 2) ────────────────────────────────────────────────────────
+  {
+    name: "Wangechi Gitahi",
+    title: "DipM, MCIM",
+    details: "Certified life coach and Brand Strategist",
+    org: "Head of Marketing Nile Breweries",
+    img: null,
+  },
+  {
+    name: "Peter Gonahasa",
+    title: "MCIM, Chartered Marketer",
+    details: "Marketing and Innovation Consultant",
+    org: "Hesed Marketing",
+    img: null,
+  },
+  {
+    name: "Wanda David Earnest",
+    title: "Member of Association of Chartered Certified Accountants",
+    details: "Since 2016",
+    org: "",
+    img: null,
+  },
+  {
+    name: "Becky Angella Alloti",
+    title: "ACIM, DipM, BSWASA",
+    details: "Marketing Strategist, Mentor, Risk and Policy Analyst",
+    org: "Compliance Associate at NSSF",
+    img: null,
+  },
+  {
+    name: "Calvin Yeko Odur",
+    title: "Professional Accountant – FCCA",
+    details: "",
+    org: "Financial Controller at IHK",
+    img: null,
+  },
 ];
+
+/** Avatar placeholder when no photo is available */
+function AvatarPlaceholder({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("");
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-navy-light/30">
+      <span className="font-display text-2xl font-bold text-teal/80">{initials}</span>
+    </div>
+  );
+}
 
 const Consultants = () => {
   const { ref, visible } = useReveal();
@@ -86,7 +188,9 @@ const Consultants = () => {
         <div
           className={`mb-12 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
         >
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2.5">Industry Experts</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2.5">
+            Industry Experts
+          </div>
           <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-primary-foreground leading-[1.12] tracking-tight">
             Our Experienced <em className="italic text-teal">Consultants</em>
           </h2>
@@ -99,17 +203,35 @@ const Consultants = () => {
               className={`bg-navy rounded-xl overflow-hidden border border-navy-light/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-[280ms] ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ transitionDelay: `${i * 60}ms` }}
+              style={{ transitionDelay: `${i * 40}ms` }}
             >
               <div className="w-full aspect-square overflow-hidden">
-                <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top" />
+                {c.img ? (
+                  <img
+                    src={c.img}
+                    alt={c.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <AvatarPlaceholder name={c.name} />
+                )}
               </div>
-              <div className="p-4 text-center">
-                <div className="font-display text-sm font-semibold text-primary-foreground mb-1">{c.name}</div>
-                <div className="text-[11px] text-teal font-medium mb-1 line-clamp-2">{c.title}</div>
-                {c.quals && <div className="text-[10px] text-primary-foreground/50 font-mono">{c.quals}</div>}
-                {c.desc && (
-                  <div className="text-[10px] text-primary-foreground/40 mt-1 leading-snug line-clamp-2">{c.desc}</div>
+              <div className="p-3 text-center">
+                <div className="font-display text-sm font-semibold text-primary-foreground mb-1 leading-tight">
+                  {c.name}
+                </div>
+                <div className="text-[11px] text-teal font-medium mb-1 line-clamp-2 leading-snug">
+                  {c.title}
+                </div>
+                {c.details && (
+                  <div className="text-[10px] text-primary-foreground/55 font-mono leading-snug line-clamp-3 mb-1">
+                    {c.details}
+                  </div>
+                )}
+                {c.org && (
+                  <div className="text-[10px] text-primary-foreground/40 leading-snug line-clamp-2 italic">
+                    {c.org}
+                  </div>
                 )}
               </div>
             </div>

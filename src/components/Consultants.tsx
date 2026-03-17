@@ -1,4 +1,5 @@
 import { useReveal } from "@/hooks/useReveal";
+import { Download } from "lucide-react";
 import cleoAmanyire from "@/assets/consultants/cleo-amanyire.jpg";
 import deepaShah from "@/assets/consultants/deepa-shah.jpg";
 import johnSsenkeezi from "@/assets/consultants/john-ssenkeezi.jpg";

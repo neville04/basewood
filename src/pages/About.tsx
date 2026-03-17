@@ -5,7 +5,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { Target, Eye, Star, Users, Lightbulb, Heart } from "lucide-react";
 import officeImg from "@/assets/office-location.png";
 import marketingSummitImg from "@/assets/sponsors/marketing-summit-sponsors.png";
-import strategicPartnersImg from "@/assets/sponsors/strategic-partners.png";
+import strategicPartnersImg from "@/assets/sponsors/strategic-partners-new.png";
 
 const values = [
   { icon: Star, label: "Excellence" },

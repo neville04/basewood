@@ -1,4 +1,5 @@
 import { useReveal } from "@/hooks/useReveal";
+import { Download } from "lucide-react";
 import cleoAmanyire from "@/assets/consultants/cleo-amanyire.jpg";
 import deepaShah from "@/assets/consultants/deepa-shah.jpg";
 import johnSsenkeezi from "@/assets/consultants/john-ssenkeezi.jpg";
@@ -91,78 +92,6 @@ const consultants: Consultant[] = [
     org: "",
     img: shailenderSaharan,
   },
-  // ── Row 1 (image 2) ────────────────────────────────────────────────────────
-  {
-    name: "Lawrence Kagimu",
-    title: "(MCIM), MBA",
-    details: "Certified Leadership & Management Coach",
-    org: "",
-    img: null,
-  },
-  {
-    name: "Kayiwa Enoch Mutumba",
-    title: "DBS, MBA, MCIM",
-    details: "Business and Marketing Strategist",
-    org: "Head Commercial Honda",
-    img: null,
-  },
-  {
-    name: "Leah Namuleme",
-    title: "BBA, MBA, DipM, MCIM",
-    details: "Customer experience strategist and analyst",
-    org: "Manager Customer Experience, Multichoice Uganda Ltd",
-    img: null,
-  },
-  {
-    name: "Mufumuula Jude",
-    title: "MCIM",
-    details: "DipM, Banking, MA.Econ (Economic Policy and Management)",
-    org: "",
-    img: null,
-  },
-  {
-    name: "Festo S. Mwebaze",
-    title: "MPH, Chartered Marketer",
-    details: "",
-    org: "Head Marketing at Quality Chemicals Industries Ltd",
-    img: null,
-  },
-  // ── Row 2 (image 2) ────────────────────────────────────────────────────────
-  {
-    name: "Wangechi Gitahi",
-    title: "DipM, MCIM",
-    details: "Certified life coach and Brand Strategist",
-    org: "Head of Marketing Nile Breweries",
-    img: null,
-  },
-  {
-    name: "Peter Gonahasa",
-    title: "MCIM, Chartered Marketer",
-    details: "Marketing and Innovation Consultant",
-    org: "Hesed Marketing",
-    img: null,
-  },
-  {
-    name: "Wanda David Earnest",
-    title: "Member of Association of Chartered Certified Accountants",
-    details: "Since 2016",
-    org: "",
-    img: null,
-  },
-  {
-    name: "Becky Angella Alloti",
-    title: "ACIM, DipM, BSWASA",
-    details: "Marketing Strategist, Mentor, Risk and Policy Analyst",
-    org: "Compliance Associate at NSSF",
-    img: null,
-  },
-  {
-    name: "Calvin Yeko Odur",
-    title: "Professional Accountant – FCCA",
-    details: "",
-    org: "Financial Controller at IHK",
-    img: null,
-  },
 ];
 
 /** Avatar placeholder when no photo is available */
@@ -236,6 +165,23 @@ const Consultants = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Download CTA */}
+        <div
+          className={`mt-12 flex justify-center transition-all duration-500 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+          style={{ transitionDelay: `${consultants.length * 40 + 100}ms` }}
+        >
+          <a
+            href="/basewood-company-profile.pdf"
+            download="Basewood_Company_Profile.pdf"
+            className="inline-flex items-center gap-3 bg-teal hover:bg-teal/90 text-navy font-semibold text-sm px-8 py-4 rounded-full shadow-lg hover:shadow-teal/30 hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <Download className="w-4 h-4" />
+            Find more here
+          </a>
         </div>
       </div>
     </section>

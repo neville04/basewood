@@ -5,27 +5,27 @@ const stats = [
   { value: "9+", label: "Strategic Partners", sub: "Local & international organisations" },
 ];
 
-const StatsSection = () => {
-  return (
-    <section className="py-24 px-[7%] bg-[#0D1B4B]">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, idx) => (
-            <div
-              key={stat.label}
-              className={`p-10 text-center ${idx > 0 ? "border-t sm:border-t-0 sm:border-l border-white/15" : ""}`}
-            >
-              <div className="font-display text-[clamp(42px,4vw,64px)] font-semibold text-white leading-none mb-3">
-                {stat.value}
-              </div>
-              <div className="text-[12px] uppercase tracking-[0.28em] text-white/60 mb-2">{stat.label}</div>
-              <div className="text-[13px] text-white/70 leading-relaxed">{stat.sub}</div>
+const StatsSection = () => (
+  <section className="bg-primary py-20 border-t-4 border-secondary">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        {stats.map((stat, idx) => (
+          <div
+            key={stat.label}
+            className={`p-10 text-center ${idx > 0 ? "border-t sm:border-t-0 sm:border-l border-white/10" : ""}`}
+          >
+            <div className="font-black text-5xl md:text-6xl text-secondary leading-none mb-4">
+              {stat.value}
             </div>
-          ))}
-        </div>
+            <div className="text-[10px] uppercase tracking-widest text-white font-black mb-2">
+              {stat.label}
+            </div>
+            <div className="text-xs text-white/60 leading-relaxed">{stat.sub}</div>
+          </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default StatsSection;

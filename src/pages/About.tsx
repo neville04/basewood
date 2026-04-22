@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
-import { useReveal } from "@/hooks/useReveal";
 import { Target, Eye, Star, Users, Lightbulb, Heart } from "lucide-react";
 import officeImg from "@/assets/office-location.png";
 import marketingSummitImg from "@/assets/sponsors/marketing-summit-sponsors.png";
@@ -15,118 +14,127 @@ const values = [
   { icon: Target, label: "Client-Centric Approach" },
 ];
 
-const About = () => {
-  const { ref, visible } = useReveal(0.2);
+const features = [
+  "Flexibility — online and in-person learning options",
+  "Globally recognized certifications",
+  "Practical, career-oriented training",
+  "ACCA CBE digital exam centre",
+  "Structured progression from foundational to advanced levels",
+  "Expert practitioners, not just academics",
+];
 
+const About = () => {
   return (
     <>
       <Navbar />
-      {/* Hero banner with office image */}
-      <div className="relative w-full h-[340px] md:h-[420px] overflow-hidden">
-        <img src={officeImg} alt="Basewood Institute office on Kanjokya Street, Kampala" className="w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/40 to-transparent" />
-        <div className="absolute bottom-8 left-[7%] z-[1]">
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2">Know Us Better</div>
-          <h1 className="font-display text-[clamp(32px,3.6vw,50px)] font-bold text-primary-foreground leading-[1.12] tracking-tight">About Us</h1>
+      <div className="bg-white">
+        {/* Hero banner */}
+        <div className="relative w-full h-[340px] md:h-[440px] overflow-hidden bg-primary">
+          <img src={officeImg} alt="Basewood Institute office on Kanjokya Street, Kampala" className="w-full h-full object-cover object-center opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
+          <div className="absolute bottom-10 left-0 right-0">
+            <div className="container mx-auto px-4">
+              <p className="text-secondary font-black uppercase tracking-[0.3em] text-[10px] mb-3">Know Us Better</p>
+              <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tighter text-white">About Us</h1>
+              <div className="w-24 h-1 bg-secondary mt-4" />
+            </div>
+          </div>
         </div>
-      </div>
-      <section className="pt-16 pb-[100px] bg-cream" ref={ref}>
-        <div className="max-w-[1200px] mx-auto px-[7%]">
-          {/* Header */}
-          <div className={`text-center mb-16 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <h2 className="font-display text-[clamp(28px,3vw,42px)] font-semibold text-foreground leading-[1.12] tracking-tight">
-              A Professional Training Institute<br />to <em className="italic text-accent-foreground">Experience</em>
-            </h2>
-          </div>
 
-          {/* Summary */}
-          <div className={`max-w-[800px] mx-auto text-center mb-16 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
-              Basewood Institute is a global professional organisation offering diverse Educational, Training & Learning solutions catering to students, working Executives & Corporate Organisations. We aim to create a knowledge-based Center of Excellence in Consultancy, Training and Professional Development.
-            </p>
-            <p className="text-[15px] text-muted-foreground leading-[1.8] font-light mt-4">
-              We focus on building a platform for professionals and organisations to give them the best in education. We offer various programs & certifications in Marketing & Sales, Accounting and Finance, Transport and Logistics, Procurement and Supply, Customer Experience, ICT, Executive Short Courses, Data Analytics, General Consultancy, Skills Development and Master Classes — with professional courses such as CILT, CIM, CPA, CTA, ACCA & CIPS.
-            </p>
+        {/* Intro */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-12">
+              <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3">Our Story</p>
+              <h2 className="text-4xl md:text-5xl font-black text-primary uppercase tracking-tight leading-tight">
+                A Professional Training Institute to Experience
+              </h2>
+            </div>
+            <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
+              <p>
+                Basewood Institute is a global professional organisation offering diverse Educational, Training & Learning solutions catering to students, working Executives & Corporate Organisations. We aim to create a knowledge-based Center of Excellence in Consultancy, Training and Professional Development.
+              </p>
+              <p>
+                We focus on building a platform for professionals and organisations to give them the best in education. We offer various programs &amp; certifications in Marketing &amp; Sales, Accounting and Finance, Transport and Logistics, Procurement and Supply, Customer Experience, ICT, Executive Short Courses, Data Analytics, General Consultancy, Skills Development and Master Classes — with professional courses such as CILT, CIM, CPA, CTA, ACCA &amp; CIPS.
+              </p>
+            </div>
           </div>
+        </section>
 
-          {/* Mission & Vision cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className={`bg-background border border-border rounded-2xl p-10 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5">
-                <Target className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-3">Our Mission</h3>
-              <p className="text-[15px] text-muted-foreground leading-relaxed font-light">
+        {/* Mission / Vision */}
+        <section className="bg-slate-50 py-20 border-y">
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white p-12 border-l-4 border-secondary">
+              <Target className="h-10 w-10 text-primary mb-6" />
+              <h3 className="text-2xl font-black uppercase text-primary mb-4">Our Mission</h3>
+              <p className="text-slate-600 leading-relaxed">
                 To empower individuals and organizations with the knowledge, skills and expertise through comprehensive training programs, research and top-notch Consultancy services.
               </p>
             </div>
-            <div className={`bg-background border border-border rounded-2xl p-10 transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-              <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5">
-                <Eye className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-3">Our Vision</h3>
-              <p className="text-[15px] text-muted-foreground leading-relaxed font-light">
+            <div className="bg-white p-12 border-l-4 border-accent">
+              <Eye className="h-10 w-10 text-primary mb-6" />
+              <h3 className="text-2xl font-black uppercase text-primary mb-4">Our Vision</h3>
+              <p className="text-slate-600 leading-relaxed">
                 To be the foremost and most trusted institution for training, research and consultancy globally.
               </p>
             </div>
           </div>
+        </section>
 
-          {/* Key Features */}
-          <div className={`mb-16 transition-all duration-700 delay-[350ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <h3 className="font-display text-2xl font-semibold text-foreground text-center mb-8">Why Basewood?</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                "Flexibility — online and in-person learning options",
-                "Globally recognized certifications",
-                "Practical, career-oriented training",
-                "ACCA CBE digital exam centre",
-                "Structured progression from foundational to advanced levels",
-                "Expert practitioners, not just academics",
-              ].map((f) => (
-                <div key={f} className="flex items-start gap-3 bg-background border border-border rounded-xl px-5 py-4">
-                  <span className="text-accent mt-0.5">✔</span>
-                  <span className="text-sm text-foreground font-medium">{f}</span>
+        {/* Why Basewood */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3">What Sets Us Apart</p>
+              <h2 className="text-4xl md:text-5xl font-black text-primary uppercase tracking-tight">
+                Why Basewood?
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-slate-200">
+              {features.map((f) => (
+                <div key={f} className="border-r border-b border-slate-200 p-8 hover:bg-slate-50 transition-colors">
+                  <span className="text-secondary font-black text-2xl block mb-3">✔</span>
+                  <p className="text-slate-700 font-bold leading-snug">{f}</p>
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Values */}
-          <div className={`transition-all duration-700 delay-[400ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <h3 className="font-display text-2xl font-semibold text-foreground text-center mb-8">Our Values</h3>
+        {/* Values */}
+        <section className="bg-primary py-20 text-white">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3">Core Values</p>
+            <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-12">
+              Our Values
+            </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              {values.map((v, i) => (
-                <div
-                  key={v.label}
-                  className="flex items-center gap-3 bg-background border border-border rounded-full px-6 py-3 hover:border-accent/40 hover:shadow-md transition-all"
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
-                  <v.icon className="w-4 h-4 text-accent" />
-                  <span className="text-sm font-medium text-foreground">{v.label}</span>
+              {values.map((v) => (
+                <div key={v.label} className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 hover:bg-secondary hover:text-primary transition-all">
+                  <v.icon className="w-4 h-4" />
+                  <span className="text-sm font-black uppercase tracking-widest">{v.label}</span>
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Marketing Summit Sponsors */}
-          <div className={`mt-20 transition-all duration-700 delay-[450ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <img
-              src={marketingSummitImg}
-              alt="Our official Marketing Summit Sponsors"
-              className="w-full max-w-[900px] mx-auto rounded-2xl"
-            />
+        {/* Sponsors / Partners */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 space-y-16">
+            <div>
+              <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3 text-center">Marketing Summit</p>
+              <h3 className="text-2xl md:text-3xl font-black text-primary uppercase tracking-tight text-center mb-8">Our Official Sponsors</h3>
+              <img src={marketingSummitImg} alt="Our official Marketing Summit Sponsors" className="w-full max-w-[900px] mx-auto" />
+            </div>
+            <div>
+              <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3 text-center">Strategic Alliances</p>
+              <h3 className="text-2xl md:text-3xl font-black text-primary uppercase tracking-tight text-center mb-8">Our Strategic Partners</h3>
+              <img src={strategicPartnersImg} alt="Our Strategic Partners" className="w-full max-w-[900px] mx-auto" />
+            </div>
           </div>
-
-          {/* Strategic Partners */}
-          <div className={`mt-16 transition-all duration-700 delay-[500ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-            <img
-              src={strategicPartnersImg}
-              alt="Our Strategic Partners"
-              className="w-full max-w-[900px] mx-auto rounded-2xl"
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
       <Footer />
       <ChatBot />
     </>

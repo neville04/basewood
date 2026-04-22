@@ -1,4 +1,3 @@
-import { useReveal } from "@/hooks/useReveal";
 import johnMwesigwa from "@/assets/team/john-mwesigwa.jpg";
 import bruceNtege from "@/assets/team/bruce-ntege.jpg";
 import michealLule from "@/assets/team/micheal-lule.jpg";
@@ -9,15 +8,7 @@ import ssebuggwawoDenis from "@/assets/team/ssebuggwawo-denis.jpg";
 import norahNsubuga from "@/assets/team/norah-nsubuga.jpg";
 
 const team = [
-  {
-    name: "Micheal Lule Joseph",
-    role: "Principal & Head of Consultancy",
-    quals: "MCIM",
-    badge: "Principal",
-    img: michealLule,
-    featured: true,
-    bio: "A seasoned marketing and consultancy leader transforming organisations across East Africa. Micheal drives Basewood's academic excellence and strategic consultancy practice with decades of field experience.",
-  },
+  { name: "Micheal Lule Joseph", role: "Principal & Head of Consultancy", quals: "MCIM", badge: "Principal", img: michealLule, bio: "A seasoned marketing and consultancy leader transforming organisations across East Africa." },
   { name: "John S. Mwesigwa", role: "Head of Professional Programs", quals: "FCIM — Fellow", badge: "CIM", img: johnMwesigwa },
   { name: "Bruce Keith Ntege", role: "Head of ACCA", quals: "FACCA · CPA", badge: "ACCA", img: bruceNtege },
   { name: "George Kawemba", role: "Growth & Strategic Partner", quals: "", badge: "Strategy", img: georgeKawemba },
@@ -27,48 +18,37 @@ const team = [
   { name: "Norah Nakintu Nsubuga", role: "Administration", quals: "Student Liaison", badge: "Admin", img: norahNsubuga },
 ];
 
-const Team = () => {
-  const { ref, visible } = useReveal();
-
-  return (
-    <section id="team" className="py-[100px] px-[7%] bg-transparent">
-      <div className="max-w-[1200px] mx-auto" ref={ref}>
-        <div className={`mb-12 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal mb-2.5">Our People</div>
-          <h2 className="font-display text-[clamp(32px,3.6vw,50px)] font-semibold text-primary-foreground leading-[1.12] tracking-tight">
-            Led by <em className="italic text-teal-dark">Practitioners</em>,<br />Not Just Professors
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {team.map((m, i) => (
-            <div
-              key={m.name}
-              className={`bg-navy rounded-xl overflow-hidden border border-navy-light/20 hover:-translate-y-1.5 hover:shadow-lg transition-all duration-[280ms] ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-              style={{ transitionDelay: `${i * 70}ms` }}
-            >
-              <div className="w-full aspect-square overflow-hidden">
-                <img src={m.img} alt={m.name} className="w-full h-full object-cover object-top" />
-              </div>
-              <div className="p-4 text-center">
-                <span className="inline-block text-[9px] font-mono font-semibold tracking-[0.08em] text-navy uppercase bg-teal/90 text-navy rounded px-2 py-[3px] mb-2">
-                  {m.badge}
-                </span>
-                <div className="font-display text-sm font-semibold text-primary-foreground mb-1">{m.name}</div>
-                <div className="text-[11px] text-teal font-medium mb-1 leading-snug">{m.role}</div>
-                <div className="text-[10px] text-primary-foreground/50 font-mono">{m.quals}</div>
-                {m.bio && (
-                  <p className="text-[10px] text-primary-foreground/40 mt-2 leading-snug line-clamp-3">{m.bio}</p>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+const Team = () => (
+  <section id="team" className="py-20 bg-white">
+    <div className="container mx-auto px-4">
+      <div className="mb-12">
+        <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3">Our People</p>
+        <h2 className="text-4xl md:text-5xl font-black text-primary uppercase tracking-tight leading-tight">
+          Led by Practitioners, <br />Not Just Professors
+        </h2>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {team.map((m) => (
+          <div key={m.name} className="group bg-white border border-slate-200 hover:border-primary transition-all flex flex-col">
+            <div className="aspect-square overflow-hidden relative">
+              <img src={m.img} alt={m.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors" />
+              <span className="absolute top-3 left-3 bg-secondary text-primary px-3 py-1 text-[9px] font-black uppercase tracking-widest">
+                {m.badge}
+              </span>
+            </div>
+            <div className="p-5">
+              <h3 className="text-base font-black text-primary leading-tight mb-1 uppercase tracking-tight">{m.name}</h3>
+              <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-1">{m.role}</p>
+              {m.quals && <p className="text-[10px] text-slate-500 font-mono">{m.quals}</p>}
+              {m.bio && <p className="text-xs text-slate-500 mt-3 line-clamp-3 leading-relaxed">{m.bio}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Team;

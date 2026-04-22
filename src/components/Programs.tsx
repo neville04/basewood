@@ -1,149 +1,181 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Award, Clock, ArrowRight, ChevronRight, GraduationCap } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { PROFESSIONAL_COURSES, SHORT_COURSES } from "@/constants";
 
-const programs = [
-  {
-    id: "acca",
-    name: "ACCA",
-    subtitle: "Accounting & Finance",
-    org: "Association of Chartered Certified Accountants",
-    badge: "Most Popular",
-    img: "/acca.png",
-    accent: "#C8102E",
-  },
-  {
-    id: "cpa",
-    name: "CPA Uganda",
-    subtitle: "Certified Public Accountant",
-    org: "Institute of Certified Public Accountants of Uganda",
-    badge: "Recognised Provider",
-    img: "/cpa.png",
-    accent: "#F5B514",
-  },
-  {
-    id: "cilt",
-    name: "CILT",
-    subtitle: "Logistics & Transport",
-    org: "Chartered Institute of Logistics & Transport",
-    badge: null,
-    img: "/logistics.png",
-    accent: "#8B5CF6",
-  },
-];
+const courseImages: Record<string, string> = {
+  "CIM": "/marketing.jpg",
+  "CIPS": "/procurement.jpg",
+  "ACCA": "/acca.png",
+  "CPA Uganda": "/cpa.png",
+  "CILT": "/logistics.png",
+  "FRM": "/financial%20risk.jpg",
+};
 
-const morePrograms = [
-  { id: "cim", name: "CIM", subtitle: "Chartered Institute of Marketing", tag: "UK Accredited" },
-  { id: "cips", name: "CIPS", subtitle: "Chartered Institute of Procurement & Supply", tag: "Levels 4–6" },
-  { id: "frm", name: "FRM", subtitle: "Financial Risk Manager — GARP", tag: "Professional" },
-];
+const categoryImages: Record<string, string> = {
+  "FINANCE": "https://images.unsplash.com/photo-1591696208162-a9317596703b?auto=format&fit=crop&q=80&w=800",
+  "DIGITAL MARKETING": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+  "CONVENTIONAL MARKETING": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800",
+  "SUPPLY CHAIN MANAGEMENT": "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=800",
+  "SALES AND DISTRIBUTION": "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800",
+};
 
 const Programs = () => {
-  const [moreOpen, setMoreOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<"professional" | "short">("professional");
 
   return (
-    <section id="programs" className="py-20 bg-white border-t border-black/5">
-      <div className="max-w-[1200px] mx-auto px-[7%]">
-        <div className="border-b-2 border-navy/60 pb-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <section id="programs" className="bg-[#f8f9fa] border-t-4 border-secondary">
+      {/* Institutional header */}
+      <div className="bg-primary pt-20 pb-14 text-white">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Our Programs</p>
-            <h2 className="font-display text-[clamp(32px,3.4vw,48px)] font-bold text-navy leading-tight tracking-tight">
-              Professional Certification Courses
+            <p className="text-secondary font-black uppercase tracking-widest text-xs mb-4">Academic Catalog</p>
+            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-2 text-white">
+              Programmes
             </h2>
           </div>
-          <Link to="/programs" className="text-[13px] font-semibold text-teal-dark no-underline hover:underline whitespace-nowrap">
-            View all programs →
-          </Link>
+          <div className="flex items-center gap-2 text-xs font-black text-slate-400 uppercase tracking-widest bg-white/5 px-4 py-2">
+            <span>Home</span>
+            <ChevronRight className="h-3 w-3" />
+            <span className="text-white">Our Courses</span>
+          </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {programs.map((prog) => (
-            <Link
-              key={prog.id}
-              to="/programs"
-              className="bg-white border border-black/5 rounded-2xl overflow-hidden shadow-[0_18px_35px_rgba(13,27,75,0.08)] no-underline group flex flex-col transition-transform duration-300 hover:-translate-y-1"
-              style={{ borderTopWidth: "6px", borderTopColor: prog.accent }}
-            >
-              <div className="overflow-hidden h-[200px]">
-                <img
-                  src={prog.img}
-                  alt={prog.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-7 flex flex-col flex-1">
-                <div className="flex items-start justify-between gap-3 mb-2">
-                  <div>
-                    <div className="font-display text-[24px] font-semibold text-navy leading-tight">{prog.name}</div>
-                    <div className="text-[12px] text-teal-dark font-semibold uppercase tracking-[0.08em] mt-0.5">{prog.subtitle}</div>
-                  </div>
-                  {prog.badge && (
-                    <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-[0.08em] bg-navy text-white px-2 py-1 mt-1 rounded-full">
-                      {prog.badge}
-                    </span>
+      <div className="py-20 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Sidebar */}
+            <aside className="lg:w-72 flex-shrink-0">
+              <div className="bg-white border border-slate-200 p-1 sticky top-32">
+                <button
+                  onClick={() => setActiveTab("professional")}
+                  className={cn(
+                    "w-full flex items-center justify-between p-5 text-xs font-black uppercase tracking-widest transition-all",
+                    activeTab === "professional" ? "bg-primary text-white" : "text-primary hover:bg-slate-50"
                   )}
-                </div>
-                <p className="text-[13px] text-[#6B7280] mb-5 leading-relaxed flex-1">{prog.org}</p>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.1em] text-[#2DD4BF] group-hover:underline transition-colors flex items-center gap-1">
-                  View Program →
+                >
+                  Professional Courses
+                  <ChevronRight className={cn("h-4 w-4 transition-transform", activeTab === "professional" && "rotate-90")} />
+                </button>
+                <button
+                  onClick={() => setActiveTab("short")}
+                  className={cn(
+                    "w-full flex items-center justify-between p-5 text-xs font-black uppercase tracking-widest transition-all mt-1",
+                    activeTab === "short" ? "bg-primary text-white" : "text-primary hover:bg-slate-50"
+                  )}
+                >
+                  Short Term Training
+                  <ChevronRight className={cn("h-4 w-4 transition-transform", activeTab === "short" && "rotate-90")} />
+                </button>
+
+                <div className="mt-6 p-6 border-t bg-slate-50">
+                  <GraduationCap className="h-7 w-7 text-secondary mb-3" />
+                  <h4 className="text-primary font-black uppercase tracking-tight mb-1 text-sm">Admissions Open</h4>
+                  <p className="text-xs text-slate-500 font-bold mb-5 italic">Secure your spot for the next intake.</p>
+                  <Link to="/enroll" className="block w-full py-3 bg-secondary text-primary font-black text-[10px] uppercase tracking-widest hover:bg-secondary/80 transition-all text-center no-underline">
+                    Apply Online
+                  </Link>
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
+            </aside>
 
-        <div className="border border-black/5 rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(15,23,42,0.06)] mb-12">
-          <button
-            onClick={() => setMoreOpen(!moreOpen)}
-            className="flex items-center justify-between w-full px-6 py-5 bg-secondary hover:bg-white transition-colors text-left"
-          >
-            <div>
-              <span className="font-semibold text-navy text-[14px] uppercase tracking-[0.06em]">More Professional Programs</span>
-              <span className="ml-3 text-[11px] text-muted-foreground font-medium">CIM · CIPS · FRM</span>
-            </div>
-            <span className={`text-navy font-bold text-lg transition-transform duration-200 ${moreOpen ? "rotate-45" : ""}`}>
-              +
-            </span>
-          </button>
-          <div className={`overflow-hidden transition-all duration-300 ${moreOpen ? "max-h-[320px]" : "max-h-0"}`}>
-            <div className="grid grid-cols-1 md:grid-cols-3 border-t border-black/5 bg-white">
-              {morePrograms.map((prog) => (
-                <Link
-                  key={prog.id}
-                  to="/programs"
-                  className="px-6 py-5 border-b md:border-b-0 border-r border-black/5 bg-white hover:bg-secondary transition-colors no-underline group last:border-r-0"
-                >
-                  <div className="font-display text-[22px] font-bold text-navy mb-0.5 group-hover:text-teal-dark transition-colors">{prog.name}</div>
-                  <div className="text-[13px] text-[#6B7280] mb-3">{prog.subtitle}</div>
-                  <span className="inline-block text-[10px] uppercase tracking-[0.1em] font-semibold text-teal-dark border border-teal-dark/40 px-2 py-0.5">
-                    {prog.tag}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-[#EEF2F8] border border-black/5 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-2">Not sure where to start?</p>
-            <p className="font-display text-[26px] font-bold text-navy leading-tight">Speak with an Enrollment Advisor Today</p>
-            <p className="text-sm text-[#6B7280] mt-2">We'll match you to the right program based on your career goals.</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
-            <Link
-              to="/enroll"
-              className="px-8 py-3 bg-[#2DD4BF] text-white font-bold text-sm uppercase tracking-[0.06em] no-underline rounded-full text-center shadow-[0_12px_28px_rgba(32,54,89,0.18)] transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Enroll Now
-            </Link>
-            <a
-              href="https://wa.me/256773099672"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-[#2DD4BF] text-[#1E3A5F] font-bold text-sm uppercase tracking-[0.06em] no-underline rounded-full text-center transition-all duration-200 hover:-translate-y-0.5 hover:bg-white"
-            >
-              WhatsApp Us
-            </a>
+            {/* Content */}
+            <main className="flex-grow">
+              <AnimatePresence mode="wait">
+                {activeTab === "professional" ? (
+                  <motion.div
+                    key="professional"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+                  >
+                    {PROFESSIONAL_COURSES.map((course) => (
+                      <Link
+                        to="/programs"
+                        key={course.name}
+                        className="bg-white group overflow-hidden border border-slate-200 hover:border-primary transition-all duration-500 flex flex-col h-full no-underline"
+                      >
+                        <div className="h-44 overflow-hidden relative">
+                          <img
+                            src={courseImages[course.name] || course.img}
+                            alt={course.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                          />
+                          <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-transparent transition-colors" />
+                          <div className="absolute bottom-0 left-0 bg-secondary text-primary font-black px-4 py-1 text-[10px] uppercase tracking-widest">
+                            {course.name}
+                          </div>
+                        </div>
+                        <div className="p-6 flex flex-col flex-grow">
+                          <h3 className="text-base font-black text-primary leading-tight mb-3 transition-colors">
+                            {course.fullName}
+                          </h3>
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className="flex items-center gap-1 text-[10px] font-black text-slate-400 uppercase">
+                              <Award className="h-3 w-3 text-secondary" />
+                              {course.tag.split(" ").slice(0, 2).join(" ")}
+                            </div>
+                            <div className="flex items-center gap-1 text-[10px] font-black text-slate-400 uppercase">
+                              <Clock className="h-3 w-3 text-secondary" />
+                              Flexible
+                            </div>
+                          </div>
+                          <div className="mt-auto flex items-center justify-between w-full pt-4 border-t border-slate-100 text-[10px] font-black text-primary uppercase tracking-widest">
+                            View Course Details
+                            <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="short"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                  >
+                    {Object.entries(SHORT_COURSES).map(([category, courses]) => (
+                      <div key={category} className="bg-white border border-slate-200 group hover:border-primary transition-all">
+                        <div className="h-32 relative overflow-hidden">
+                          <img
+                            src={categoryImages[category] || "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"}
+                            alt={category}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                          />
+                          <div className="absolute inset-0 bg-primary/50 flex items-center justify-center">
+                            <h3 className="text-white font-black uppercase text-sm tracking-widest text-center px-4">
+                              {category}
+                            </h3>
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <ul className="space-y-3">
+                            {courses.slice(0, 4).map((course) => (
+                              <li key={course} className="flex items-start gap-3 text-xs font-bold text-slate-600 leading-tight">
+                                <span className="w-1.5 h-1.5 bg-secondary mt-1 shrink-0" />
+                                {course}
+                              </li>
+                            ))}
+                            {courses.length > 4 && (
+                              <li className="text-[10px] font-black text-primary uppercase tracking-widest pt-2 flex items-center gap-2">
+                                + {courses.length - 4} More Modules
+                                <ArrowRight className="h-3 w-3" />
+                              </li>
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </main>
           </div>
         </div>
       </div>

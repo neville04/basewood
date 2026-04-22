@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,45 +6,48 @@
 
 @layer base {
   :root {
+    /* Institutional palette — deep navy primary, golden secondary, cyan accent */
     --background: 0 0% 100%;
-    --foreground: 218 51% 21%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 60% 12%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 60% 12%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 214 52% 24%;
+    --primary: 210 100% 20%;            /* Deep Navy Blue #003366-ish */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 216 45% 95%;
-    --secondary-foreground: 214 52% 24%;
+    --secondary: 38 95% 61%;            /* Golden Institutional Yellow */
+    --secondary-foreground: 210 100% 20%;
 
-    --muted: 216 30% 90%;
-    --muted-foreground: 217 15% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 15% 40%;
 
-    --accent: 169 66% 50%;
-    --accent-foreground: 218 51% 21%;
+    --accent: 190 100% 45%;             /* Cyan highlight */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 30% 91%;
-    --input: 220 30% 91%;
-    --ring: 214 52% 24%;
-    --radius: 0.5rem;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 20%;
 
-    /* Basewood custom tokens */
-    --navy: 214 52% 24%;
-    --navy-mid: 216 46% 32%;
-    --navy-light: 217 31% 45%;
-    --navy-deep: 226 70% 17%;
-    --teal: 169 65% 48%;
-    --teal-dark: 169 65% 40%;
-    --cream: 216 45% 96%;
-    --soft-blue: 216 40% 95%;
-    --soft-blue-alt: 214 42% 93%;
+    --radius: 0rem;
+
+    /* Legacy custom tokens — retained so existing components compile.
+       Mapped to the new institutional palette where sensible. */
+    --navy: 210 100% 20%;
+    --navy-mid: 210 80% 28%;
+    --navy-light: 210 30% 55%;
+    --navy-deep: 210 100% 12%;
+    --teal: 190 100% 45%;
+    --teal-dark: 190 100% 35%;
+    --cream: 210 40% 96%;
+    --soft-blue: 210 40% 95%;
+    --soft-blue-alt: 210 38% 93%;
     --whatsapp: 142 70% 49%;
 
     --sidebar-background: 0 0% 98%;
@@ -54,7 +57,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -63,22 +66,17 @@
     @apply border-border;
   }
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     overflow-x: hidden;
-    color: #1a2e50;
-    line-height: 1.75;
-    background: #ffffff;
+    color: hsl(var(--foreground));
+    background: hsl(var(--background));
+    -webkit-font-smoothing: antialiased;
   }
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: #1e3a5f;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-  p {
-    color: #4b5563;
+  h1, h2, h3, h4, h5 {
+    font-family: 'Inter', sans-serif;
+    color: hsl(var(--primary));
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
   html {
     scroll-behavior: smooth;
@@ -87,19 +85,19 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.03em;
   }
   .font-mono-dm {
-    font-family: 'DM Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
   }
 }
 
-/* Minimal transitions only — no decorative animations */
 /* Scrollbar utilities */
-.scrollbar-none {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }

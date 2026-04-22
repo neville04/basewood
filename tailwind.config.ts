@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'serif'],
-        mono: ['"DM Mono"', 'monospace'],
-        sans: ['"DM Sans"', 'sans-serif'],
+        display: ['Inter', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

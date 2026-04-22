@@ -1,90 +1,99 @@
 import { Link } from "react-router-dom";
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { CONTACT_INFO, PROFESSIONAL_COURSES } from "@/constants";
 import basewoodLogo from "@/assets/basewood-logo.png";
 
-const footerCols = [
-  {
-    title: "Programs",
-    links: [
-      { label: "CIM Marketing", href: "/programs/cim" },
-      { label: "ACCA Finance", href: "/programs/acca" },
-      { label: "CPA Uganda", href: "/programs/cpa" },
-      { label: "CIPS Supply Chain", href: "/programs/cips" },
-      { label: "CILT Logistics", href: "/programs/cilt" },
-      { label: "Short Courses", href: "/programs" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Team", href: "/team" },
-      { label: "Contact", href: "/contact" },
-      { label: "Enroll Now", href: "/enroll" },
-    ],
-  },
-];
-
 const Footer = () => (
-  <footer className="bg-navy text-white/50" style={{ borderTop: "4px solid hsl(var(--teal-dark))" }}>
-    <div className="max-w-[1200px] mx-auto px-[7%] pt-14 pb-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2.5fr_1fr_1fr_1.6fr] gap-10 pb-10 border-b border-white/10 mb-8">
-        {/* Brand */}
+  <footer className="bg-primary text-white pt-20 pb-10">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        {/* About */}
         <div>
-          <Link to="/" className="inline-flex items-center no-underline mb-5" aria-label="Basewood home">
-            <img src={basewoodLogo} alt="Basewood Logo" className="h-[60px] w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]" />
+          <Link to="/" className="flex items-center gap-3 mb-8 no-underline">
+            <div className="bg-white p-2">
+              <img src={basewoodLogo} alt="Basewood" className="h-8 w-8 object-contain" />
+            </div>
+            <span className="text-2xl font-black tracking-tighter text-white">BASEWOOD</span>
           </Link>
-          <div className="flex flex-col leading-none">
-            <span className="font-display font-bold text-[22px] text-white tracking-widest uppercase leading-tight">BASEWOOD</span>
-            <span className="text-[10px] text-white/50 tracking-[0.18em] uppercase mt-0.5 font-medium">Institute · Center for Professional Courses</span>
-          </div>
-          <p className="text-[13px] leading-[1.8] text-white/40 max-w-[260px] mb-5">
-            Uganda's premier Center for Professional Courses. Empowering individuals and organisations through globally accredited training and consultancy.
+          <p className="text-slate-300 text-sm leading-relaxed mb-8">
+            Uganda's premier Center for Professional Courses. Empowering individuals and
+            organisations through globally accredited training and consultancy.
           </p>
-          <div className="text-[12px] text-white/35 space-y-1">
-            <p>Plot 106, Kanjokya Street, Kampala</p>
-            <p>+256 744 488 316</p>
+          <div className="flex gap-4">
+            <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+              <Twitter className="h-4 w-4" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+              <Linkedin className="h-4 w-4" />
+            </a>
           </div>
         </div>
 
-        {footerCols.map((col) => (
-          <div key={col.title}>
-            <h5 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5 pb-2 border-b border-white/10">
-              {col.title}
-            </h5>
-            <ul className="list-none space-y-2.5">
-              {col.links.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="text-[13px] text-white/40 no-underline hover:text-white/80 transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-
-        {/* Contact */}
+        {/* Quick Links */}
         <div>
-          <h5 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5 pb-2 border-b border-white/10">
-            Contact Us
-          </h5>
-          <div className="space-y-2.5 text-[13px] text-white/40">
-            <p>+256 744 488 316</p>
-            <p>+256 769 013 080</p>
-            <p>+256 773 099 672 (WhatsApp)</p>
-            <a href="mailto:info@basewoodconsult.ac.ug" className="block text-white/40 no-underline hover:text-white/80 transition-colors">
-              info@basewoodconsult.ac.ug
-            </a>
-            <a href="https://www.basewoodconsult.ac.ug" target="_blank" rel="noopener noreferrer" className="block text-white/40 no-underline hover:text-white/80 transition-colors">
-              www.basewoodconsult.ac.ug
-            </a>
-          </div>
+          <h4 className="text-lg font-black uppercase tracking-widest mb-8 border-b-2 border-secondary inline-block pb-1 text-white">
+            Quick Links
+          </h4>
+          <ul className="space-y-4 text-sm font-bold uppercase tracking-tighter text-slate-300">
+            <li><Link to="/about" className="hover:text-secondary transition-colors no-underline">Our Profile</Link></li>
+            <li><Link to="/team" className="hover:text-secondary transition-colors no-underline">Our Directors</Link></li>
+            <li><Link to="/programs" className="hover:text-secondary transition-colors no-underline">Programmes</Link></li>
+            <li><Link to="/contact" className="hover:text-secondary transition-colors no-underline">Work With Us</Link></li>
+            <li><Link to="/enroll" className="hover:text-secondary transition-colors no-underline">Apply Online</Link></li>
+          </ul>
+        </div>
+
+        {/* Programmes */}
+        <div>
+          <h4 className="text-lg font-black uppercase tracking-widest mb-8 border-b-2 border-secondary inline-block pb-1 text-white">
+            Programmes
+          </h4>
+          <ul className="space-y-4 text-sm font-bold uppercase tracking-tighter text-slate-300">
+            {PROFESSIONAL_COURSES.map(course => (
+              <li key={course.name}>
+                <Link to="/programs" className="hover:text-secondary transition-colors no-underline">
+                  {course.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Connect */}
+        <div>
+          <h4 className="text-lg font-black uppercase tracking-widest mb-8 border-b-2 border-secondary inline-block pb-1 text-white">
+            Connect With Us
+          </h4>
+          <ul className="space-y-6 text-sm">
+            <li className="flex gap-4">
+              <MapPin className="h-6 w-6 text-secondary flex-shrink-0" />
+              <span className="text-slate-300 leading-tight">{CONTACT_INFO.address}</span>
+            </li>
+            <li className="flex gap-4">
+              <Phone className="h-6 w-6 text-secondary flex-shrink-0" />
+              <div className="flex flex-col gap-1">
+                {CONTACT_INFO.phones.slice(0, 2).map(p => (
+                  <span key={p} className="text-slate-300 font-bold">{p}</span>
+                ))}
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <Mail className="h-6 w-6 text-secondary flex-shrink-0" />
+              <a href={`mailto:${CONTACT_INFO.email}`} className="text-slate-300 font-bold no-underline hover:text-secondary">{CONTACT_INFO.email}</a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center text-[12px] gap-2">
-        <span className="text-white/25">© 2026 Basewood Consult Uganda Limited. All rights reserved.</span>
-        <span className="text-white/25">Center for Professional Courses · Kampala, Uganda</span>
+      <div className="pt-8 border-t border-white/10 text-center">
+        <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
+          © {new Date().getFullYear()} BASEWOOD CONSULT UGANDA LIMITED. ALL RIGHTS RESERVED.
+          <span className="mx-4 text-white/20">|</span>
+          CENTER FOR PROFESSIONAL COURSES · KAMPALA, UGANDA
+        </p>
       </div>
     </div>
   </footer>

@@ -6,37 +6,35 @@ const certs = [
   { abbr: "CILT", name: "Chartered Institute of Logistics & Transport", logo: "/logistics.png" },
 ];
 
-const Certifications = () => {
-  return (
-    <section id="certifications" className="py-20 px-[7%] bg-white border-t border-black/5">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="border-b-2 border-navy/60 pb-6 mb-12">
-          <p className="text-[11px] uppercase tracking-[0.14em] text-teal-dark font-semibold mb-1">Our Accreditations</p>
-          <h2 className="font-display text-[clamp(32px,3.2vw,46px)] font-bold text-navy leading-tight tracking-tight">
-            Internationally Recognised Qualifications
-          </h2>
-          <p className="text-[14px] text-[#6B7280] mt-3 max-w-[520px]">
-            Every course is delivered in partnership with globally accredited professional bodies.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-          {certs.map((c, i) => (
-            <div
-              key={c.abbr}
-              className="flex flex-col items-center justify-center bg-white py-7 px-4 text-center gap-3 rounded-2xl border border-black/5 shadow-[0_10px_28px_rgba(15,23,42,0.06)] hover:-translate-y-1 transition-all duration-200"
-            >
-              <div className="h-20 flex items-center justify-center w-full">
-                <img src={c.logo} alt={c.abbr} className="h-full w-auto object-contain" loading={i < 3 ? "eager" : "lazy"} />
-              </div>
-              <div className="text-[11px] text-[#6B7280] leading-snug">
-                {c.name}
-              </div>
-            </div>
-          ))}
-        </div>
+const Certifications = () => (
+  <section id="certifications" className="py-20 bg-slate-50 border-y border-slate-200">
+    <div className="container mx-auto px-4">
+      <div className="mb-12">
+        <p className="text-secondary font-black uppercase tracking-widest text-xs mb-3">Our Accreditations</p>
+        <h2 className="text-4xl md:text-5xl font-black text-primary uppercase tracking-tight leading-tight">
+          Internationally Recognised <br />Qualifications
+        </h2>
+        <p className="text-slate-600 mt-4 max-w-xl">
+          Every course is delivered in partnership with globally accredited professional bodies.
+        </p>
       </div>
-    </section>
-  );
-};
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0 border-t border-l border-slate-200 bg-white">
+        {certs.map((c) => (
+          <div
+            key={c.abbr}
+            className="flex flex-col items-center justify-center text-center gap-3 p-7 border-r border-b border-slate-200 hover:bg-slate-50 transition-colors"
+          >
+            <div className="h-20 flex items-center justify-center">
+              <img src={c.logo} alt={c.abbr} className="h-full w-auto object-contain" />
+            </div>
+            <div className="text-[10px] font-black text-slate-500 leading-snug uppercase tracking-widest">
+              {c.name}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Certifications;
